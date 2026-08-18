@@ -4,9 +4,10 @@ CHARTER_ACK: R1,R2,R3,R4
 
 ## 1. Scope and completion
 
-I graded **all 750 records** in `RLSX/evidence/evidence.jsonl` — pass 1 covering agents
-A, B, C, E, F, G, H, I (640 records) and pass 2 covering agents D and X plus C's revision
-block E-3099 to E-3125 (110 records). No record was skipped, sampled, or deferred.
+I graded **all 774 records** in `RLSX/evidence/evidence.jsonl` in three passes: agents
+A, B, C, E, F, G, H, I (640 records); agents D and X plus C's revision block E-3099 to
+E-3125 (110 records); and Agent I's follow-up block E-8107 to E-8130 (24 records).
+No record was skipped, sampled, or deferred.
 Output: `RLSX/evidence/evidence_grades.jsonl`, one object per record.
 
 I collected none of this evidence. No grade in this run was assigned by the agent that
@@ -19,7 +20,7 @@ grading its evidence. I read only the ledger records themselves — claim, figur
 publisher, URL, provenance hops, derivation — plus, for the derived records, the arithmetic.
 This was deliberate: a grader who reads the argument first will grade the argument.
 
-**Re-access.** I attempted to re-open 127 of the 750 sources (17%) across roughly sixty
+**Re-access.** I attempted to re-open 134 of the 774 sources (17%) across roughly seventy
 WebFetch and WebSearch calls. Prioritisation followed the brief exactly:
 1. every record carrying a load-bearing quantitative figure (all four anchors under test);
 2. every claim that is surprising or is doing heavy work in a conclusion;
@@ -134,6 +135,18 @@ budget factor. Part of that agreement is constructed, not found. The *single-lev
 (D getting 10.19 against C's 10.0, and so on, from different stage probabilities) are a genuine
 check; the *joint* agreement is not. I graded all four records 하 and flagged the loop.
 
+**Agent I's follow-up block — where I disagreed on the recommend/require distinction.**
+Three of the four TRL-8 ratings in that block rest on instruments that recommend rather than
+require. E-8107 says the FDA dose-optimisation guidance is "directing sponsors"; it is final
+and in force, but FDA's own convention is that "should" means suggested, not required, and
+E-8108 — the companion record — gets this right by saying "recommends". E-8116 claims seven
+jurisdictions "require" estimands; ICH E9(R1) is a Step 5 scientific guideline in the EU and a
+non-binding guidance in the US, and the Taiwan instrument I verified is a guidance. E-8112's
+ICH M15 is a general-principles guideline alongside a voluntary meeting programme. Only T-093's
+NHS procurement (E-8126, 상) is a decision in force with money committed. I graded the records
+Medium rather than Low because the instruments are real and correctly dated, but the TRL-8
+ratings built on them should be described as "final instrument issued", never as "mandate".
+
 **Agent X — graded exactly as strictly as everyone else.** X's block is 44% 하. Its own
 evidence includes consultancy pipeline claims (E-9509), think-tank compilations of unnamed
 commercial databases (E-9520, E-9521), a deal tracker dominated by contingent milestones
@@ -152,7 +165,7 @@ Evidence, several FDA pages returning 401 — and I recorded those as `refetch_f
 rather than pretending to metadata-only judgment. Where a paywall blocked me I used independent
 search corroboration and said so.
 
-My estimate of the effect: the 623 metadata-only grades are biased **conservative**, not
+My estimate of the effect: the 640 metadata-only grades are biased **conservative**, not
 generous. Where I could not check a figure I did not award 상, and every 상 in the ledger was
 re-accessed or independently corroborated across four or more outlets. If the full ledger were
 re-accessed, I would expect a small number of 중 records to move up and a somewhat larger number
@@ -163,9 +176,9 @@ ledger contains more transcription-level errors than the twelve I found.
 
 ## 6. Files written
 
-- `RLSX/evidence/evidence_grades.jsonl` — 750 grade records
+- `RLSX/evidence/evidence_grades.jsonl` — 774 grade records
 - `RLSX/evidence/grade_summary.md` — distribution, histograms, load-bearing records, conflicts, low-evidence claims
 - `RLSX/work/R/report.md` — this file
 
-UNRESOLVED count: **0**. Every record in scope received a grade with a stated reason,
+UNRESOLVED count: **0**. Every record in the ledger received a grade with a stated reason,
 a verification method, and a rationale.

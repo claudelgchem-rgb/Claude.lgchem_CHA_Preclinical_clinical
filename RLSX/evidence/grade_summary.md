@@ -2,7 +2,9 @@ CHARTER_ACK: R1,R2,R3,R4
 
 # Independent Reliability Grading — Agent R
 
-Every record in the merged ledger has been graded: **750 of 750**, no gaps, no deferrals.
+Every record in the merged ledger has been graded: **774 of 774**, no gaps, no deferrals.
+Graded in three passes: A/B/C/E/F/G/H/I (640), then D/X plus C's revision block (110),
+then Agent I's follow-up block E-8107-E-8130 (24).
 Grades were assigned solely by Agent R. No collector graded its own evidence.
 
 ---
@@ -13,9 +15,9 @@ Grades were assigned solely by Agent R. No collector graded its own evidence.
 
 | 상 (High) | 중 (Medium) | 하 (Low) | Total |
 |---|---|---|---|
-| 5 (0.7%) | 430 (57.3%) | 315 (42.0%) | 750 |
+| 7 (0.9%) | 449 (58.0%) | 318 (41.1%) | 774 |
 
-Only five records in the entire ledger meet the R3 test for 상 — a primary source, **plus**
+Only seven records in the entire ledger meet the R3 test for 상 — a primary source, **plus**
 two or more genuinely independent cross-confirmations, **plus** methodology disclosed well
 enough to reproduce. That is the expected shape. Genuine triple-qualification is rare.
 
@@ -31,9 +33,14 @@ enough to reproduce. That is the expected shape. Genuine triple-qualification is
 | F (trial operations) | 1 | 52 | 16 | 69 | 23% |
 | G (CMC and delivery) | 1 | 31 | 40 | 72 | 56% |
 | H (data and DBTL) | 1 | 45 | 28 | 74 | 38% |
-| I (breakthrough catalogue) | 0 | 61 | 45 | 106 | 42% |
+| I (breakthrough catalogue) | 2 | 80 | 48 | 130 | 37% |
 | X (red team) | 0 | 31 | 24 | 55 | 44% |
-| **All** | **5** | **430** | **315** | **750** | **42%** |
+| **All** | **7** | **449** | **318** | **774** | **41%** |
+
+Agent I's share of 하 fell from 42% to 37% with the follow-up block, and it gained the run's
+sixth and seventh 상 records. That block is materially better sourced than I's original
+catalogue: it is built on Federal Register notices, final FDA guidances, ICH instruments and
+an NHS procurement rather than on vendor pages and content aggregators.
 
 The spread is not noise. E and A worked domains with public primary records (statutes,
 Federal Register notices, FDA tables, peer-reviewed cost studies) and their evidence holds up.
@@ -46,12 +53,12 @@ D scores lowest because its own assumptions file marks fifteen load-bearing choi
 
 | Type | 상 | 중 | 하 |
 |---|---|---|---|
-| primary_literature | 3 | 208 | 14 |
-| regulatory | 2 | 88 | 12 |
+| primary_literature | 3 | 216 | 14 |
+| regulatory | 4 | 96 | 12 |
 | registry | 0 | 7 | 9 |
 | filing | 0 | 6 | 7 |
-| derived | 0 | 66 | 68 |
-| secondary | 0 | 50 | 183 |
+| derived | 0 | 66 | 69 |
+| secondary | 0 | 53 | 185 |
 | market_report | 0 | 5 | 22 |
 
 Every market report but five is Low. That is the S2 rule applied without exception:
@@ -66,6 +73,8 @@ a paid figure with undisclosed methodology does not become reliable by being rep
 | E-5032 | Unger 2019 meta-analysis: 55.6% no trial available / 21.5% ineligible / 14.8% eligible non-enrollers / 8.1% enrolled | Pools 13 independent studies (the cross-confirmation is internal to the design), published method, every pooled estimate and interval reproduced exactly |
 | E-6041 | AVLAYAH (tividenofusp alfa) accelerated approval 25 Mar 2026, first receptor-mediated brain-delivery biologic | Regulatory act of record, four independent confirmations, label and confirmatory condition public |
 | E-7018 | Reproducibility Project: Cancer Biology — median replication effect 85% smaller, 92% of effects smaller | Preregistered multi-laboratory programme, public protocols and data, reproduced exactly, corroborated in direction by two independent industry programmes |
+| E-8126 | NHS antimicrobial subscription model: Pfizer/Shionogi pilots 2022, ~GBP 1.9bn tender over 16 years, GBP 100m/yr, contracts from 1 Apr 2026 | NHS England primary source, four independent confirmations, public procurement reproducible from Find A Tender notices |
+| E-8128 | AVLAYAH accelerated approval 25 Mar 2026 (same fact as E-6041) | Regulatory act of record, four independent outlets, graded consistently with E-6041 |
 
 ---
 
@@ -73,12 +82,12 @@ a paid figure with undisclosed methodology does not become reliable by being rep
 
 | Code | Meaning | Count |
 |---|---|---|
-| S1 | single source | 466 |
-| S2 | methodology undisclosed | 225 |
-| S7 | origin unverifiable | 176 |
-| S4 | conflict of interest | 122 |
+| S1 | single source | 484 |
+| S2 | methodology undisclosed | 229 |
+| S7 | origin unverifiable | 177 |
+| S4 | conflict of interest | 125 |
 | S3 | circular reference | 121 |
-| S5 | sample bias | 43 |
+| S5 | sample bias | 44 |
 | S6 | outdated | 16 |
 
 `S7` at 176 is the single most damning number in this table. It means that for nearly a
@@ -94,11 +103,11 @@ consists of companies reporting on their own platforms.
 
 | Method | Count | Share |
 |---|---|---|
-| `refetched` — source re-opened and claim checked against it | 76 | 10% |
-| `refetch_failed` — access attempted, blocked (paywall, 401/403/404, auth redirect) | 51 | 7% |
-| `metadata_only` — graded conservatively on publisher class, source type, disclosed methodology and corroboration inside the ledger | 623 | 83% |
+| `refetched` — source re-opened and claim checked against it | 77 | 10% |
+| `refetch_failed` — access attempted, blocked (paywall, 401/403/404, auth redirect) | 57 | 7% |
+| `metadata_only` — graded conservatively on publisher class, source type, disclosed methodology and corroboration inside the ledger | 640 | 83% |
 
-I attempted re-access on **127 records (17%)** across roughly sixty WebFetch and WebSearch
+I attempted re-access on **134 records (17%)** across roughly seventy WebFetch and WebSearch
 calls, and prioritised exactly as instructed: every anchor figure, every headline quantitative
 result, every `circular_risk:true` record I could reach, and every `market_report`.
 Where a PDF defeated the fetch tool I decompressed its content streams and read the text
@@ -231,6 +240,36 @@ of the three individual records are Low because of their inputs.
 | E-6041 | First receptor-mediated brain-delivery biologic approved | **상** |
 | E-6074 | Manufacturing CRLs delay approval but do not prevent it (survivorship-selected cohort) | 중 (S1) |
 
+### Follow-up block: the four TRL 8 ratings, checked against their instruments
+
+The orchestrator asked specifically whether each cited instrument is in force and whether it
+mandates what the record says it mandates. It matters because "a guidance that recommends is
+not a guidance that requires", and these four ratings are built on exactly that distinction.
+
+| Tech | Instrument | In force? | Mandates? | Record grade | Verdict |
+|---|---|---|---|---|---|
+| T-082 dose-optimisation mandate | FDA final guidance, FR 9 Aug 2024 | **Yes**, final | **No** — recommends. FDA's own convention: "should" means suggested, not required | E-8107 중, E-8108 중 | TRL 8 sustainable as *instrument issued*; the word "mandate" in the tech name and "directing" in E-8107 are both overstatements |
+| T-083 model-informed drug development | ICH M15 availability + MIDD paired meetings (PDUFA VII) | **Yes** | **No** — general-principles guideline plus a voluntary meeting programme | E-8112 중, E-8113 중 | TRL 8 rests on availability and a standing programme, not a requirement. E-8113 contains no measurement at all |
+| T-086 estimand framework | ICH E9(R1); Taiwan adoption 15 Apr 2026 | **Yes**; Taiwan date confirmed exactly | **Partly** — Step 5 scientific guideline in the EU, non-binding guidance in the US. "Require" across all seven named jurisdictions is not supported | E-8116 중 (S1, S4) | Weakest of the four. The overstatement is inside the record's own claim |
+| T-093 antimicrobial subscription | NHS England procurement | **Yes** — contracts tendered, budget set, start 1 Apr 2026 | **N/A** — it is a purchase, not a rule | **E-8126 상** | The only one of the four that is a decision in force with money committed rather than an instrument that recommends |
+
+**Downgrade verified.** T-072 (MRD) 8 → 6 is correct. I confirmed via the Federal Register
+notice of 21 Jan 2026 and five independent outlets: draft guidance issued 20 Jan 2026, comment
+period closed 23 Mar 2026, the April 2024 ODAC vote was advisory, and MRD-based approvals would
+still require confirmatory PFS or OS. There is no formal decision in that record. **E-8127 중.**
+
+**Re-base verified.** T-035 (transferrin-receptor brain shuttle) re-based from trontinemab's
+Phase 3 status onto the March 2026 AVLAYAH accelerated approval is correct — a trial in
+progress cannot support TRL 8, an approval can. I had already confirmed this approval
+independently in pass 1 through four outlets while grading E-6041. **E-8128 상.**
+
+**A new unflagged conflict this block introduces.** E-8124 (Agent I) reports the UK Biobank
+Pharma Proteomics Project as 54,306 participants profiled / 2,923 proteins / 50,395 in the
+GWAS; E-9549 (Agent X) reports 34,557 participants / ~2,940 proteins from the same paper.
+Both are plausible for different cohorts inside that study (full phase versus randomised
+discovery subcohort), but neither record names its denominator. Under M3 that caps both at
+Medium and the report must not quote either figure without stating which cohort it means.
+
 ---
 
 ## 6. Conflicts between agents, and how each side graded
@@ -356,7 +395,9 @@ $10.6bn→$8.7bn; Q1 2025 $6.5bn −20.2%; >50% of public biotechs under two yea
 post-IRA −68% small-molecule investment; $1.3tn top-25 deployable capital). E-3057, E-3058,
 E-3059, E-3061, E-9526 — all 하. The one Medium record in this area is E-9525 (peer-reviewed
 econometric estimate of the IRA step change), which should displace the industry-commissioned
-E-3059 wherever the two disagree.
+E-3059 wherever the two disagree. **Amended after the follow-up block:** the capital *figures*
+remain 하, but the claim that no credible instrument exists is now falsified by E-8126 (상) and,
+independently, by E-8061 (중, CMS Cell and Gene Therapy Access Model). See §9.
 
 **10. ⚠ Cell-therapy cost of goods ($95,780/dose).** E-1046, E-3035, E-6015 — one 2019 model
 appearing three times from three publications. Two of the three are 하. Its appearance in
@@ -405,7 +446,68 @@ which is a review restating the same company figures.
   inflationary (census counts, company timelines, platform performance claims). That asymmetry
   is a property of the evidence, not of my grading: deflationary findings came from
   peer-reviewed literature and registries, inflationary ones from companies and aggregators.
+- The **capital bottleneck** should be framed as an *allocation* problem, not a scarcity
+  problem, and not as one lacking solutions. Two outcomes-based payment instruments are in
+  force at national scale (E-8126 상, E-8061 중). What no record establishes is that either
+  moves system output — TRL 8 measures deployment maturity, not effect size.
 - The **quantitative constraint model and the bottleneck ranking are Low**. They are careful,
   internally consistent and honestly caveated, but they are analyst constructions resting on
   parameters that no cited source supplies. They should be presented as a structured argument
   about mechanism, never as measurements of elasticity.
+
+
+---
+
+## 9. Addendum — is Agent I's narrowed capital claim adequately evidenced?
+
+The orchestrator asked me to judge, neutrally, whether I's narrowing of "no credible solution
+to the capital bottleneck" to "no *laboratory* technology, structural point retained" goes far
+enough. My answer: **it should have gone further in one direction and correctly stopped in
+another, and the framing it chose does no work.**
+
+**The "no laboratory technology" framing is close to unfalsifiable.** A payment model is not a
+lab technology almost by definition, so the narrowed claim is true in a way that cannot be
+tested. It preserves the appearance of the original negative without preserving its content.
+
+**It should have gone further on count.** The red team produced one operating instrument
+(E-8126, the NHS antimicrobial subscription model — the only 상 in this block, with pilot
+contracts from July 2022, a ~GBP 1.9bn tender, GBP 100m/yr and contracts beginning 1 April
+2026). But it is not the only one, and the second was collected by Agent I itself: E-8061
+(중), the CMS Cell and Gene Therapy Access Model, with 32 states plus DC and Puerto Rico
+covering 84% of Medicaid sickle-cell beneficiaries under outcomes-based agreements. Two
+in-force instruments, two jurisdictions, two therapeutic classes, two different market
+failures (volume-delinkage for stewardship; one-time-payment affordability). That is a
+mechanism class, not an exception, and the narrowed claim still reads as though it were one.
+
+**It correctly stopped short on sufficiency, and that half should be kept.** The NHS model is
+GBP 100m/yr in one country for one drug class — roughly 0.1% of annual PhRMA member R&D
+(E-1041). No record in the ledger measures any output effect from either instrument: no
+additional approval, no additional entrant, no elasticity. TRL 8 measures how far a thing has
+been deployed, not how much it moves the system, and nothing in this ledger closes that gap.
+
+**Two findings elsewhere in the run bear on the structural point and strengthen it for a
+different reason than I gives.** First, D's tornado (E-9037, E-3116, both 하): raising the
+industry R&D budget 50% yields zero additional approvals while cutting it 20% costs 46% of
+them. If that asymmetry is real, capital is a downside risk rather than an upside lever, and
+"solving" it upward buys nothing regardless of instrument. Second, capital appears abundant at
+the top (E-9526, 하: ~USD 1.3tn deployable at the top 25) and scarce at the bottom (E-3057,
+E-3061, both 하) — which makes this an allocation problem, and allocation is precisely what
+subscription models, advance market commitments, priority review vouchers and outcomes-based
+Medicaid contracts address.
+
+**A caution that cuts against over-conceding.** Every one of I's and C's own capital records
+is 하 (E-3057, E-3058, E-3059, E-3061, E-9526, E-8062, E-8063, E-8064). I is arguing from a
+weak evidentiary base in *both* directions, and the confident structural claim is no better
+evidenced than the confident negative it replaced.
+
+**The claim I would substitute, which the ledger actually supports:**
+
+> Non-laboratory payment instruments addressing the capital and reimbursement bottleneck exist
+> and are operating at national scale in at least two jurisdictions (E-8126 상, E-8061 중).
+> No evidence in this ledger shows that either has changed system output, and their combined
+> scale is a fraction of a percent of annual industry R&D. The constraint is therefore better
+> characterised as an unsolved *allocation* problem with demonstrated mechanism prototypes,
+> not as a problem without credible solutions.
+
+That version is testable, is supported at 상/중 rather than 하, and drops a framing device
+that cannot be checked.
