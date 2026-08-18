@@ -22,7 +22,7 @@
     "STEP3_merge_evidence": "PARTIAL(679)",
     "STEP4_grading_R": "PENDING",
     "STEP5_redteam_X": "DONE",
-    "STEP6_reflect_redteam": "RUNNING",
+    "STEP6_reflect_redteam": "PARTIAL - C done, I scouting B17",
     "STEP7_report_W": "PENDING",
     "STEP8_validate": "PENDING",
     "STEP9_commit": "PENDING"
@@ -30,13 +30,13 @@
   "agents": {
     "A": "DONE",
     "B": "DONE",
-    "C": "RUNNING_STEP6",
+    "C": "DONE",
     "D": "DONE",
     "E": "DONE",
     "F": "DONE",
     "G": "DONE",
     "H": "DONE",
-    "I": "DONE",
+    "I": "RUNNING_FOLLOWUP",
     "R": "RUNNING_PASS1",
     "X": "DONE",
     "W": "PENDING"
@@ -60,7 +60,16 @@
         "B11",
         "B2",
         "B7/B15"
-      ]
+      ],
+      "step6": {
+        "evidence": "E-3099..E-3125 (122 total)",
+        "matrix_rows": 27,
+        "top8": "1 B1 (7.0) | 2 B8 (3.96) | 4 B17 NEW (4.0) | 5 B2 | 6 B7 | 7 B16 (up from 8) | 8 B11 (DOWN from 3)",
+        "biggest_move": "B11 capital 3->8: D model shows +50% budget => 0 approvals, plus X-10 $1.3T idle capital. Relabelled expected terminal value, asymmetric (downside -23% per 10% cut)",
+        "b3_adjudication": "C WITHDRAWS its inverted inference. F is right. B3 7->11 on D model; F conditional carried as shift_rank 1",
+        "b15": "rank 5->10; denominator error under M3 acknowledged; metric restated to name both objects",
+        "shift_ranks": "separate column for constraint-shift scenario: B3 shift_rank 1, B9 2, B6 3, B1/B9b 4"
+      }
     },
     "A": {
       "evidence": "E-1001..E-1100",

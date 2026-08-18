@@ -374,3 +374,126 @@ Four items could not be closed to a sourced number within this agent's scope. Ea
 - **U-4** Origin verification for the Tufts CSDD site-productivity figures behind [E-3020] and [E-3021] (secondary aggregators reached; primary Impact Report is paywalled).
 
 No item was deferred, narrowed, or sampled. All sixteen candidates were assessed on all four required fields.
+
+---
+
+# STEP 6 revision
+
+Every change below is recorded with its reason and its source. Evidence continues at **E-3099 … E-3125** (26 new records; ledger now E-3001–E-3125, 122 records). The matrix gains three columns — `original_rank`, `shift_rank`, `shift_elasticity_point` — so that every rank move is auditable against the pre-revision state. Parent rows B1–B14 are all retained; ten sub-rows and one new parent are added alongside them, never in place of them. Ten further WebSearch/WebFetch calls were run in this pass, for B17 evidence and to verify independently the two figures the red team contested.
+
+**Standing warning, now quantified by an independent model: the elasticity column is not summable.** Agent D implemented my overlap logic and returned a naive sum of 20.76 % against a modelled joint of 14.42 % for B1+B2+B8+B10 — **30.5 % of the naive gain is not real** [E-3115]. Adding parent rows and their sub-rows together compounds the error further. This warning is repeated in the `notes` field of every affected row.
+
+---
+
+## 6.1 Adjudication of the B3 dispute with Agent F — F is right, my inference was inverted
+
+**I withdraw the inference.** I read ~7–8 % cancer trial participation and the 56 % "no trial available locally" share as evidence of usable slack in the patient pool, and part of B3's rank 7 rested on it. Agent F argues that figure *is* the measurement of matched-capacity scarcity. Agent X attacked F's position as X-15 and rejected its own attack. F stands, and on re-examination F is correct [E-3099].
+
+**What decided it.** The test that matters is whether relieving the candidate resource converts the pool, and F ran it:
+
+- A deployed AI prescreening system read **98,348 charts across 29 trials, flagged 825 eligible, and produced 117 enrolments** — a 0.12 % yield **after cutting screening cost tenfold** [E-5047, E-5067]. Screening effort is held constant and removed as an explanation. If raw-pool slack were the operative variable, cheap exhaustive screening would have converted it. It did not.
+- NCI-MATCH isolates the same variable inside one well-funded protocol with central sequencing and 1,117 sites: **26.4 % of screened patients were matchable but 17.8 % were assigned**, so 8.6 percentage points of *already-matched* patients were lost purely because their arm was not open [E-5028]. Zero contribution from pool size, biology or willingness.
+- Agent X adds non-overlapping supply-side corroboration: global investigators −9 % and coordinators −28 % over six years [E-9524].
+
+F's formulation is the correct one and I adopt it: reading the 56 % figure as slack is reading the size of the unserved queue as evidence that the server is idle. **What survives from my original entry is narrower and still correct**: the scarce resource is the matched, activated site slot rather than the patient, so remedies that add eligible patients without adding open slots do not raise output. The data I reported [E-3023, E-3024] stand; my reading of them does not.
+
+**Rank consequence.** B3 falls 7 → 11 on *current-state* elasticity — but not because of this adjudication. It falls because of Agent D's model (§6.5). F itself endorses rank ~7 at today's candidate flow. F's second argument, that B3 belongs in the top three under the constraint-shift scenario, is adopted and is now carried explicitly: **B3's `shift_rank` is 1** [E-3121].
+
+## 6.2 Constraint-shift rank is now a separate column
+
+F's point generalises and Agent D's model confirms it: several candidates' elasticity is a function of candidate flow, not a constant. D's scenarios give the ordering directly — at current flow capital binds with GMP plasmid the first physical resource at u = 0.90; at 5× inflow with capital freed the binding constraint becomes **NHP toxicology** at u = 1.00 (S6b); with capacities at measured historical growth over ten years it becomes **Phase III patient slots** (S7), and S7 delivers *fewer* approvals than S6b because measured clinical capacity shrinks at −0.92 %/yr [E-3121].
+
+Top of the shift ordering: **1 B3, 2 B9 (NHP fragment), 3 B6a (shared inputs), 4 B9b, 5 B8, 6 B17.** The probability candidates B1, B8 and B17 barely move, because compressing discovery does not relieve them.
+
+## 6.3 Three composite candidates split
+
+Parents kept with aggregate values; sub-row `provisional_rank` is *the position that fragment would occupy if substituted for its parent*, not an extra entry in the parent ordering.
+
+**B6 → B6a/b/c/d** on Agent G [E-3117]. G measures a **9.4× modality spread** and finds **GMP plasmid DNA binds first at ~1.06× current IND volume**, because it feeds AAV, lentiviral and mRNA simultaneously and so saturates while each modality still shows suite headroom; aseptic fill-finish is third at ~1.12× with a three-year response lag capital cannot shorten. D's tornado orders the same way independently (fill-finish 7.8 % downside swing; autologous suite capacity and mAb drug substance exactly zero in both directions). G confirms my order-of-magnitude autologous claim (1.19× against a slack-modality range of 4.8–10×). The fragment that had **no visibility inside the parent** is B6a: shared inputs bind before any modality-specific step. Parent 9 → 14; B6a's shift rank is 3.
+
+**B9 → B9a/B9b** on Agent H [E-3118]. H endorses my rank 12 for nominal throughput and supplies a market test I lacked: the largest public foundry is cutting footprint up to 60 % against a 48 % revenue decline, and a flagship cloud lab was absorbed after a headcount collapse. Suppliers do not fail for lack of demand at a binding constraint. But B9 was two bottlenecks under one label: **predictive-assay throughput (B9b) belongs at rank 6**, alongside B1 and B2, because it acts on decision-tool predictive validity. The IND-enabling NHP toxicology capacity sits in B9a and carries that row's entire shift exposure — D ranks it 4th of 26 parameters with a 43 % downside swing and zero upside.
+
+**B10 → B10a/B10b** on Agent H [E-3119]. The quantity test was actually run: MELLODDY pooled **123× the public corpus** and returned ~4 % AUC-PR improvement. B10a drops to 19. **B10b (label noise, standardisation, negative-data reporting) rises to 7** — the mechanism is computable, a 10 % cut in σₑ lifts the achievable ceiling ~9 % relative, worth roughly 12× a 10 % throughput gain. X-18's caveat travels with the row: the ceiling bounds *measured benchmark scores and the resolving power of the adjudicating experiment*, not model capability.
+
+**B5 → B5a/B5b** on Agent E [E-3120]. E independently reconfirms near-zero elasticity for review capacity from primary agency sources (queue in contract, 44–55 day reviews for selected products in the worst staffing year, CBER CGT capacity that submissions did not fill) and places it 15th–16th; **evidence standards (B5b) belong at 8**, because they act on P rather than T. The split is **region-conditional** and that must travel downstream: for an EU-centric portfolio B5 ranks materially higher because of the JCA gate. Japan is the cleanest counter-case in the run — the world's fastest review coexists with 86 US/EU-approved drugs nobody filed.
+
+## 6.4 B17 added — clinical development design (dose, schedule, endpoint, population)
+
+**Recorded plainly: B17 was absent from the B1–B16 catalogue and was surfaced by the red team (X-19), not by me.** The orchestrator admitted it and adjudication X-30 set its parameters, which I adopt: **axes P primary, C secondary, explicitly not T; elasticity 2 / 4 / 7; rank 4 of 17** [E-3122]. My own independent construction returned 1.8 / 3.3 / 5.0 [E-3111], so the two agree inside their bands and X's wider band is used. It does not rest on one agent's collection: **seven of its fifteen evidence records were collected independently by me** (E-3104–E-3110) alongside X's six (E-9539–E-9544).
+
+Current state and constraint evidence, all of it decisions rather than capacities:
+- **Dose** — MTD-set oncology doses are reduced post-approval in **36 %** of cases against 23 % for below-MTD regimens, and the MTD or maximum studied dose was proposed as the label dose in ~70 % of approvals reviewed [E-3106]. Sotorasib carried a **fourfold dose overshoot at identical plasma exposure** (960 mg vs 240 mg) [E-3107], and the 209-patient randomised comparison mandated as a postmarketing requirement found no advantage for the higher dose [E-9543].
+- **Endpoint** — of 362 industry Phase III oncology trials 2008–2017, **58.4 % of reported-positive results were false-positive on overall survival** and 87 % were false-positive or true-negative [E-3108]. Among accelerated approvals, confirmatory trials reusing the same endpoint type had *no* associated withdrawals while endpoint-type mismatch predicted withdrawal [E-3109].
+- **Population** — applying broadened ASCO–Friends eligibility to a 10,500-patient advanced NSCLC cohort would have avoided excluding close to half of it [E-3110]; across 17,368 development trajectories, biomarker-guided selection reached **10.7 % success against 1.6 %** without [E-9541].
+- **Trend: improving**, and regulator-forced. FDA's dose-optimisation final guidance issued 8 August 2024; Bayesian designs in early-phase oncology rose from 48 % (2021) to 75 % (2024) with 93 % of surveyed developers reporting changed strategy [E-3104, E-3105]; backfill-cohort specification rose 60 % → 77 % [E-9540]; MRD draft guidance issued 20 January 2026 [E-9542], though MRD is still not a qualified endpoint [E-9548].
+
+**Modality variance** (as directed): hardest for oncology small molecules and ADCs, where the MTD paradigm originated and the payload therapeutic window makes dose and schedule decisive. Hard for cell and gene therapy, where dose is not titratable — one patient is one batch, vector dose is fixed by manufacture — and the population is genotype-fixed, so a design error cannot be corrected by dose adjustment and surfaces only as a failed pivotal. Moderate for antibodies, where dose–response is often flat and the characteristic error is dosing too high. RNA intermediate. Least for vaccines.
+
+**Not additive with B1, B4 or B8**: the population limb overlaps B4's enrichment channel, the dose limb overlaps B8's toxicity channel, and the whole candidate is a proper subset of the efficacy attrition mass carried by B1.
+
+**A signature worth naming.** Designs compliant with the dose-optimisation guidance are *longer* — randomised dose comparison and backfill cohorts add early-phase time. B17 therefore **raises output while worsening cycle time**, which is exactly what D's model produced for late-stage PoS in S5 (+31.8 % approvals, cycle time 13.50 → 15.03 years, because more survivors load the Phase III patient resource). Generalised: **on this system the levers that raise approvals make it slower, and the levers that make it faster do not raise approvals.** Anyone optimising for cycle time is optimising against output.
+
+## 6.5 Reconciliation with Agent D's flow model
+
+**Where D confirmed me.** D reproduced four of my point elasticities to within **0.35 percentage points** without the budget constraint and without using my formula — B1 +10.19 vs 10.0, B2 +3.77 vs 4.0, B8 +5.66 vs 6.0, B10 +1.13 vs 1.0 — and its modelled joint effect landed inside my stated 11–26 % band [E-3113, E-3115].
+
+**Where D corrected me, and I revise.**
+
+1. **Budget-binding recalibration.** With the industry R&D budget binding — D's default, and the realistic case since capital sits at u = 1.00 in every D scenario — each probability-channel elasticity falls by about a third: B1 7.05, B2 2.65, B8 3.96, B10 0.80. I adopt D's budget-binding values as point estimates because the brief's output metric is approvals in the real system, and retain my unconstrained originals as each band's upper bound [E-3113].
+2. **Duration levers go to roughly zero.** D's S2/S3/S4 all return 54.45 approvals: a 40 % cut in enrollment duration and a 50 % cut in CMC lead time each add **exactly none**, because they shorten the carrying period without reducing out-of-pocket spend per programme [E-3114]. B3 2.5 → 0.6, B6 1.8 → 0.45, B4 1.2 → 0.55, B9 0.9 → 0.5. **B16 is cut least** (2.0 → 1.4) and consequently rises 8 → 7, because it removes out-of-pocket *procedures* rather than only calendar time, and D's own budget identity converts a reduction in risk-adjusted cost into approvals where a pure schedule gain does not.
+3. **Discovery duration has an elasticity of exactly zero** on annual approvals across a 0.9–6.0 year range (D tornado rank 24 of 26), and S1 (−80 % discovery time) returns 50.00 approvals against a 50.00 baseline. This does not change any of my rows — no row of mine is discovery *duration* — but it is the sharpest available confirmation of my Amdahl record [E-3098] and of the T/P separation the brief demands.
+4. **B11 is the largest revision in the set: rank 3 → 8, elasticity 6.0 → 0.8** [E-3116]. Two independent lines force it. D's tornado: **+50 % R&D budget yields zero additional approvals** (50.0 → 50.0) because physical capacities take over the moment capital stops binding, while −20 % costs 46 % of approvals. Red-team X-10 reaches the same place from the capital side: ~USD 1.3 trillion deployable at the top 25 pharma while novel-target entry fell to ~30/yr in 2024 and venture investment tripled — the marginal dollar was available and declined the novel bet. My original near-linear assumption was wrong on the improvement side. **The row is now asymmetric and is labelled so**: improvement side 0.0/0.8/3.0, downside approximately **−23 % of approvals per 10 % budget reduction**. B11 is relabelled *expected terminal value* — an endogenous multiplier on every other candidate's elasticity, not an independent capacity constraint — and its elasticity is explicitly not additive with B1 and B8 because it acts through them. It is placed above B10 despite an identical point estimate because it is a live systemic risk and a dead lever, and those are not the same as a small symmetric effect. The better-identified policy estimate (interrupted time-series: −11.4 industry-sponsored trials immediately post-IRA plus −1.2/month) supersedes the industry-commissioned 68 % figure I originally carried.
+
+**Where I do not revise, and why.** I keep non-zero values on the duration and capacity rows rather than zeroing them to match D exactly. D lists *capital is exogenous, with no feedback from returns onto budget* as an explicit model assumption; in a real market a durable reduction in cost per approval attracts capital. The residual values I retain (0.45–1.4) are that channel and nothing more, and the gap between them and D's zero is stated here rather than smoothed away.
+
+## 6.6 Adopted red-team findings
+
+**X-11 — B1's trend was wrong; the rank is not** [E-3101, E-3124]. My trend cell rested on the Amgen 6-of-53 and Bayer two-thirds statistics, which are **level measurements from 2011–2012 with undisclosed paper-selection criteria** and cannot establish a 2016–2026 trend. The cell is corrected to two channels: **improving on decision quality, flat on literature reproducibility.** Human genetic support is a measured **2.6× relative-success multiplier** (verified independently against the Nature primary source [E-3100]) and already underpins **63 % of the 428 FDA approvals of 2013–2022**, with remaining headroom equal to the 37 % that lack it; novel oncology target validation rose from ~2/yr (2000–04) to ~10/yr (2020–24).
+
+X-26 adds a second correction that I adopt for my own language: **no statement of mine may imply that nothing technological is being brought to bear on B1.** Cis-pQTL Mendelian randomisation is a causal human instrument that does not require a trial, and its resource base has industrialised to ~2,940 plasma proteins in 34,557 UK Biobank participants [E-9549]. The countervailing result travels with it: across 11,482 target–indication pairs, MR significance alone did *not* enrich for Phase II success while GWAS support did. **The objection to the instrument is empirical, not conceptual.** B1 stays at rank 1 — a factor can be improving, and tractable, and still be the binding constraint.
+
+**X-14 / X-29 — B15: my figure was right, my use of it was wrong, and the error is mine** [E-3103, E-3123]. X traced both contested figures to primary agency sources and found Agent E and I were counting two different objects while neither of us named the object:
+
+| Object | Count | Route |
+|---|---|---|
+| Biomarkers formally **qualified** through FDA's Biomarker Qualification Program | **8** as of 1 Jul 2025 (7 pre-2016 legacy, most recent 2018); **11** including 3 qualified Nov–Dec 2025; **zero surrogate endpoints ever qualified** | Formal qualification |
+| Disease-or-use × patient-population × surrogate-endpoint **pairings** in FDA's Table of Surrogate Endpoints | **over 200** | Reached **without** qualification |
+
+My arithmetic checks out — 11 = 8 + 3. **The substantive error is mine and it is a denominator error of exactly the kind M3 exists to catch: I reported a numerator without naming its denominator, then treated the throughput of a nearly-unused channel as the system constraint.** Seven of the eight qualifications predate the 2016 Cures Act. A channel almost nobody uses cannot be the binding constraint on a process that is evidently happening by another route — and the 200+ pairings, which I verified independently against FDA's own page (Cures-Act-mandated, updated six-monthly, content dated 29 April 2026, no reference to BQP qualification [E-3102]), demonstrate that other route. Agent E's error was descriptive only (calling pairings "markers"); mine was substantive.
+
+**B15: rank 5-equal → 7 → 10; elasticity 3.0 → 1.1 → 0.7. Current-state metric restated to name both objects explicitly.** What survives, and it remains real and striking: **zero surrogate endpoints have ever been formally qualified**, and MRD is still not qualified as of August 2026 (the April 2024 advisory vote was non-binding; the January 2026 document is draft) [E-9545, E-9548]. That supports a claim about the **portability and reusability of endpoint evidence between sponsors** — not the claim I attached it to. The residual constraint under B15 is scientific: surrogates that genuinely predict clinical benefit in slowly progressive disease.
+
+**X-16** raised B2's θ lower bound (the premise of zero qualified NAM tools is no longer true — one qualified 8 Dec 2025); rank unchanged at 5. **X-17** attacked B7 and rejected its own attack; B7's split verdict stands intact. **X-13** requires every capacity ceiling to be labelled with its jurisdictional scope; the shared-manufacturing rows (B6a) survive it because shared inputs are global markets and do not relocate when a trial moves.
+
+## 6.7 Revised ranking
+
+Ranks 2, 4 and 5 sit **within the resolution of this analysis** — D's reproduction error is ±0.35 pp and my θ bands span a factor of two to three, so point estimates of 2.65, 3.96 and 4.00 are not separable on the evidence; ordering inside that block rests on band width and evidence maturity as much as on the point value.
+
+**Rank 3 is intentionally vacant.** The computed ordering places B17 third on point elasticity (4.0 vs B8's 3.96); the orchestrator directed rank 4. Rather than renumber the tail and hide the discrepancy, the directed rank is recorded and the gap left visible, so seventeen parents occupy ranks 1–18 [E-3125].
+
+| Rank | Was | ID | Candidate | ε point | Shift rank |
+|---|---|---|---|---|---|
+| 1 | 1 | B1 | Target validation | 7.0 | 4 |
+| 2 | 2 | B8 | Toxicity / immunogenicity prediction | 3.96 | 5 |
+| *3* | — | *(vacant — see above)* | | | |
+| 4 | new | **B17** | **Clinical development design** | **4.0** | 6 |
+| 5 | 4 | B2 | Preclinical→clinical translation | 2.65 | 11 |
+| 6 | 5 | B7 | Delivery and biodistribution | 1.9 | 13 |
+| 7 | 8 | B16 | Protocol complexity / data burden | 1.4 | 8 |
+| 8 | **3** | B11 | Expected terminal value (capital) | **0.8** | 17 |
+| 9 | 11 | B10 | Training-data scarcity | 0.8 | 14 |
+| 10 | **5=** | B15 | Endpoint / biomarker qualification | **0.7** | 12 |
+| 11 | 7 | B3 | Recruitment / site capacity | 0.6 | **1** |
+| 12 | 10 | B4 | Precision-medicine fragmentation | 0.55 | 7 |
+| 13 | 12 | B9 | Wet-lab throughput | 0.5 | **2** |
+| 14 | 9 | B6 | CMC / manufacturing | 0.45 | **3** |
+| 15 | 13 | B13 | Talent / absorptive capacity | 0.4 | 16 |
+| 16 | 14 | B5 | Regulatory review + evidence standards | 0.35 | 12 |
+| 17 | 15 | B12 | IP / FTO congestion | 0.2 | 15 |
+| 18 | 16 | B14 | Biosecurity / model regulation | 0.1 | 18 |
+
+Sub-rows, ranked as *position if substituted for their parent*: **B9b 6** (predictive-assay throughput), **B10b 7** (data quality / label noise), **B5b 8** (evidence standards), B6a 17, B6b 17, B5a 18, B6c 18, B6d 19, B9a 19, B10a 19. Three fragments — B9b, B10b, B5b — rank far above their parents; three others (B6d, B9a, B10a) rank below every parent. That spread is the case for the splits in one line: **a single rank averaged a binding constraint and a non-constraint into a number true of neither.**
+
+## 6.8 What the revision did not change
+
+B1 remains rank 1 on elasticity. The six negative "spare capacity" findings all survived independent attack and are strengthened, not weakened, by the revision — D's model adds a seventh by showing that discovery *duration* has an elasticity of exactly zero. The Amdahl ceiling [E-3098] is confirmed by D's S1. The constraint-shift ordering I predicted (B9-NHP and B6 first) is reproduced by D's S6b from an independent model.
