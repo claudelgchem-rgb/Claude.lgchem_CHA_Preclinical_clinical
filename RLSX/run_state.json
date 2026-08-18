@@ -21,7 +21,7 @@
     "STEP2_model_D": "PENDING",
     "STEP3_merge_evidence": "PARTIAL(679)",
     "STEP4_grading_R": "PENDING",
-    "STEP5_redteam_X": "PENDING",
+    "STEP5_redteam_X": "PASS1_DONE",
     "STEP6_reflect_redteam": "PENDING",
     "STEP7_report_W": "PENDING",
     "STEP8_validate": "PENDING",
@@ -38,7 +38,7 @@
     "H": "DONE",
     "I": "DONE",
     "R": "RUNNING_PASS1",
-    "X": "RUNNING_PASS1",
+    "X": "RUNNING_PASS2",
     "W": "PENDING"
   },
   "tools_ready": [
@@ -130,6 +130,25 @@
       "b1_detail": "rank-1 constraint has exactly ONE mature tech (human-genetics-anchored target selection, TRL8) which predates AI; all else TRL 3-6",
       "sharp_facts": "RCT: AI prescreening improves accuracy with NO efficiency gain (n=355); 1,021 wearable trials and ZERO FDA-qualified sensor endpoints; MR significance does not enrich Ph2 success across 11,482 target-indication pairs",
       "dependency": "B9->B10->B1 chain; in vivo CAR-T converts B6 into B7; B11<->B15 genuine loop"
+    },
+    "X": {
+      "findings": 20,
+      "adopted": 3,
+      "partial": 12,
+      "rejected": 5,
+      "evidence": "E-9500..E-9538",
+      "adopted_detail": {
+        "X-08": "low-share ceiling is a 2026 snapshot; doubling 1.2-2.1yr -> AI share >10% by 2029-33, >50% by 2032-39",
+        "X-14": "B15 over-ranked; C 11-qualified contradicts E 200-accepted - internal contradiction to adjudicate",
+        "X-19": "missing bottleneck B17 clinical development design (dose/endpoint/population)"
+      },
+      "key_partials": {
+        "X-01": "per-programme economics blind to never-started programmes (~85% druggable genome untargeted)",
+        "X-02": "Phase II efficacy failure is a discovery-stage decision error observed late",
+        "X-05": "H0 forward half is a restatement; must be recast as falsifiable rate claim",
+        "X-13": "jurisdictional routing: early-phase ceiling higher than US-derived, pivotal ceiling not",
+        "X-18": "label-noise ceiling bounds agreement with noisy label, not model capability"
+      }
     }
   },
   "pending_followups": []

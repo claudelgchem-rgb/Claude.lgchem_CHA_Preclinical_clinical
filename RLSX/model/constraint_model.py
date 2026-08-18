@@ -806,27 +806,33 @@ def nonadditivity(n_start, caps, background, base_util):
               ("B2 preclinical translation", 0.25, 0.20),
               ("B8 toxicity prediction", 0.30, 0.25),
               ("B10 training data", 0.10, 0.15)]
-    base = evaluate(build_params(), n_start, caps, background, base_util)
-    singles = []
-    qs = []
-    for name, f, th in levers:
-        q = f * th / 10.0
-        qs.append(q)
-        p = apply_attrition_gain(build_params(), q)
-        r = evaluate(p, n_start, caps, background, base_util)
-        singles.append((name, q, r["approvals"],
-                        100.0 * (r["approvals"] - base["approvals"]) / base["approvals"]))
-    q_naive = sum(qs)
-    q_joint = overlapping_q(qs)
-    pn = apply_attrition_gain(build_params(), q_naive)
-    pj = apply_attrition_gain(build_params(), q_joint)
-    naive = evaluate(pn, n_start, caps, background, base_util)
-    joint = evaluate(pj, n_start, caps, background, base_util)
-    return dict(base=base["approvals"], singles=singles, q_naive=q_naive, q_joint=q_joint,
-                naive_appr=naive["approvals"], joint_appr=joint["approvals"],
-                naive_pct=100.0 * (naive["approvals"] - base["approvals"]) / base["approvals"],
-                joint_pct=100.0 * (joint["approvals"] - base["approvals"]) / base["approvals"],
-                sum_singles_pct=sum(s[3] for s in singles))
+    FREE = 100.0   # capital-capacity multiplier for the budget-free variant
+
+    def ev(p, free):
+        if free:
+            p["cap_mult"]["capital"] = FREE
+        return evaluate(p, n_start, caps, background, base_util)["approvals"]
+
+    out = {}
+    for free in (False, True):
+        base = ev(build_params(), free)
+        singles, qs = [], []
+        for name, f, th in levers:
+            q = f * th / 10.0
+            qs.append(q)
+            a = ev(apply_attrition_gain(build_params(), q), free)
+            singles.append((name, q, a, 100.0 * (a - base) / base))
+        q_naive = sum(qs)
+        q_joint = overlapping_q(qs)
+        na = ev(apply_attrition_gain(build_params(), q_naive), free)
+        jo = ev(apply_attrition_gain(build_params(), q_joint), free)
+        out["free" if free else "budget"] = dict(
+            base=base, singles=singles, q_naive=q_naive, q_joint=q_joint,
+            naive_appr=na, joint_appr=jo,
+            naive_pct=100.0 * (na - base) / base,
+            joint_pct=100.0 * (jo - base) / base,
+            sum_singles_pct=sum(s[3] for s in singles))
+    return out
 
 
 # ---------------------------------------------------------------------------
@@ -938,15 +944,20 @@ def main(argv):
 
     na = nonadditivity(n_start, caps, background, base_util)
     print("\nNON-ADDITIVITY (Agent C, E-3097; overlap rho=%.2f, E-9024)" % OVERLAP_RHO)
-    for name, q, a, pct in na["singles"]:
-        print("    %-28s alone: %+6.2f%% approvals (attrition reduced by %.4f)" % (name, pct, q))
-    print("    arithmetic sum of the four singles : %+6.2f%%" % na["sum_singles_pct"])
-    print("    naive combined (q summed)          : %+6.2f%%  (approvals %.2f)"
-          % (na["naive_pct"], na["naive_appr"]))
-    print("    modelled joint with overlap        : %+6.2f%%  (approvals %.2f)"
-          % (na["joint_pct"], na["joint_appr"]))
-    print("    overlap discount                   : %.1f%% of the naive gain is not real"
-          % (100.0 * (1.0 - na["q_joint"] / na["q_naive"])))
+    for tag, label in (("free", "WITHOUT the budget constraint (comparable to Agent C's elasticities)"),
+                       ("budget", "WITH the industry R&D budget binding (this model's default)")):
+        d = na[tag]
+        print("  -- %s" % label)
+        for name, q, a, pct in d["singles"]:
+            print("     %-28s alone: %+6.2f%% approvals (cumulative attrition -%.4f)"
+                  % (name, pct, q))
+        print("     arithmetic sum of the four singles : %+6.2f%%" % d["sum_singles_pct"])
+        print("     naive combined (q summed)          : %+6.2f%%  (approvals %.2f)"
+              % (d["naive_pct"], d["naive_appr"]))
+        print("     modelled joint with overlap        : %+6.2f%%  (approvals %.2f)"
+              % (d["joint_pct"], d["joint_appr"]))
+        print("     overlap discount on the gain       : %.1f%% of the naive gain is not real"
+              % (100.0 * (1.0 - d["q_joint"] / d["q_naive"])))
 
     am = amdahl(n_start, caps, background, base_util)
     b, z, f = am["base"], am["zero"], am["free"]
