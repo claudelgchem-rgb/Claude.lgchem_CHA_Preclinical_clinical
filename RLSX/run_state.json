@@ -34,9 +34,9 @@
     "D": "PENDING",
     "E": "DONE",
     "F": "RUNNING",
-    "G": "RUNNING",
+    "G": "DONE",
     "H": "RUNNING",
-    "I": "PENDING",
+    "I": "RUNNING",
     "R": "PENDING",
     "X": "PENDING",
     "W": "PENDING"
@@ -85,6 +85,18 @@
       "b5_verdict": "C 14th/16 survives; place 12th-14th. Split: review capacity 15-16th, evidence standards 8-10th",
       "key": "30 of 49 mechanisms are relievers vs 6 constraints; FDAMA 3.0 NOT law as of 2026-08-18; ISTAND 1 qualified tool of 8 accepted",
       "scaleup": "10x IND scenario hits the IND gate first, not the approval gate"
+    },
+    "G": {
+      "evidence": "E-6001..E-6076",
+      "records": 72,
+      "unresolved": 14,
+      "b6_verdict": "system elasticity ~0.05 but 9.4x modality spread; recommend split B6a-B6d",
+      "delivery_verdict": "BBB=engineering (proven twice); solid tumour=genuine biophysical limit (0.01 %ID/g human, 0-fold decadal improvement)",
+      "saturation": "plasmid DNA 1.06x binds first < fill-finish 1.12x < autologous CAR-T/ADC 1.19x < AAV 1.5-1.9x < mAb 4.8x < small molecule 10x",
+      "crl": "74% of 202 published CRLs cited quality/manufacturing but all were later approved; delays not stops"
     }
-  }
+  },
+  "pending_followups": [
+    "E: region top-up for EU/CN/JP-KR (M6 thin: KR=1 row of 49)"
+  ]
 }
