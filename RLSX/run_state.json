@@ -32,10 +32,10 @@
     "B": "DONE",
     "C": "DONE",
     "D": "PENDING",
-    "E": "RUNNING",
+    "E": "DONE",
     "F": "RUNNING",
     "G": "RUNNING",
-    "H": "PENDING",
+    "H": "RUNNING",
     "I": "PENDING",
     "R": "PENDING",
     "X": "PENDING",
@@ -77,6 +77,14 @@
       "duration_verdict": "30-50% preclinical compression defensible; 12-18mo company claims unmatched",
       "base_rate": "AI-derived = 1.0-3.4% of CY2024 CDER commercial INDs; Amdahl ceiling +0.8-2.7% approvals",
       "de_novo_pass_rate": "11.6% independent vs 68% developer self-report"
+    },
+    "E": {
+      "evidence": "E-4001..E-4058",
+      "records": 58,
+      "unresolved": 6,
+      "b5_verdict": "C 14th/16 survives; place 12th-14th. Split: review capacity 15-16th, evidence standards 8-10th",
+      "key": "30 of 49 mechanisms are relievers vs 6 constraints; FDAMA 3.0 NOT law as of 2026-08-18; ISTAND 1 qualified tool of 8 accepted",
+      "scaleup": "10x IND scenario hits the IND gate first, not the approval gate"
     }
   }
 }
