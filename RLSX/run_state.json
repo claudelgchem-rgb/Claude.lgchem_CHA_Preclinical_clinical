@@ -15,8 +15,8 @@
   },
   "steps": {
     "STEP0_bootstrap": "DONE",
-    "STEP1_batch1_ABC": "RUNNING",
-    "STEP1_batch2_EFG": "PENDING",
+    "STEP1_batch1_ABC": "DONE",
+    "STEP1_batch2_EFG": "RUNNING",
     "STEP1_batch3_HI": "PENDING",
     "STEP2_model_D": "PENDING",
     "STEP3_merge_evidence": "PENDING",
@@ -28,13 +28,13 @@
     "STEP9_commit": "PENDING"
   },
   "agents": {
-    "A": "RUNNING",
-    "B": "RUNNING",
+    "A": "DONE",
+    "B": "DONE",
     "C": "DONE",
     "D": "PENDING",
     "E": "RUNNING",
-    "F": "PENDING",
-    "G": "PENDING",
+    "F": "RUNNING",
+    "G": "RUNNING",
     "H": "PENDING",
     "I": "PENDING",
     "R": "PENDING",
@@ -61,6 +61,22 @@
         "B2",
         "B7/B15"
       ]
+    },
+    "A": {
+      "evidence": "E-1001..E-1100",
+      "records": 64,
+      "unresolved": 12,
+      "amdahl": "pre-IND = 40.2-42.9% capitalized, 12.4% observed out-of-pocket, 21.2-40.7% elapsed time",
+      "h0a_counter": "FDA review time fell >3yr->>1yr 1983-2017 while IND-to-approval stayed ~8yr"
+    },
+    "B": {
+      "evidence": "E-2001..E-2075",
+      "records": 74,
+      "unresolved": 10,
+      "pos_verdict": "NO EVIDENCE - ~500x underpowered, 8 completed Phase 2 assets",
+      "duration_verdict": "30-50% preclinical compression defensible; 12-18mo company claims unmatched",
+      "base_rate": "AI-derived = 1.0-3.4% of CY2024 CDER commercial INDs; Amdahl ceiling +0.8-2.7% approvals",
+      "de_novo_pass_rate": "11.6% independent vs 68% developer self-report"
     }
   }
 }
