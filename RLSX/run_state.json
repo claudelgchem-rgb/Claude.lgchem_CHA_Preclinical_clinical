@@ -18,11 +18,11 @@
     "STEP1_batch1_ABC": "DONE",
     "STEP1_batch2_EFG": "RUNNING",
     "STEP1_batch3_HI": "DONE",
-    "STEP2_model_D": "PENDING",
+    "STEP2_model_D": "DONE",
     "STEP3_merge_evidence": "PARTIAL(679)",
     "STEP4_grading_R": "PENDING",
     "STEP5_redteam_X": "PASS1_DONE",
-    "STEP6_reflect_redteam": "PENDING",
+    "STEP6_reflect_redteam": "RUNNING",
     "STEP7_report_W": "PENDING",
     "STEP8_validate": "PENDING",
     "STEP9_commit": "PENDING"
@@ -30,8 +30,8 @@
   "agents": {
     "A": "DONE",
     "B": "DONE",
-    "C": "DONE",
-    "D": "RUNNING",
+    "C": "RUNNING_STEP6",
+    "D": "DONE",
     "E": "DONE",
     "F": "DONE",
     "G": "DONE",
@@ -149,6 +149,19 @@
         "X-13": "jurisdictional routing: early-phase ceiling higher than US-derived, pivotal ceiling not",
         "X-18": "label-noise ceiling bounds agreement with noisy label, not model capability"
       }
+    },
+    "D": {
+      "evidence": "E-9001..E-9042",
+      "records": 29,
+      "unresolved": 7,
+      "S1": "discovery time -80% => +0.00% approvals; cycle 13.5->9.9y; capitalized -5.7%; tornado rank 24/26 swing 0.00",
+      "S5": "Phase II PoS +50% => +31.8% approvals, LARGEST single lever, but cycle time WORSENS 13.5->15.0y",
+      "S6": "inflow x5 all capacities frozen => +0.00% (capital rations at entry). S6b capital freed => +26.8%, 5.0x input -> 1.27x output, elasticity 0.147",
+      "migration": "nothing binds today (capital binds) -> Ph3 patients (S5) -> NHP tox then GMP lentiviral/plasmid (S6b) -> Ph3 patient slots terminal (S7/S8). Regulatory review NEVER binds (max u=0.88)",
+      "amdahl_h0c": "-33.3% elapsed, -7.0% capitalized, -41.0% if discovery also free, and 0.0% change in annual approvals",
+      "nonadditivity": "naive sum +20.76% vs modelled joint +14.42%; 30.5% of naive gain is not real",
+      "calibration": "reproduces Paul 2010 to 0.00-0.02%; covers 57% of observed IND flow; irreconcilable with Sertkaya (+217%) - reported not fixed",
+      "unsupported_assumptions": 15
     }
   },
   "pending_followups": []
