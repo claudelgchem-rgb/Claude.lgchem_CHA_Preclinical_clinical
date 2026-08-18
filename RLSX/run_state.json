@@ -21,7 +21,7 @@
     "STEP2_model_D": "DONE",
     "STEP3_merge_evidence": "PARTIAL(679)",
     "STEP4_grading_R": "PENDING",
-    "STEP5_redteam_X": "PASS1_DONE",
+    "STEP5_redteam_X": "DONE",
     "STEP6_reflect_redteam": "RUNNING",
     "STEP7_report_W": "PENDING",
     "STEP8_validate": "PENDING",
@@ -38,7 +38,7 @@
     "H": "DONE",
     "I": "DONE",
     "R": "RUNNING_PASS1",
-    "X": "RUNNING_PASS2",
+    "X": "DONE",
     "W": "PENDING"
   },
   "tools_ready": [
@@ -148,6 +148,15 @@
         "X-05": "H0 forward half is a restatement; must be recast as falsifiable rate claim",
         "X-13": "jurisdictional routing: early-phase ceiling higher than US-derived, pivotal ceiling not",
         "X-18": "label-noise ceiling bounds agreement with noisy label, not model capability"
+      },
+      "pass2": {
+        "findings": "X-21..X-30 (cumulative 30: adopted 7, partial 17, rejected 6)",
+        "X-21": "ADOPTED - \"10-15 years\" matches no measurement in ledger; 3 of 4 anchors unfaithful as repeated",
+        "X-22": "ADOPTED - 232/572 records unreachable to origin in 3 hops; report must not rest on them",
+        "X-23": "schema violation - 16 records string in figures.value - FIXED by orchestrator in merge tool",
+        "X-29": "X-14 adjudicated: 8 biomarkers formally qualified via BQP (zero surrogate endpoints ever); 200+ surrogate table pairings reached WITHOUT qualification. C usage is the substantive error",
+        "X-30": "B17 admitted: axes P primary C secondary (NOT T), elasticity 2/4/7, rank 4 of 17",
+        "circular_audit": "572 rows: 340 clean / 157 unverifiable / 75 circular; 232 FORCE_LOW; 33 manually traced, 539 rule-adjudicated"
       }
     },
     "D": {
@@ -164,5 +173,8 @@
       "unsupported_assumptions": 15
     }
   },
-  "pending_followups": []
+  "pending_followups": [],
+  "orchestrator_fixes": [
+    "X-23 schema repair: figures.value coerced to numeric-or-null, original preserved in figures.value_note"
+  ]
 }

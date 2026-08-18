@@ -310,3 +310,195 @@ The mechanism is demonstrable on a single target. RAS was confirmed as the first
 | X-20 | "Regulation is a net reliever" holds only for authorisation instruments | E | 부분채택 |
 
 **Totals: 채택 3, 부분채택 12, 기각 5.**
+
+---
+---
+
+# PASS 2 — provenance audit, Agent I attack, X-14 adjudication, B17 evidence base
+
+Evidence added: **E-9539 … E-9554** (16 records; block now E-9500 … E-9554, 55 records).
+New deliverable: `RLSX/audit/circular_audit.csv` (572 rows, header as specified).
+Search record for this pass: 18 further WebSearch/WebFetch calls, of which three were blocked (ASCO Publications 403, AACR Journals 403, NCBI 301 redirect handled by re-fetch) and each was replaced by an independently reachable carrier.
+
+**Pass-2 verdict tally: 채택 4 / 부분채택 5 / 기각 1. Cumulative across both passes: 채택 7 / 부분채택 17 / 기각 6, over 30 findings.**
+
+---
+
+## X-21 — anchor faithfulness: three of the four named anchors are not faithful to their origins as commonly repeated
+
+**The audit.** The common brief names four anchors for individual treatment. Each was traced hop by hop and the result is recorded in `circular_audit.csv` under a manual override, so the chain is auditable row by row.
+
+**Anchor 1 — capitalized cost per approved drug (~USD 2.2-2.9 bn).** Origin reached **partially**. The hop chain resolves to DiMasi, Grabowski and Hansen, *Journal of Health Economics* 47:20-33 (2016), but not to its inputs: the 106-compound sample is a confidential survey of 10 firms that no third party can re-derive. **The number is faithful in value and unfaithful in framing**: it is quoted without the capitalized basis and the 10.5 percent discount rate that generate it, and the same authors' out-of-pocket figure is 1,395. Independent reanalyses of overlapping inputs give 985 million (Wouters, from SEC filings — the only member of this family whose origin is reproducible) and 59.4 million (Light and Warburton, net of tax relief). Verdict on the family: **unverifiable at origin**; FORCE_LOW on the per-stage split.
+
+**Anchor 2 — clinical success 7-14 percent.** Origin reached **yes**, four times over: BIO/Informa/QLS, Hay 2014, Wong-Siah-Lo 2019 and Paul 2010, each with a disclosed denominator. **The range is faithful; any point estimate drawn from it is not**, because the four origins use incompatible denominators (drug-indication-sponsor paths, registration-enabling programmes, lead indications, merged programmes). The contemporaneous Citeline series used in X-09 is a separate object and is **unverifiable**: it is a proprietary database whose cohort definition is undisclosed in every accessible carrier.
+
+**Anchor 3 — total development 10-15 years, discovery 3-6 years.** Origin reached **yes**, three times: DiMasi's 128-month synthesis-to-approval clock, Sertkaya's 147-month model, and Brown's 9.1-year clinical span. **The commonly repeated 10-15 year band is unfaithful to all three.** No source in the ledger measures 10-15 years; the band is a rounded trade convention assembled from clocks that start in different places. This is the clearest case in the audit of a number that everyone repeats and no one sourced.
+
+**Anchor 4 — AI Phase I 80-90 percent.** Origin reached **partially**: Jayatunga et al., *Drug Discovery Today* 29(6):104009, June 2024, located and dated, paywalled, no open-access deposit. The Phase I denominator, the Phase II denominator, the company list and the operational definition of "AI-discovered" are undisclosed **at origin**, not merely in relay. All five authors are Boston Consulting Group and the work was BCG-funded, so S4 attaches at the origin itself. Agents B and C independently imported the same unresolvable origin, which is textbook cross-agent recurrence. **Faithful in value, unfaithful in use**: it is quoted as a success rate without its denominator. FORCE_LOW.
+
+**Verdict: 채택.**
+
+**Required change to the report.** Anchor 3 must be corrected, not merely qualified. Every use of "10-15 years" must be replaced by the measured figure with its clock stated: *"Measured development duration is 128 months synthesis-to-approval (DiMasi), 147 months (Sertkaya) and 9.1 years of clinical development (Brown). The frequently quoted 10-15 year range corresponds to no measurement in the ledger and must not be used."* Anchors 1, 2 and 4 must each carry a one-clause faithfulness statement at first use, in the form given above, and Anchor 4 must never appear without its denominator being described as undisclosed at origin.
+
+---
+
+## X-22 — two fifths of the quantitative ledger cannot be traced to a reproducible origin in three hops
+
+**The audit.** All 572 records carrying a figure were enumerated and adjudicated; coverage is 572 of 572. Tier composition: tier 1 (collector-flagged `circular_risk`) 92 rule-adjudicated plus the flagged records absorbed into manual traces; tier 2 (`market_report` and `secondary`) 117; tier 3 (cross-agent recurrence on the same source title) 12; tier 4 (remainder) 318; plus **33 rows carrying a manual, hop-by-hop origin trace performed in this pass**.
+
+**Method disclosure, because it bears on how much the result is worth.** The 33 manual rows were traced by retrieving the origin. The remaining 539 were adjudicated by a stated rule applied uniformly and written into the `notes` column of every row: the deepest provenance hop is classified into peer-reviewed, preprint, agency, registry, filing, consultancy, company, trade press, aggregator or none, and the verdict follows from that class plus the collector's own `circular_risk` flag. This classifies the **provenance chain**; it does not re-verify each figure at its origin. That distinction is stated here rather than left for a reader to infer.
+
+**Result** [E-9551]: **340 clean, 157 unverifiable, 75 circular. 232 of 572 records (40.6 percent) carry a FORCE_LOW marker** in the `notes` column, meaning no origin was reachable within three hops and Agent R must grade them Low. Thirty-eight shared-origin groups were identified; the four largest contain 17, 17, 16 and 11 records respectively.
+
+**[INFER]** A 59 percent clean rate is not a scandal for a ledger of this size and it is materially better than the field's published norm. But 232 records is a large enough set that conclusions must be checked against it rather than assumed to survive it.
+
+**Verdict: 채택.**
+
+**Required change to the report.** The report must carry a provenance statement and must honour it mechanically: *"Of 572 quantitative records, 340 are provenance-clean, 157 unverifiable and 75 circular; 232 are marked FORCE_LOW in `RLSX/audit/circular_audit.csv` and are graded Low [E-9551]."* No sentence in the report may rest solely on a FORCE_LOW record, and any that does must carry the ⚠ LOW-EVIDENCE CLAIM banner. Agent R must take the FORCE_LOW column as binding so that the audit and the grading do not disagree.
+
+---
+
+## X-23 — sixteen ledger records present as quantitative and carry no auditable quantity
+
+**The attack.** The ledger schema states that `figures.value` must be a JSON number or null. Sixteen records violate it by carrying a string: twelve from Agent G, mostly empty strings, and four from Agent F, categorical strings such as a regulatory acceptance status [E-9552]. These records pass a naive "has a figure" filter and fail any arithmetic use.
+
+**Consequence.** The corrected count of records carrying a genuine numeric figure is **556, not 572**. Every denominator computed over "records with a figure" is off by 16.
+
+**Verdict: 부분채택.** The defect is real and mechanical, and it does not change any substantive conclusion.
+
+**Required change to the report.** Where the report states ledger statistics it must use 556 as the count of numeric records and note the 16 non-conforming records. The 16 rows are flagged with a leading `SCHEMA DEFECT` string in `circular_audit.csv` so the correction is checkable by grep.
+
+---
+
+## X-24 — Agent I's TRL ratings are mostly disciplined, with one two-level inflation and one category error
+
+**The attack.** I rated 81 technologies with 22 at TRL 7 and 12 at TRL 8. I tested all twelve TRL 8 ratings against I's own published scale, in which TRL 8 requires "a formal decision behind it (a qualification, an approval, an in-force rule)" and TRL 7 is pivotal-stage use without regulatory acceptance.
+
+**T-072, minimal residual disease, rated TRL 8 — inflated by two levels, and internally inconsistent.** The stated basis is an advisory committee vote and a draft guidance. The advisory vote is non-binding; the January 2026 document is *draft*, with comments closing 23 March 2026; and no drug has been approved with MRD as the primary endpoint [E-9548]. Under I's own scale that is TRL 6, "accepted into a regulatory pathway". The inconsistency is decisive: I rates stride velocity at 7 rather than 8 *because* FDA has qualified zero sensor-derived endpoints, then rates MRD at 8 on a record that also contains zero qualifications and zero approvals. The entry is also mistitled — it calls MRD "a qualified intermediate endpoint" and MRD is not qualified. T-072 is ranked sixth in I's highest-expected-value table, so the error is load-bearing.
+
+**T-017, community and rural site network expansion, rated TRL 8 — category error.** The stated basis argues that over 80 percent of US research sites report staffing shortages and that "capacity is demonstrably below need" — an argument that the thing does *not* operate at the required scale — and then assigns the rating reserved for real-world operation with a formal decision behind it. The commercialisation window of 2026-2035 is also inconsistent with a TRL 8 rating. I's own B3 prose concedes the point, calling community site capacity "a labour problem (B13), not a technology". A labour shortage does not have a technology readiness level.
+
+**T-035, TfR blood-brain-barrier shuttles, rated TRL 8 — correct rating, wrong basis.** The basis cited is trontinemab's Phase 3 status, which under I's scale supports 7, not 8. The fact that does support 8 is one I missed: Denali's TfR1 transport-vehicle product tividenofusp alfa received FDA accelerated approval on 25 March 2026, which is a formal decision, and it sits in Agent G's evidence rather than I's.
+
+**T-026, cell-free enzymatic DNA, rated TRL 8 — confirmed.** I verified independently: FDA drug master file accepted 2022, first FDA IND clearance using dbDNA February 2023, first cell-free DNA GMP licence 2025, benchtop kit with New England Biolabs March 2026, first UK patient dosed July 2026 in a ten-participant Phase I [E-9547]. TRL 8 holds, and I correctly states why it is not 9. The defect is in the *ranking* justification, not the TRL: I places it fourth on expected value describing it as the shared input to every viral vector, mRNA and cell therapy product simultaneously, when its clinical footprint as of August 2026 is one ten-patient Phase I.
+
+**The other eight TRL 8 ratings — T-002, T-014, T-016, T-018, T-044, T-058, T-059, T-063 — survived the test**, each with a stated basis and an explicit reason for not being 9.
+
+**Verdict: 부분채택.** One inflation in twelve is a low rate; the catalogue is more disciplined than technology scouting normally is, and saying so is part of the finding.
+
+**Required change to the report.** Three specific edits, each checkable against the CSV: (1) **T-072 TRL must be changed from 8 to 6** and the technology renamed from "MRD as a qualified intermediate endpoint" to "MRD as a proposed intermediate endpoint (draft guidance stage)", with the note that zero approvals have used it [E-9548]; its position in the highest-expected-value table must be re-derived after the change. (2) **T-017 must either be removed from the technology catalogue or carry `trl` = not-applicable** with a note that it is a labour-capacity constraint rather than a technology, consistent with I's own B3 text. (3) **T-035's `trl_basis` must be amended** to cite the March 2026 accelerated approval of a TfR1 transport-vehicle product as the formal decision supporting TRL 8, rather than trontinemab's Phase 3 status, which supports only TRL 7.
+
+---
+
+## X-25 — the milestones are dated but only a third are falsifiable within three years, and seven have no numeric threshold
+
+**The attack.** The orchestrator's hypothesis is that some decisive milestones cannot be falsified in three years. I tested all 81.
+
+**What I found, in I's favour.** Every one of the 81 milestones carries an explicit "checkable by <year>" clause. That is unusually good practice and the catalogue deserves the credit.
+
+**What survives the attack.** The horizon distribution is 27 checkable by 2029, 26 by 2030, 23 by 2031, 4 by 2032 and 1 by 2033. **Only 27 of 81 (33 percent) are falsifiable inside three years**, so two thirds of the catalogue cannot be scored against reality before the 2030 horizon the mission asks about. Separately, seven milestones state an unquantified comparative threshold — "materially lower", "measurably", "materially better" — with no number attached: **T-016, T-017, T-024, T-034, T-059, T-070 and T-076**. A milestone that requires a judgement call about whether a change was "material" is adjudicable but not mechanically checkable, which is the standard the orchestrator set.
+
+**Verdict: 부분채택.**
+
+**Required change to the report.** Each of the seven named entries must have a numeric threshold attached to its `decisive_milestone` field — for example, T-076 must state the qualification count that constitutes "materially above its historical single-digit rate", and T-059 must state the share of royalty-financing volume in pre-approval assets that counts. The report must also state, wherever the technology roadmap is used, that only a third of the milestones resolve before 2030.
+
+---
+
+## X-26 — Agent I's "no credible technological solution for B1" is too strong: cis-pQTL Mendelian randomisation is a causal human instrument
+
+**The attack.** I's negative claim rests on one sentence: the only instrument that validates a target in humans is a clinical trial, so a technology that needs a trial to prove it can replace trials has not solved B1. That sentence excludes a class of instrument that exists and is scaling.
+
+**The evidence.** Cis-protein-quantitative-trait-locus Mendelian randomisation uses a genetic variant that alters the level of a specific protein as an instrumental variable, which is a randomised natural experiment *in humans* and does not require a trial. The resource base has industrialised: the UK Biobank Pharma Proteomics Project measured about 2,940 plasma proteins in 34,557 participants [E-9549], and proteome-wide MR screens against disease outcomes are now routine. This is precisely the "causal readout in humans" that I says does not exist.
+
+**What survives, in I's favour, and it is substantial.** I's own strongest evidence runs directly against the instrument: across 11,482 target-indication pairs, Mendelian randomisation significance on its own did **not** enrich for Phase II success, while GWAS support did. So the one empirical test of whether this instrument predicts clinical outcome returned a negative result for MR specifically. The instrument is causal in principle and, on the only available test, not yet predictive in practice — which is a different objection from I's, and a better one.
+
+**Verdict: 부분채택.**
+
+**Required change to the report.** I's sentence "the only instrument that validates a target in humans is a clinical trial" must be replaced by: *"Cis-pQTL Mendelian randomisation is a causal human instrument that does not require a trial, and its resource base has industrialised to about 2,940 proteins in 34,557 participants [E-9549]. It is nonetheless not yet a solution to B1, because the one published test of predictive performance found that MR significance alone did not enrich for Phase II success while GWAS support did. The objection to the instrument is empirical, not conceptual."* Proteome-wide MR should be added to the B1 technology list as a distinct entry from T-002, at a TRL no higher than 6.
+
+---
+
+## X-27 — Agent I's "no credible technological solution for B11" misses an in-force, at-scale payment instrument
+
+**The attack.** I concludes there is no instrument on any horizon that changes a payer's willingness to pay, and that its best candidate, the CMS outcomes-based model, addresses one disease and is unevaluated.
+
+**The evidence.** The NHS antimicrobial products subscription model is the first delinked payment model for medicines anywhere: piloted from July 2022, scaled in the May 2024 UK antimicrobial resistance action plan, with contracts tendered in August 2024 at an estimated GBP 1.9 billion over 16 years and an annual budget of about GBP 100 million, paying a fixed fee independent of volume against supply, stewardship and surveillance performance [E-9550]. It is in force, it is procuring, and it directly changes a payer's willingness to pay in the one domain where the terminal-value constraint is most acute — the same domain where finding X-03 established that discovery was genuinely rate-limiting [E-9503][E-9504]. I's catalogue has an advance-market-commitment entry at TRL 7 with a 2027-2034 window, which is a less mature description of a mechanism that has already been contracted.
+
+**Verdict: 부분채택.** I's structural point — that B11 is an institutional-design problem and not a laboratory-tool problem — survives and is correct. The blanket "no credible solution" does not.
+
+**Required change to the report.** Add the NHS antimicrobial subscription model as a B11 technology entry at TRL 8, with the August 2024 tender as the formal decision anchoring the rating and a decisive milestone of the form "the number of antibacterial candidates entering Phase 1 from companies holding or eligible for subscription contracts rises above its 2019-2023 baseline; checkable by 2030" [E-9550]. The sentence "there is no laboratory technology on any horizon that changes a payer's willingness to pay" must be narrowed to "no laboratory technology", with the delinked-payment counterexample stated in the same paragraph.
+
+---
+
+## X-28 — Agent I's "no credible technological solution for B13" survives
+
+**The attack.** I searched for a technology that produces experienced people faster than time does, on the theory that a false negative here would be consequential.
+
+**Why it fails.** Nothing was found. The candidate classes are training consortia, which operate at cohort sizes in the dozens against vacancies in the thousands; automation, which converts a technician shortage into a scarcer automation-engineer shortage; and AI copilots, whose most plausible failure mode is to erode the judgement that constitutes absorptive capacity. Independent corroboration from my own pass-1 collection points the same way: global clinical trial investigators fell about 9 percent and site coordinators about 28 percent over six years [E-9524], during a period of heavy investment in trial technology. The tooling improved and the workforce shrank.
+
+**Verdict: 기각 — I's negative claim on B13 is correct and should be retained verbatim.**
+
+**Required change to the report.** None. The report should carry I's B13 negative finding and may cite [E-9524] as independent corroboration from a non-overlapping source.
+
+---
+
+## X-29 — adjudication of the X-14 contradiction: two agents counted two different objects under one word
+
+**The question.** Agent C reports roughly eleven qualified biomarkers; Agent E reports a table of roughly two hundred accepted items. Which is right.
+
+**The finding: both numbers are right for their own object, and neither agent stated which object it was counting.**
+
+*Object 1 — biomarkers formally qualified through FDA's Biomarker Qualification Program.* The peer-reviewed analysis of the programme's own records gives **eight qualified as of 1 July 2025**, of which **seven were qualified before the 21st Century Cures Act of 2016** under the legacy process, with the most recent qualification granted in **2018**; 61 of 99 projects were accepted, 30 of those 61 (49 percent) never advanced past the letter of intent, median qualification-plan development ran 32 months and 47 months for surrogate endpoints, and **no project including a surrogate endpoint has ever achieved qualification** [E-9545]. Agent C's figure of eleven is 8 plus the three qualifications C separately records for November-December 2025, so **C's arithmetic is correct** and the three late-2025 qualifications represent a genuine break in a seven-year drought.
+
+*Object 2 — entries in FDA's Table of Surrogate Endpoints That Were the Basis of Drug Approval or Licensure.* The peer-reviewed analysis of the table establishes that it is organised as **disease-or-use by patient-population by surrogate-endpoint pairings**, with a column stating whether each pairing supports accelerated or traditional approval, and that it covers surrogate endpoints in use across more than 100 such combinations at its sixth update, growing past 200 entries by 2025 [E-9546][E-9528]. **These are pairings, not distinct markers**, and the set includes both validated and reasonably-likely surrogates.
+
+**Which usage was wrong.** Both, in different ways, and the errors are not symmetric.
+
+- **Agent C's usage is the substantive error.** C used the qualification count as the constraint statistic for B15 and ranked B15 fifth of sixteen on that basis. The qualification channel is the *portable, programme-independent* channel, and the new evidence shows industry has routed around it almost entirely: eight qualifications in the programme's history, seven of them pre-2016, and zero surrogate endpoints ever qualified [E-9545], against more than 200 disease-population-endpoint pairings that have actually supported approvals without qualification [E-9546]. C measured the throughput of a channel that is nearly unused and treated it as the scarcity governing endpoint availability.
+- **Agent E's usage carries a lesser, descriptive error.** E writes "over 200 surrogate markers". They are not 200 distinct markers; they are 200-plus disease-use-population pairings, and the count of distinct markers is materially smaller. E's substantive inference — that surrogate scarcity is not primarily a regulatory-listing problem — is correct and is strengthened by the new evidence.
+
+**Verdict: 채택.** This supersedes and refines X-14; the direction of X-14 stands and the mechanism is now established rather than inferred.
+
+**Required change to the report.** Three edits, all checkable. (1) The report must never use the bare word "qualified" for these objects. It must write **"formally qualified through the Biomarker Qualification Program (8 as of 1 July 2025, 11 including the three qualified in November-December 2025)"** and **"disease-use-population pairings in FDA's Table of Surrogate Endpoints (over 200)"**, and must state that the second set was reached without qualification. (2) The B15 constraint statistic must be changed from the qualification count to the pairing count, and **B15 moved from rank 5-equal to approximately rank 9-11**, per X-14. (3) The report must state the fact that most sharpens the picture: **no surrogate endpoint has ever completed formal qualification** [E-9545], so the qualification channel has never once delivered the object B15 is about, while the informal channel has delivered it more than 200 times.
+
+---
+
+## X-30 — B17 clinical development design: evidence base and matrix placement
+
+**Current-state metric.** In a series of 286 early-phase oncology protocols activated over 2021-2023 at one large research institute — 268 unique, 215 first-in-human, 179 sponsors — backfill cohorts were specified in 73 percent of protocols [E-9539]. On the dose limb, 48 percent of Phase III patients on molecularly targeted agents required dose modification at the dose and schedule recommended by Phase I, and post-marketing dose changes were required for six named marketed oncology drugs [E-9531].
+
+**Trend.** Improving, and attributable to a specific regulatory intervention. Backfill-cohort specification rose from 60 percent in 2021 to 77 percent across 2022-2024, and FDA's 2024 final dose-optimisation guidance recommends carrying two dose levels into Phase II with a randomised dose comparison before or within the registrational trial [E-9540]. This is the only bottleneck in the catalogue whose trend can be attributed to a dated policy act.
+
+**Direct evidence that it binds — that improving it raises output, not merely that it is done badly.** Two independent limbs, and one disciplining counter-case.
+- *Population definition.* Across 17,368 development trajectories spanning 2000-2015, programmes using biomarker-guided patient selection succeeded at 10.7 percent against 1.6 percent without [E-9541]. This is a design decision taken before the pivotal trial, not a property of the molecule. Two further datasets already in the ledger agree on the direction at a smaller magnitude — biomarker-selected 15.9 against 7.6 percent, and 10.3 against 5.5 percent — so the effect is replicated across three independent samples at roughly two-fold, with the 6.7-fold figure the outlier.
+- *Endpoint choice.* FDA's January 2026 draft guidance would allow MRD negativity and complete response as primary endpoints supporting accelerated approval in myeloma, following a 12-0 advisory vote [E-9542]. Changing the endpoint changes what a trial must demonstrate and therefore whether it is feasible at all.
+- *The counter-case, which bounds the elasticity.* Sotorasib's FDA-required randomised comparison of 960 mg against 240 mg in 209 patients found the higher dose numerically better on response (32.7 against 24.8 percent) and on duration of response; the requirement was deemed fulfilled in December 2023 and the original label was retained [E-9543]. A rigorous design exercise can return no gain, and the elasticity band must not be set as though every design review finds an error.
+
+**Verdict: 채택 — B17 meets the same evidentiary standard as the existing sixteen and can enter the matrix.**
+
+**Matrix fields.**
+- **Axes:** **P primary, C secondary.** It changes whether a programme succeeds, and secondarily what it costs, by moving spend out of pivotal trials that were designed to fail. It is not a T-axis factor: Project Optimus-compliant designs are explicitly longer and more expensive per programme.
+- **Elasticity:** **2 – 4 – 7** percent change in annual approvals per 10 percent improvement [E-9544], on Agent C's probability-channel formula with PoS = 0.12, f = 0.15-0.25 and θ = 0.20-0.40. θ is set above B1's because design choices are observable and controllable before the trial, unlike target validity; f is held below B1's to avoid double-counting target-driven efficacy failure.
+- **Modality variance:** Hardest on **oncology small molecules and ADCs**, where the maximum-tolerated-dose paradigm was the default and payload therapeutic windows are narrow. Hard on **cell and gene therapy**, where dose is a cell or vector-genome count that cannot be titrated after administration and the population is defined by a genotype fixed at enrolment. Moderate on **antibodies**, where saturation pharmacology makes dose selection more forgiving. Least binding on **vaccines**, where dose and endpoint conventions are standardised and immunogenicity bridging is accepted. **RNA therapeutics** sit between antibodies and small molecules, with the population limb dominating in monogenic indications.
+- **Rank:** **4th of seventeen**, between B8 (elasticity 6) and B2 (elasticity 4), and above B2 on tractability because it requires only a sponsor decision plus an existing regulatory framework rather than a new scientific method. Note the interaction that must be stated wherever the rank is used: B17's population limb overlaps B4, and its elasticity is not additive with B1, B4 or B8.
+
+**Required change to the report.** Add B17 to the bottleneck catalogue and to the consolidated ranking with the four fields above, and state explicitly that it was surfaced by the red team and was absent from B1-B16. The ranking table must carry the non-additivity note.
+
+---
+
+## Pass-2 summary table
+
+| ID | Attack | Target | Verdict |
+|---|---|---|---|
+| X-21 | Anchor faithfulness: 10-15 year duration anchor matches no measurement; three of four anchors unfaithful as repeated | A, B, C, all | **채택** |
+| X-22 | 232 of 572 quantitative records unreachable to origin in three hops; 157 unverifiable, 75 circular | all | **채택** |
+| X-23 | 16 records violate the ledger schema and carry no auditable quantity | F, G | 부분채택 |
+| X-24 | TRL inflation: T-072 MRD rated 8, is 6 by I's own scale; T-017 is a labour problem with a TRL | I | 부분채택 |
+| X-25 | Only 27 of 81 milestones checkable by 2029; 7 have no numeric threshold | I | 부분채택 |
+| X-26 | B1 negative claim too strong: cis-pQTL MR is a causal human instrument | I | 부분채택 |
+| X-27 | B11 negative claim misses the in-force NHS antimicrobial subscription model | I | 부분채택 |
+| X-28 | B13 negative claim: searched for a counter and found none | I | 기각 |
+| X-29 | X-14 adjudicated: 8 formally qualified vs 200+ disease-population pairings; C's usage is the error | C, E | **채택** |
+| X-30 | B17 evidence base and matrix placement: axes P;C, elasticity 2-4-7, rank 4 of 17 | C | **채택** |
+
+**Pass 2: 채택 4, 부분채택 5, 기각 1. Cumulative: 채택 7, 부분채택 17, 기각 6.**

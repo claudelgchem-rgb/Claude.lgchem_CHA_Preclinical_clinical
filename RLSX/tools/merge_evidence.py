@@ -23,7 +23,7 @@ SCHEMA_DEFAULTS = {
     "collected_by": "", "graded_by": None, "confidence": None, "grade_reason": [],
     "cross_refs": [], "provenance_hops": [], "circular_risk": False, "derivation": "",
 }
-FIG_DEFAULTS = {"metric": "", "value": None, "unit": "", "denominator_def": "", "sample": "", "coc_included": None}
+FIG_DEFAULTS = {"metric": "", "value": None, "unit": "", "denominator_def": "", "sample": "", "coc_included": None, "value_note": ""}
 
 
 def main():
@@ -58,6 +58,23 @@ def main():
                 fixed = dict(FIG_DEFAULTS)
                 if isinstance(figs, dict):
                     fixed.update(figs)
+                # Schema repair (red-team finding X-23): figures.value must be a
+                # JSON number or null. Some collectors put a categorical string or
+                # an empty string there. Coerce to null and preserve the original
+                # in value_note so nothing is silently discarded.
+                v = fixed.get("value")
+                if v is not None and not isinstance(v, (int, float)):
+                    txt = str(v).strip()
+                    try:
+                        fixed["value"] = float(txt) if txt else None
+                    except ValueError:
+                        fixed["value"] = None
+                        if txt:
+                            fixed["value_note"] = txt
+                            problems.append("COERCE %s:%d %s figures.value %r -> null"
+                                            % (agent, n, rid, txt[:40]))
+                if isinstance(fixed.get("value"), bool):
+                    fixed["value"] = None
                 merged["figures"] = fixed
                 for k in ("grade_reason", "cross_refs", "provenance_hops"):
                     if not isinstance(merged.get(k), list):
