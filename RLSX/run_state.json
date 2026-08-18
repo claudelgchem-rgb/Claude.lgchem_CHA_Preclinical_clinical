@@ -17,9 +17,9 @@
     "STEP0_bootstrap": "DONE",
     "STEP1_batch1_ABC": "DONE",
     "STEP1_batch2_EFG": "RUNNING",
-    "STEP1_batch3_HI": "PENDING",
+    "STEP1_batch3_HI": "DONE",
     "STEP2_model_D": "PENDING",
-    "STEP3_merge_evidence": "PENDING",
+    "STEP3_merge_evidence": "PARTIAL(679)",
     "STEP4_grading_R": "PENDING",
     "STEP5_redteam_X": "PENDING",
     "STEP6_reflect_redteam": "PENDING",
@@ -36,8 +36,8 @@
     "F": "DONE",
     "G": "DONE",
     "H": "DONE",
-    "I": "RUNNING",
-    "R": "PENDING",
+    "I": "DONE",
+    "R": "RUNNING_PASS1",
     "X": "RUNNING_PASS1",
     "W": "PENDING"
   },
@@ -120,6 +120,16 @@
       "noise_ceiling": "R2_max = 1 - sigma_e^2/sigma_y^2 -> 0.54-0.88 for public pIC50; hard RMSE floor 0.68 log (~4.8-fold potency). Robots cannot reduce sigma_e",
       "melloddy": "2.6B private datapoints = 123x ChEMBL bought only ~4% AUC-PR improvement - negative result for data-quantity hypothesis",
       "ranking": "split B9 (B9b predictive-assay throughput ~4-6) and B10 (B10b label-noise ~7-9, B10a quantity 13-14)"
+    },
+    "I": {
+      "evidence": "E-8001..E-8106",
+      "records": 106,
+      "unresolved": 10,
+      "techs": 81,
+      "no_solution": "B1, B11, B13 have NO credible technological solution (+ partially B4)",
+      "b1_detail": "rank-1 constraint has exactly ONE mature tech (human-genetics-anchored target selection, TRL8) which predates AI; all else TRL 3-6",
+      "sharp_facts": "RCT: AI prescreening improves accuracy with NO efficiency gain (n=355); 1,021 wearable trials and ZERO FDA-qualified sensor endpoints; MR significance does not enrich Ph2 success across 11,482 target-indication pairs",
+      "dependency": "B9->B10->B1 chain; in vivo CAR-T converts B6 into B7; B11<->B15 genuine loop"
     }
   },
   "pending_followups": []
