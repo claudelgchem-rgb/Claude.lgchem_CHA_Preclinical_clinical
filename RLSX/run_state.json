@@ -35,10 +35,10 @@
     "E": "DONE",
     "F": "DONE",
     "G": "DONE",
-    "H": "RUNNING",
+    "H": "DONE",
     "I": "RUNNING",
     "R": "PENDING",
-    "X": "PENDING",
+    "X": "RUNNING_PASS1",
     "W": "PENDING"
   },
   "tools_ready": [
@@ -111,6 +111,15 @@
       "scaleup_verdict": "capacity does NOT scale. IND +4.96%/yr vs phase III patient throughput -0.92%/yr, investigators -3.97%/yr. Gap 5.88pp/yr",
       "rebuts_C": "raw-pool slack inference inverted: 55.6% no-trial-available IS the matched-capacity measurement. AI prescreen 98,348 charts -> 117 enrollments (0.12%)",
       "b3_b4": "B3 rank7 ok at todays flow but top-3 under constraint shift; B4 -> ~8"
+    },
+    "H": {
+      "evidence": "E-7001..E-7108",
+      "records": 74,
+      "unresolved": 5,
+      "verdict": "assay PREDICTIVE VALIDITY is binding, not throughput. validity 7-15x (central 12x) more elastic than throughput",
+      "noise_ceiling": "R2_max = 1 - sigma_e^2/sigma_y^2 -> 0.54-0.88 for public pIC50; hard RMSE floor 0.68 log (~4.8-fold potency). Robots cannot reduce sigma_e",
+      "melloddy": "2.6B private datapoints = 123x ChEMBL bought only ~4% AUC-PR improvement - negative result for data-quantity hypothesis",
+      "ranking": "split B9 (B9b predictive-assay throughput ~4-6) and B10 (B10b label-noise ~7-9, B10a quantity 13-14)"
     }
   },
   "pending_followups": []
