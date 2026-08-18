@@ -20,7 +20,7 @@
     "STEP1_batch3_HI": "DONE",
     "STEP2_model_D": "DONE",
     "STEP3_merge_evidence": "PARTIAL(679)",
-    "STEP4_grading_R": "PENDING",
+    "STEP4_grading_R": "DONE (750/774; 24 new I records pending pass 3)",
     "STEP5_redteam_X": "DONE",
     "STEP6_reflect_redteam": "PARTIAL - C done, I scouting B17",
     "STEP7_report_W": "PENDING",
@@ -37,7 +37,7 @@
     "G": "DONE",
     "H": "DONE",
     "I": "RUNNING_FOLLOWUP",
-    "R": "RUNNING_PASS1",
+    "R": "DONE_PASS1_2",
     "X": "DONE",
     "W": "PENDING"
   },
@@ -180,6 +180,62 @@
       "nonadditivity": "naive sum +20.76% vs modelled joint +14.42%; 30.5% of naive gain is not real",
       "calibration": "reproduces Paul 2010 to 0.00-0.02%; covers 57% of observed IND flow; irreconcilable with Sertkaya (+217%) - reported not fixed",
       "unsupported_assumptions": 15
+    },
+    "R": {
+      "graded": 750,
+      "distribution": {
+        "상": 5,
+        "중": 430,
+        "하": 315
+      },
+      "pct_low": 42,
+      "per_agent_pct_low": {
+        "E": 16,
+        "A": 22,
+        "F": 23,
+        "H": 38,
+        "I": 42,
+        "X": 44,
+        "C": 55,
+        "G": 56,
+        "B": 64,
+        "D": 69
+      },
+      "codes": {
+        "S1": 466,
+        "S2": 225,
+        "S7": 176,
+        "S4": 122,
+        "S3": 121,
+        "S5": 43,
+        "S6": 16
+      },
+      "reaccess": "127 attempted (76 refetched, 51 blocked); 623 metadata-graded conservatively",
+      "force_low_overridden": 25,
+      "best_triangulated": "discovery Amdahl ceiling - 3 agents, 3 datasets, 21-41%/23-37%/33.3% elapsed time, arithmetic verified",
+      "weakest_loadbearing": [
+        "D scenario family incl. discovery->0 => zero approvals (하, unsupported budget identity)",
+        "G manufacturing saturation ordering (하, invented lead-time->utilisation rule)",
+        "B11 capital elasticity (하, all six inputs Low)",
+        "final 18-row bottleneck ranking E-3125 (하)"
+      ],
+      "conflicts_closed": {
+        "AI Ph1 denominator": "21/24 IS disclosed - C right, B wrong",
+        "FDA AI tools qualified": "1 not 0 - E right, C wrong",
+        "biomarkers qualified": "8 not 11 - X right, C wrong",
+        "patient pool slack": "F right, C conceded",
+        "genetic support": "2.6x not 2x"
+      },
+      "conflicts_open": [
+        "manufacturing slack vs scarcity - SLACK SIDE BETTER EVIDENCED",
+        "CAR-T failure rate 3.87%-25%",
+        "AI clinical-molecule counts 29/75/117/175",
+        "F internal enrolment direction E-5001 vs E-5026",
+        "D model vs Sertkaya +217% unreconcilable"
+      ],
+      "figures_wrong": 12,
+      "remove_entirely": "the 90-95% animal-model translation claim - denominator misapplied, verified at source",
+      "reader_guidance": "constraint model and bottleneck ranking are LOW - present as structured argument about mechanism, never as measurements of elasticity"
     }
   },
   "pending_followups": [],
