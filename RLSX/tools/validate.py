@@ -311,10 +311,13 @@ def g8(records):
         fail("G8", "RLSX_evidence.html missing")
         return
     html = read(hpath)
-    for bad in ("http://cdn", "https://cdn", "cdnjs", "unpkg.com", "jsdelivr", "fonts.googleapis", "fonts.gstatic"):
-        if bad in html:
-            fail("G8", "RLSX_evidence.html references external resource %r (single-file requirement)" % bad)
     m = re.search(r'<script[^>]*type=["\']application/json["\'][^>]*>(.*?)</script>', html, re.S)
+    # Source URLs inside the embedded ledger are data, not page dependencies.
+    # Scan the markup only, or every evidence record hosted on a CDN trips this.
+    markup = (html[:m.start()] + html[m.end():]) if m else html
+    for bad in ("http://cdn", "https://cdn", "cdnjs", "unpkg.com", "jsdelivr", "fonts.googleapis", "fonts.gstatic"):
+        if bad in markup:
+            fail("G8", "RLSX_evidence.html references external resource %r (single-file requirement)" % bad)
     if not m:
         fail("G8", "RLSX_evidence.html has no <script type=\"application/json\"> embedded ledger")
         return

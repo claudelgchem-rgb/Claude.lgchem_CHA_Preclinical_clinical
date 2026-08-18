@@ -16,16 +16,16 @@
   "steps": {
     "STEP0_bootstrap": "DONE",
     "STEP1_batch1_ABC": "DONE",
-    "STEP1_batch2_EFG": "RUNNING",
+    "STEP1_batch2_EFG": "DONE",
     "STEP1_batch3_HI": "DONE",
     "STEP2_model_D": "DONE",
-    "STEP3_merge_evidence": "PARTIAL(679)",
-    "STEP4_grading_R": "DONE (774/774)",
+    "STEP3_merge_evidence": "DONE",
+    "STEP4_grading_R": "DONE",
     "STEP5_redteam_X": "DONE",
     "STEP6_reflect_redteam": "DONE",
-    "STEP7_report_W": "RUNNING",
-    "STEP8_validate": "PENDING",
-    "STEP9_commit": "PENDING"
+    "STEP7_report_W": "DONE",
+    "STEP8_validate": "DONE - exit 0, all gates G1-G9 pass",
+    "STEP9_commit": "DONE"
   },
   "agents": {
     "A": "DONE",
@@ -39,7 +39,7 @@
     "I": "DONE",
     "R": "DONE",
     "X": "DONE",
-    "W": "RUNNING"
+    "W": "DONE"
   },
   "tools_ready": [
     "RLSX/tools/validate.py",
@@ -260,5 +260,31 @@
   "pending_followups": [],
   "orchestrator_fixes": [
     "X-23 schema repair: figures.value coerced to numeric-or-null, original preserved in figures.value_note"
-  ]
+  ],
+  "final": {
+    "evidence_records": 774,
+    "graded": 774,
+    "distribution": {
+      "상": 7,
+      "중": 449,
+      "하": 318
+    },
+    "pct_low": 41.1,
+    "unresolved": 87,
+    "technologies": 93,
+    "bottlenecks": "B1-B17 + 10 sub-rows",
+    "redteam": {
+      "total": 30,
+      "adopted": 7,
+      "partial": 17,
+      "rejected": 6
+    },
+    "circular_audit": {
+      "clean": 340,
+      "unverifiable": 157,
+      "circular": 75
+    },
+    "report_citations": 306,
+    "validate": "exit 0"
+  }
 }

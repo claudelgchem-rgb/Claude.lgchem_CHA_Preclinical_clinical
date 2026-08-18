@@ -76,6 +76,18 @@ def main():
                 if isinstance(fixed.get("value"), bool):
                     fixed["value"] = None
                 merged["figures"] = fixed
+                # A derived record's provenance IS its input evidence chain. The
+                # derivation field already names those inputs, so promote them
+                # into provenance_hops rather than leaving the chain implicit.
+                if merged.get("type") == "derived" and not merged.get("provenance_hops"):
+                    inputs = re.findall(r"E-\d{4}", merged.get("derivation") or "")
+                    seen_in = []
+                    for ev in inputs:
+                        if ev != rid and ev not in seen_in:
+                            seen_in.append(ev)
+                    if seen_in:
+                        merged["provenance_hops"] = ["derived-from:" + ev for ev in seen_in]
+
                 for k in ("grade_reason", "cross_refs", "provenance_hops"):
                     if not isinstance(merged.get(k), list):
                         merged[k] = [] if merged.get(k) in (None, "") else [merged[k]]
