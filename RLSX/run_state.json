@@ -30,9 +30,9 @@
   "agents": {
     "A": "RUNNING",
     "B": "RUNNING",
-    "C": "RUNNING",
+    "C": "DONE",
     "D": "PENDING",
-    "E": "PENDING",
+    "E": "RUNNING",
     "F": "PENDING",
     "G": "PENDING",
     "H": "PENDING",
@@ -44,5 +44,23 @@
   "tools_ready": [
     "RLSX/tools/validate.py",
     "RLSX/tools/merge_evidence.py"
-  ]
+  ],
+  "results": {
+    "C": {
+      "evidence": "E-3001..E-3098",
+      "records": 96,
+      "unresolved": 4,
+      "new_bottlenecks": [
+        "B15 endpoint/biomarker qualification",
+        "B16 protocol complexity"
+      ],
+      "top5": [
+        "B1",
+        "B8",
+        "B11",
+        "B2",
+        "B7/B15"
+      ]
+    }
+  }
 }
