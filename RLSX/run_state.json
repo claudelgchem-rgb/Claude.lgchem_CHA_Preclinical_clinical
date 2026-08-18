@@ -1,0 +1,48 @@
+{
+  "run_id": "rlsx-2026-08-18",
+  "started": "2026-08-18",
+  "orchestrator": "O",
+  "id_blocks": {
+    "A": "E-1xxx",
+    "B": "E-2xxx",
+    "C": "E-3xxx",
+    "E": "E-4xxx",
+    "F": "E-5xxx",
+    "G": "E-6xxx",
+    "H": "E-7xxx",
+    "I": "E-8xxx",
+    "D": "E-9xxx"
+  },
+  "steps": {
+    "STEP0_bootstrap": "DONE",
+    "STEP1_batch1_ABC": "RUNNING",
+    "STEP1_batch2_EFG": "PENDING",
+    "STEP1_batch3_HI": "PENDING",
+    "STEP2_model_D": "PENDING",
+    "STEP3_merge_evidence": "PENDING",
+    "STEP4_grading_R": "PENDING",
+    "STEP5_redteam_X": "PENDING",
+    "STEP6_reflect_redteam": "PENDING",
+    "STEP7_report_W": "PENDING",
+    "STEP8_validate": "PENDING",
+    "STEP9_commit": "PENDING"
+  },
+  "agents": {
+    "A": "RUNNING",
+    "B": "RUNNING",
+    "C": "RUNNING",
+    "D": "PENDING",
+    "E": "PENDING",
+    "F": "PENDING",
+    "G": "PENDING",
+    "H": "PENDING",
+    "I": "PENDING",
+    "R": "PENDING",
+    "X": "PENDING",
+    "W": "PENDING"
+  },
+  "tools_ready": [
+    "RLSX/tools/validate.py",
+    "RLSX/tools/merge_evidence.py"
+  ]
+}
