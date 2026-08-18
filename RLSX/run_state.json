@@ -32,8 +32,8 @@
     "B": "DONE",
     "C": "DONE",
     "D": "PENDING",
-    "E": "DONE",
-    "F": "RUNNING",
+    "E": "TOPUP_RUNNING",
+    "F": "DONE",
     "G": "DONE",
     "H": "RUNNING",
     "I": "RUNNING",
@@ -94,6 +94,15 @@
       "delivery_verdict": "BBB=engineering (proven twice); solid tumour=genuine biophysical limit (0.01 %ID/g human, 0-fold decadal improvement)",
       "saturation": "plasmid DNA 1.06x binds first < fill-finish 1.12x < autologous CAR-T/ADC 1.19x < AAV 1.5-1.9x < mAb 4.8x < small molecule 10x",
       "crl": "74% of 202 published CRLs cited quality/manufacturing but all were later approved; delays not stops"
+    },
+    "F": {
+      "evidence": "E-5001..E-5076",
+      "records": 69,
+      "unresolved": 4,
+      "amdahl_b3": "enrollment=60.8% of phase III elapsed; perfect recruitment removes only 15-36% of a 10.5yr programme, cannot raise PoS",
+      "scaleup_verdict": "capacity does NOT scale. IND +4.96%/yr vs phase III patient throughput -0.92%/yr, investigators -3.97%/yr. Gap 5.88pp/yr",
+      "rebuts_C": "raw-pool slack inference inverted: 55.6% no-trial-available IS the matched-capacity measurement. AI prescreen 98,348 charts -> 117 enrollments (0.12%)",
+      "b3_b4": "B3 rank7 ok at todays flow but top-3 under constraint shift; B4 -> ~8"
     }
   },
   "pending_followups": [
