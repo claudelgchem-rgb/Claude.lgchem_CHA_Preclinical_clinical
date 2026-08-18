@@ -31,8 +31,8 @@
     "A": "DONE",
     "B": "DONE",
     "C": "DONE",
-    "D": "PENDING",
-    "E": "TOPUP_RUNNING",
+    "D": "RUNNING",
+    "E": "DONE",
     "F": "DONE",
     "G": "DONE",
     "H": "RUNNING",
@@ -84,7 +84,15 @@
       "unresolved": 6,
       "b5_verdict": "C 14th/16 survives; place 12th-14th. Split: review capacity 15-16th, evidence standards 8-10th",
       "key": "30 of 49 mechanisms are relievers vs 6 constraints; FDAMA 3.0 NOT law as of 2026-08-18; ISTAND 1 qualified tool of 8 accepted",
-      "scaleup": "10x IND scenario hits the IND gate first, not the approval gate"
+      "scaleup": "10x IND scenario hits the IND gate first, not the approval gate",
+      "topup": {
+        "evidence": "E-4059..E-4085",
+        "rows": 80,
+        "regionalization": "net-reliever verdict survives US/CN/JP/KR but NOT EU (5R/6mixed/4C)",
+        "eu_gates": "mandatory JCA since 2025-01-12 (no US analogue); 0% of EMA 2024 NAS used accelerated assessment vs FDA 59%",
+        "japan": "cleanest B5 natural experiment - fastest review (290d) coexists with 86 US/EU-approved drugs never filed in Japan",
+        "china": "CDE IND intake 1.66x US (3,073 vs 1,855 in 2024) - flat-intake finding is US-specific"
+      }
     },
     "G": {
       "evidence": "E-6001..E-6076",
@@ -105,7 +113,5 @@
       "b3_b4": "B3 rank7 ok at todays flow but top-3 under constraint shift; B4 -> ~8"
     }
   },
-  "pending_followups": [
-    "E: region top-up for EU/CN/JP-KR (M6 thin: KR=1 row of 49)"
-  ]
+  "pending_followups": []
 }

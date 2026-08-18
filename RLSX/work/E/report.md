@@ -280,3 +280,113 @@ None of these six changes any verdict in §1–§8. U-03 and U-06 would sharpen 
 | 5. CGT routes | reliever in design, neutral in measured effect | 1 live platform holder [E-4044], 6 START slots [E-4045], output below FDA's own projection [E-4050] |
 
 **B5 overall: 12th–14th of 16 on improvement elasticity. Review capacity alone belongs 15th–16th; evidence standards alone would belong 8th–10th.**
+
+---
+
+# Regional top-up (EU / CN / JP-KR)
+
+Added in a second pass to satisfy M6 region decomposition. Evidence IDs **E-4059 – E-4085**; landscape CSV extended from 49 to **80 rows** (US 33, EU 16, CN 10, JP 10, KR 8, ICH 2, US+EU 1). 18 further WebSearch/WebFetch calls. The CIRS R&D Briefing 101 PDF could not be parsed by the fetch tool, so its text was extracted locally with Python's `zlib`/`re` (standard library only) and the figures below are read from that extraction.
+
+## R.1 EU / EMA
+
+**Review clock.** The centralised procedure runs up to 210 *active* assessment days, interrupted by one or two clock-stops — typically three months then one month — so elapsed assessment usually runs about a year; accelerated assessment cuts the active clock to 150 days but does not touch clock-stops, which are the larger term [E-4060]. CIRS puts EMA's 2024 median approval time (submission to approval, including European Commission decision time) at **430 days** — second slowest of six agencies, against FDA 356, PMDA 290, Health Canada 363, TGA 369, Swissmedic 444 [E-4061].
+
+**The finding that reverses the EU picture.** In 2024, EMA approved **zero** new active substances through accelerated assessment (0%), against FDA 59%, PMDA 34%, Health Canada 29%, Swissmedic 22%, TGA 9%. Four applicants requested it: one withdrew, two were refused as not of major public health interest, one reverted to the standard timetable [E-4062]. Europe's headline acceleration instrument was, in the most recent full year measured, not used at all.
+
+**PRIME.** Over 800 eligibility requests since Mar 2016, roughly 200 granted (~25%); 2024 was 15 grants from 58 requests (27%). SMEs succeed at 22.4% (75/335) versus 34.9% (96/275) for other applicants [E-4063]. [INFER] A reliever that is materially harder for small sponsors to enter is a distributional constraint sitting inside a reliever — and small sponsors are precisely the population most likely to be running AI-derived programmes.
+
+**Conditional marketing authorisation.** 80 CMAs granted from 107 applications 2006–Nov 2022 (~75%); use rose from ~30 in the first decade to 44 in the following six years; 11 of 30 first-decade CMAs converted to standard within four years; 4 of 71 non-vaccine CMAs were later withdrawn (Zalmoxis, Zynteglo, Lartruvo, Arzerra) [E-4064].
+
+**The new gate with no US analogue.** The EU HTA Regulation (2021/2282) began applying 12 Jan 2025 and makes Joint Clinical Assessment **mandatory** for new oncology medicines and ATMPs. Year one supported 10 JCAs and 7 joint scientific consultations, with scope expanding in 2026; the reported burden is scoping PICO questions across divergent member-state standards of care [E-4059]. This is a genuine addition of regulatory work, not a removal.
+
+**Pharma legislation revision.** Political agreement 11 Dec 2025, Coreper 6 Mar 2026, SANT committee 18 Mar 2026; plenary and Council adoption expected autumn 2026 and application around autumn 2028. Regulatory data protection stays at 8 years, +1 with an exclusivity voucher [E-4067].
+
+**Binding 3Rs.** Directive 2010/63/EU Article 4 (implemented per Article 13) obliges member states to use a scientifically satisfactory non-animal method instead of a procedure "wherever possible" [E-4068]. It is the EU's only *binding* replacement instrument — stronger on paper than FDAMA 2.0, and equally non-self-executing because of the conditional wording.
+
+**AI.** CHMP issued its first AI qualification opinion (AIM-NASH) in **March 2025** — roughly nine months before FDA qualified the equivalent tool in Dec 2025 [E-4065]. Governance moved to the Network Data Steering Group with 2025–2028 and 2026–2028 workplans and an AI Observatory reporting in 2025 and Jun 2026; guidance on AI in clinical development and pharmacovigilance is planned, and **zero binding EU AI guidelines for medicines existed as of Aug 2026** [E-4066].
+
+**EU verdict: mixed, with the only two hard constraint additions in the dataset.** 5 reliever / 6 mixed / 4 constraint / 1 neutral across 16 rows.
+
+## R.2 CN / NMPA-CDE
+
+**Intake now exceeds the US.** CDE's 2024 Drug Review Report (released 18 Mar 2025) records 15,318 registration applications accepted for technical evaluation — 2,407 TCM, 10,464 chemical, 2,447 biological — including **3,073 INDs** and 549 NDAs [E-4069]. Derived: China's IND intake is **1.66×** CDER's 1,855 new INDs in the same year [E-4070]. Caveat stated in the derivation: the two counts are not identically defined, so this is an order-of-magnitude comparison.
+
+**Speed.** Announcement [2025] No.86, effective 9 Sep 2025, gives eligible Class I innovative drugs a **30-working-day** affirmative IND approval with 20-working-day notification and a 60-day cap, converting a 2024 pilot into standing policy [E-4043]. Four statutory expedited pathways sit under the 2020 Drug Registration Regulation: breakthrough, conditional approval, priority review, special approval [E-4073].
+
+**Output.** 289 NDAs approved in 2025, ~120 new drugs, 61 first-in-the-world approvals, 48 first-in-class [E-4042]. In CGT, 2025 produced two world-firsts: satri-cel, the first CAR-T approved anywhere for a **solid tumour**, and pCAR-19B, the first CAR-T approved specifically for paediatric/adolescent r/r B-ALL [E-4071].
+
+**Institutional trajectory.** ICH regulatory member since 2017, Management Committee 2018 and re-elected 2021, following the 2015 State Council reform; NMPA publicly acknowledges reviewer capacity as a bottleneck and is recruiting [E-4072]. NAM policy runs through ICH transposition rather than a national qualification programme, and no dedicated AI-evidence instrument was located [E-4072].
+
+**CN verdict: strong reliever.** 8 reliever / 1 mixed / 1 neutral across 10 rows, and the only region where both intake and output are growing fast.
+
+## R.3 JP / PMDA
+
+**Fastest of the six.** PMDA's 2024 median approval time was **290 days** (267 to end of scientific assessment), the shortest of the six major agencies, and it issued 148 approval decisions in FY2024-25, of which 66 were new active ingredients [E-4075]. 34% of 2024 NAS approvals used an expedited pathway, and PMDA had the **smallest expedited-versus-standard gap** of the six at 77 days, against 122 at FDA and 210 at Swissmedic [E-4076]. [INFER] Japan's standard route is already almost as fast as its expedited route, so designations buy less in Japan than anywhere else — the marginal value of an accelerated pathway is inversely related to baseline speed.
+
+**Yet Japanese output is constrained — by sponsors, not the regulator.** As of Mar 2023, **86** drugs approved in the US or EU had no development programme in Japan at all, 60.1% of the unapproved set: 48 (56%) venture-developed, 40 (47%) orphan, 32 (37%) paediatric [E-4077]. [INFER] This is the cleanest natural experiment available on B5 anywhere in this report. Japan has the fastest review in the world and simultaneously the worst filing shortfall among major markets. If review speed were the rate-limiting step, that combination could not exist. It is direct evidence that the constraint on national output sits with sponsors' market and development decisions, and that a regulator cannot relieve it by reviewing faster.
+
+**The accelerated-route outcome record.** Two of the five products approved under the conditional and time-limited scheme — HeartSheet and Collategene — were denied full approval and **withdrawn in 2024**; HeartSheet's confirmatory trial gave a hazard ratio of 1.9 for cardiac death over eight years, directionally worse than control, and AnGes withdrew Collategene's full-approval application on 24 Jun 2024 after failing to reproduce trial results in post-market surveillance. Stemirac has been in a publicly funded confirmatory trial since Dec 2018; Delytact has been conditional since Jun 2021 [E-4078]. [INFER] Measured against durable output, this scheme's net contribution is at or below zero: it added approvals and then removed them. That is a material correction to any assumption that accelerated routes mechanically raise system output — and it is the empirical case that FDA's plausible-mechanism framework [E-4047] will be tested against.
+
+**JP verdict: reliever on time, constraint on evidence durability and on filing volume.** 6 reliever / 1 mixed / 2 constraint / 1 neutral across 10 rows.
+
+## R.4 KR / MFDS
+
+**Timelines.** GIFT (Sep 2022, PAA Art.35-4 and Advanced Regenerative Bio Act Art.36) cuts assessment from 120 to 90 working days with rolling review and post-approval submission of certain non-safety data; 34 of 56 designated products were approved as of 8 Feb 2024 — a **61% designation-to-approval conversion** [E-4041]. The 2025 reform package (dedicated review teams, expanded face-to-face consultation, rolling review, parallel GMP inspection) targets cutting the total approval timeline from ~420 to 295 days and biosimilar review from up to 420 to 240 days; this is an announced target, not a measured outcome [E-4080].
+
+**Volume.** MFDS approved 50 IND clinical trial applications in August 2025 alone — 38 (76%) global, 12 (24%) local — implying several hundred annually in a market a fraction of the US size [E-4084].
+
+**Regenerative medicine.** The amended Advanced Regenerative Bio Act took effect **21 Feb 2025**: it expands ARM clinical research to all indications, removes the previous restriction to severe/rare/incurable disease, and creates a new legal category — advanced regenerative medicine treatment (ARMT) — delivered outside clinical trials by designated providers, with added pricing transparency and adverse-reaction monitoring [E-4081]. ARMT shortens time to access relative to the marketing-approval track [E-4082].
+
+**AI.** MFDS issued Guidelines for Approval and Review of Generative AI Medical Devices on 24 Jan 2025 and has announced that it will set standards for drugs and devices developed using AI; as of Aug 2026 the binding instrument covers **devices only** [E-4083].
+
+**KR verdict: reliever, with the usual access-versus-evidence trade-off in the ARMT route.** 5 reliever / 3 mixed across 8 rows.
+
+## R.5 The bypass-route convergence
+
+Three of the four non-US regions now operate a route that delivers cell and gene therapies to patients *without* full centralised marketing authorisation, and each has a measurable evidence cost:
+
+| Region | Bypass route | Uptake | Evidence cost |
+|---|---|---|---|
+| EU | ATMP hospital exemption, Reg. 1394/2007 Art.28 | 110 authorised 2008–2025, 62 surviving (44% attrition) [E-4048] | Diverts activity out of the centralised route; fragments the EU-wide evidence base |
+| JP | Conditional and time-limited approval, 2014 PMD Act | 5 approved; **2 withdrawn after confirmatory failure** [E-4049][E-4078] | Directly negative — HeartSheet HR 1.9 for cardiac death |
+| KR | ARMT under the amended Advanced Regenerative Bio Act | Route opened 21 Feb 2025 [E-4081] | Treatment delivered outside trials; central evidence generation weakened by design [E-4082] |
+| US | none equivalent | — | — |
+
+[INFER] The US is the outlier in *not* having a bypass, and the two regions with the longest operating experience of one (EU, JP) both show substantial attrition or outright reversal. That is directly relevant to the plausible-mechanism framework [E-4047]: the FDA is proposing to move toward a design whose two closest international precedents have measurable failure records.
+
+## R.6 Does the net-reliever verdict survive regionalization?
+
+**Short answer: it survives for the US, CN, JP and KR, and it does not survive for the EU. The original verdict was partly a US-weighted artifact — but the artifact worked in the opposite direction to what one might expect.** The US-heavy sample did not *overstate* relief by counting US relievers; it *understated* constraint by under-sampling the one region that added hard gates in 2025–26.
+
+Direction counts by region across the 80-row landscape:
+
+| Region | Rows | reliever | mixed | constraint | neutral | Verdict |
+|---|---|---|---|---|---|---|
+| US | 33 | 18 | 4 | 5 | 6 | Net reliever on T; capacity neutral; funding-cliff tail risk |
+| EU | 16 | 5 | 6 | 4 | 1 | **Net mixed-to-constraining** |
+| CN | 10 | 8 | 1 | 0 | 1 | Strong reliever |
+| JP | 10 | 6 | 1 | 2 | 1 | Reliever on T, constraint on evidence durability and filings |
+| KR | 8 | 5 | 3 | 0 | 0 | Reliever |
+| ICH | 2 | 2 | 0 | 0 | 0 | Reliever |
+| **All** | **80** | **44** | **15** | **11** | **10** | Net reliever, driven by CN/KR/US |
+
+The EU divergence is not a counting artefact; it rests on four independent primary observations [E-4085]:
+1. **A new mandatory gate.** JCA under Reg. 2021/2282 since 12 Jan 2025, compulsory for oncology and ATMPs, expanding in 2026 [E-4059]. Nothing comparable was added in any other region.
+2. **The acceleration instrument went unused.** 0% of 2024 EMA new-active-substance approvals used accelerated assessment, versus 59% at FDA and 34% at PMDA [E-4062].
+3. **The slowest-but-one clock.** 430-day median in 2024, **140 days behind PMDA** and 74 behind FDA [E-4061][E-4085], with clock-stops rather than active days being the dominant term [E-4060].
+4. **Selectivity that bites hardest on small sponsors.** PRIME grant rate 22.4% for SMEs versus 34.9% for others [E-4063].
+
+Against this, the EU is genuinely ahead on one axis — it qualified an AI tool nine months before FDA [E-4065] — and its binding 3Rs directive predates FDAMA 2.0 by twelve years [E-4068]. So the EU is not uniformly slower; it is *evidentially demanding and procedurally heavy*, which is a different thing.
+
+**Consequence for candidate routing.** [INFER] If a sponsor's gate cost differs by 140 days of median approval time [E-4085], by a 30-working-day versus multi-month IND clock [E-4043], and by whether a mandatory joint HTA assessment attaches at launch [E-4059], the rational routing of early clinical work shifts toward China first, Japan and Korea second, the US third for pivotal work, and the EU last. The IND-intake ratio already shows this happening: China 3,073 versus the US 1,855 in 2024 [E-4070], with US intake growing 1.7%/yr [E-4025]. This is a live, measured reallocation, not a forecast.
+
+**Consequence for the B5 ranking.** None for the US ranking — §6 stands unchanged at 12th–14th, with review capacity alone at 15th–16th. But the ranking is **region-conditional**, and this should be stated wherever the B5 rank is used downstream. For an EU-centric portfolio, B5 would rank materially higher because the JCA gate and the unused accelerated-assessment route are output-relevant in a way that US review capacity is not. Japan supplies the cleanest counter-case in the whole report: the world's fastest review coexists with 86 US/EU-approved drugs that nobody bothered to file [E-4075][E-4077] — conclusive evidence that review speed and national output are decoupled at the current margin.
+
+## R.7 UNRESOLVED after the top-up
+
+Still **6**, with two materially narrowed and none blocking a verdict:
+- **U-01 / U-02** (NMPA NAM programme; NMPA AI-evidence instrument) — no dedicated instrument exists in any located source; both are now carried as explicit CN rows in the landscape CSV grounded in ICH transposition [E-4072] rather than left blank, and the comparative check shows no major agency has a binding AI-evidence guideline for medicines [E-4013][E-4066][E-4083].
+- **U-03** (exact cumulative CBER RMAT totals) — unchanged; fda.gov returns 401/403 to the fetch tool.
+- **U-04** (CDE and MFDS reviewer headcounts) — partially relieved: the workload the headcount was wanted for is now measured directly (15,318 applications, 3,073 INDs) [E-4069], so the CN capacity rows use intake volume rather than staffing.
+- **U-05** — **Japan half resolved** (66 new active ingredients in FY2024-25, 290-day median [E-4075][E-4061]); Korea half still open.
+- **U-06** (CY2026 missed PDUFA goal dates) — unchanged, but now benchmarked: FDA's 356-day 2024 median was second fastest of six [E-4061], so moderate slippage would leave FDA inside the peer band.
