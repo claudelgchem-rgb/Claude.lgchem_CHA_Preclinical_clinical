@@ -24,7 +24,7 @@
     "STEP5_redteam_X": "DONE",
     "STEP6_reflect_redteam": "DONE",
     "STEP7_report_W": "DONE",
-    "STEP8_validate": "DONE - exit 0, all gates G1-G9 pass",
+    "STEP8_validate": "DONE - exit 0, G1-G10 전부 통과 (한국어 재작성 후 재검증)",
     "STEP9_commit": "DONE"
   },
   "agents": {
@@ -285,6 +285,21 @@
       "circular": 75
     },
     "report_citations": 306,
-    "validate": "exit 0"
+    "validate": "exit 0 (G1-G10)",
+    "language": "한국어"
+  },
+  "harness_amendment": {
+    "rule": "[L] 보고 언어 규약 L1 - 모든 보고는 한국어",
+    "gate": "G10 - 산문 행 한글 포함 비율 >=60% (실측 100%)",
+    "scope": [
+      "RLSX_report.md",
+      "RLSX_executive_brief.md",
+      "evidence/grade_summary.md",
+      "audit/redteam_findings.md",
+      "work/<AGENT>/report.md"
+    ],
+    "exempt": "고유명사, 근거 ID, CSV/JSON 값, 코드, 경로, URL, 등급/사유 코드, CHARTER_ACK 행, 15단어 이내 인용",
+    "ui": "근거 UI 레이블 34개 한국어화",
+    "preserved_in_english": "work/A~I 작업 보고서 12건 - R이 채점하고 X가 감사한 증거 추적 기록이므로 의미 드리프트 방지를 위해 원문 유지"
   }
 }

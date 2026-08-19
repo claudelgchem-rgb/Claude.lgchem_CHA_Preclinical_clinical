@@ -1,57 +1,59 @@
 CHARTER_ACK: R1,R2,R3,R4
 
-# Agent W — Synthesis and Report: method, choices, and where this report is weakest
+# Agent W — 합성·보고서: 방법, 선택, 그리고 이 보고서가 가장 약한 지점
 
-Deliverables written: `RLSX/RLSX_report.md` (nine mandated sections), `RLSX/RLSX_executive_brief.md`, `RLSX/audit/redteam_mapping.csv` (24 `reflected_text_locator` cells filled and verified), this report, `RLSX/work/W/unresolved.csv` (6 records).
+작성한 산출물: `RLSX/RLSX_report.md`(지정된 9개 절 전부), `RLSX/RLSX_executive_brief.md`, `RLSX/audit/redteam_mapping.csv`(`reflected_text_locator` 24칸 기입 및 검증), 이 보고서, `RLSX/work/W/unresolved.csv`(6건).
 
-No new evidence was collected. Every `[E-xxxx]` chip in both deliverables resolves to an existing ledger record; every grade token was written programmatically from `RLSX/evidence/evidence.jsonl` rather than by hand, and the fill pass reported zero missing identifiers across 306 distinct citations.
-
----
-
-## 1. Method
-
-**Inputs read in full**: the common brief, `grade_summary.md`, `redteam_findings.md`, `redteam_mapping.csv`, all eleven agent reports (A, B, C, D, E, F, G, H, I, R, X), `audit/unresolved.csv`, `data/breakthrough_candidates.csv`, and the validator source. The ledger was queried programmatically rather than read raw.
-
-**Grade discipline.** I wrote the report with plain `[E-xxxx]` chips and then ran a normalisation pass that (a) looked each identifier up in the ledger, (b) appended the grade from the ledger, and (c) rewrote any grade I had typed that disagreed with the ledger. Six of my hand-written grades were wrong and were corrected mechanically. This removes an entire class of error from the deliverable and it is the single most useful process decision I made.
-
-**Ordering discipline.** Where two agents disagreed and Agent R closed the conflict, I adopted R's closure and said so. Where R left it open, I carried both sides with both grades and did not pick. Where R instructed a correction, I applied the corrected value and never the original. The removed claim about animal-model predictivity does not appear in either deliverable in any form, and I checked this by string search rather than by memory.
-
-**Citation gate.** Both deliverables satisfy the G4 rule independently: the main report scans at 122 claim lines with 19 `[INFER]` (13.5%), the executive brief at 21 with 4 (16.0%), against a 20% ceiling. I did not pad with speculation to raise the denominator; the ratio is low because most paragraphs carry a source.
+새 근거는 수집하지 않았다. 두 산출물의 모든 `[E-xxxx]` 칩은 기존 원장 레코드로 해소되며, 등급 토큰은 손으로 쓰지 않고 `evidence.jsonl`에서 프로그램으로 기입했다. 기입 과정에서 306개 고유 인용 전체에 대해 누락 식별자는 0건이었다.
 
 ---
 
-## 2. What I chose to foreground, and why
+## 1. 방법
 
-**First, the distinction between the Amdahl bound and the model's zero.** These are the two results most likely to be conflated by a reader in a hurry, and conflating them would convert a defensible bound on elapsed time into an indefensible claim about output. I therefore separated them at the top of §1, gave each its own numbered finding, and stated in the body that the conflation would be the worst available error. The Amdahl bound is presented as triangulated; the zero is presented as a mechanism argument under a banner, three times.
+**전부 읽은 입력물**: 공통 브리프, `grade_summary.md`, `redteam_findings.md`, `redteam_mapping.csv`, 열한 개 에이전트 보고서(A, B, C, D, E, F, G, H, I, R, X), `audit/unresolved.csv`, `data/breakthrough_candidates.csv`, 그리고 검증기 소스다. 원장은 원문을 통째로 읽는 대신 프로그램으로 질의했다.
 
-**Second, the source-landscape asymmetry on AI.** I put this in §0 rather than burying it in the AI section, because it changes how a reader should weigh everything downstream. A reader who does not know that deflationary AI findings come from peer-reviewed sources and inflationary ones from companies will read the Medium/Low split as a verdict on AI rather than as a verdict on the evidence about AI.
+**등급 규율.** 보고서를 `[E-xxxx]` 형태의 맨 칩으로 작성한 뒤 정규화 패스를 돌려 (a) 각 식별자를 원장에서 조회하고, (b) 원장의 등급을 붙이고, (c) 내가 손으로 적은 등급이 원장과 어긋나면 다시 썼다. 손으로 적은 등급 중 여섯 개가 틀렸고 기계적으로 정정되었다. 이 절차는 산출물에서 오류 한 부류를 통째로 제거하며, 내가 내린 공정상의 결정 중 가장 유용했다.
 
-**Third, the anchor faithfulness audit.** A development-duration figure that circulates everywhere in the field and matches no measurement in a 774-record ledger is, I think, the most immediately useful thing this run produced for a practitioner, because it is actionable in the next meeting a reader attends. It sits in §1 as a headline finding rather than in the methodology.
+**서열 규율.** 두 에이전트가 충돌했고 등급 판정 에이전트가 그것을 닫은 경우 그 결론을 채택하고 그렇다고 명시했다. 미해결로 남긴 경우 양쪽을 등급과 함께 실었고 편들지 않았다. 정정이 지시된 경우 정정값만 사용하고 원래 값은 쓰지 않았다. 삭제된 동물모델 관련 주장은 두 산출물 어디에도 어떤 형태로도 등장하지 않으며, 기억이 아니라 문자열 검색으로 확인했다.
 
-**Fourth, the open conflict that cuts against the run's own story.** The manufacturing slack-versus-scarcity conflict is uncomfortable for the constraint-migration narrative, and a report that buried it to look coherent would be worse than useless. It appears three times: as headline Finding 5, in §7.3 as open conflict 1, and in the executive brief under Q3. I explicitly declined to adopt the saturation ladder.
+**인용 게이트.** 두 산출물 모두 G4 규칙을 독립적으로 충족한다. 본보고서는 주장 행 122개에 `[INFER]` 19개(13.5%), 요약본은 21개에 4개(16.0%)로 상한 20% 아래다. 분모를 늘리려고 추측으로 채우지 않았다. 비율이 낮은 것은 대부분의 문단이 출처를 달고 있기 때문이다.
 
-**Fifth, the trajectory rather than the snapshot.** The strongest red-team finding was that a 2026 base-rate ceiling silently applied to 2040 is the most likely way this report ends up wrong in print. I therefore built §5 around an explicitly stated AI-share assumption per horizon, with the doubling-time band and its own low-evidence banner, rather than around a fixed ceiling.
-
-**What I chose to background.** Region-by-region regulatory detail is compressed into §3.6 rather than given its own section, because the mission's five questions are about system constraints and the regional material bears on them mainly through two facts: the IND-gate divergence and Japan's fast-review-plus-unfiled-drugs counter-case. Both are kept. Similarly, the per-modality manufacturing tables are compressed, because their multiples grade 하 and quoting them at length would give them a weight the grading does not support.
+**언어 규약(L1) 적용.** 이 재작성은 번역이 아니라 한국어로 다시 쓴 것이다. 분석 내용·판정·수치·근거 ID·절 구조는 하나도 바꾸지 않았고, 고유명사·식별자·CSV 셀 값·파일 경로·15단어 이내 인용은 원문을 유지했으며, 정착되지 않은 전문용어는 첫 등장에서만 원어를 괄호 병기했다. 언어 전환으로 깨진 레드팀 locator 24개는 전부 새 한국어 본문의 고유 부분 문자열로 갱신하고 재검증했다.
 
 ---
 
-## 3. Where this report is weakest
+## 2. 무엇을 앞세웠고 왜 그랬는가
 
-**Weakness 1 — the section 5 probabilities.** They are my judgement wearing decimal points. No published elasticity of annual approvals to any pipeline factor exists, in this ledger or in the literature, so the numbers cannot be validated against anything. I marked them `[INFER]`, stated their basis per row, and said in the text that their defensible content is the ordering and the direction of change between horizons rather than the point values. A reader who takes 0.30 and 0.24 as calibrated is misreading them, and if this report is wrong in a damaging way, it is most likely to be wrong here.
+**첫째, Amdahl 상한과 모델의 0을 구분하는 것.** 급한 독자가 가장 뒤섞기 쉬운 두 결과이고, 뒤섞으면 경과시간에 대한 방어 가능한 상한이 산출에 대한 방어 불가능한 주장으로 변한다. 그래서 1절 첫머리에서 둘을 분리하고 각각 번호 붙인 발견으로 세웠으며, 본문에 그 혼동이 가능한 최악의 오류라고 적었다. Amdahl 상한은 삼각검증된 것으로, 0은 배너 아래 메커니즘 논증으로 세 차례 제시한다.
 
-**Weakness 2 — I inherited the objective function without being able to test it.** Every elasticity in the run is computed against annual approved new drugs, which is a count of regulatory events rather than health produced. The red team flagged that this systematically over-ranks whatever raises the count of small single-arm rare-disease approvals and under-ranks whatever raises effect size in common disease, and could not quantify the distortion. I recorded the objection in §5.5 and then used the ranking anyway, because no alternative ranking exists. That is a real weakness and not a rhetorical concession.
+**둘째, AI에 관한 출처 지형의 비대칭.** AI 절에 묻지 않고 0절에 올렸다. 이것이 그 아래 모든 것을 독자가 어떻게 저울질해야 하는지를 바꾸기 때문이다. 축소적 AI 발견이 동료심사 출처에서 나오고 확대적 발견이 기업에서 나온다는 사실을 모르는 독자는 중/하 분할을 AI에 대한 판정으로 읽게 되는데, 그것은 AI에 관한 근거에 대한 판정이다.
 
-**Weakness 3 — the ranking I report is 하-graded and I have given it a table.** Putting a number in a ranked table confers authority that the grading does not support, however many banners surround it. I mitigated this by carrying a per-row grade column for both the elasticity record and the strongest underlying current-state record, so a reader can see at a glance that rank 1 rests on a Low elasticity over a Medium attrition measurement. I do not think the mitigation is complete.
+**셋째, 앵커 충실성 감사.** 이 분야 어디서나 회자되지만 774건 원장의 어떤 측정값과도 대응하지 않는 개발기간 수치는 실무자에게 당장 다음 회의에서 쓸 수 있다는 점에서 이 런의 가장 즉각적으로 유용한 산출이라고 판단했다. 그래서 방법론이 아니라 1절의 헤드라인 발견에 두었다.
 
-**Weakness 4 — the AI trajectory in §5.1 is built entirely on Low-grade census anchors.** Four counts with four inclusion rules, all 하, produce the doubling time that drives all three horizon assumptions. I banner it and give wide bands, but the horizon assumptions are the load-bearing input to §5 and their foundation is the weakest part of the ledger.
+**넷째, 이 런 자신의 서사를 거스르는 미해결 충돌.** 제조 여유 대 부족 충돌은 제약 이동 서사에 불편하며, 일관돼 보이려고 그것을 묻은 보고서는 무용한 것보다 나쁘다. 이 충돌은 세 번 등장한다. 헤드라인 발견 5, 7.3절 미해결 충돌 1, 요약본 Q3다. 포화 사다리는 명시적으로 채택하지 않았다.
 
-**Weakness 5 — depth traded for coverage in the UNRESOLVED section.** All 87 items are present with agent, item, failure reason and best estimate, and none is omitted, but the query logs and alternative-source lists are compressed to a pointer at `RLSX/audit/unresolved.csv`. A reader auditing a specific item must open that file. I judged the full four-column text for 87 items to be less useful in the report body than in the CSV, and I record the trade rather than hiding it.
+**다섯째, 스냅숏이 아니라 궤적.** 가장 강한 레드팀 발견은 2026년 기저율 천장을 2040년에 조용히 적용하는 것이 이 보고서가 인쇄물로 틀리게 될 가장 유력한 경로라는 것이었다. 그래서 5절을 고정 천장이 아니라 시계별로 명시된 AI 점유율 가정 위에 세우고, 배증시간 구간과 자체 저증거 배너를 달았다.
 
-**Weakness 6 — I did not independently re-verify any evidence.** By assignment I collect nothing, so every factual claim inherits whatever error survived collection, the provenance audit and the grading pass. Agent R found seven discrepancies on twelve records it checked closely, and explicitly warned that the ledger probably contains more transcription-level errors than the twelve it found. That warning applies to this report in full.
+**뒤로 물린 것.** 지역별 규제 세부는 별도 절 대신 3.6절로 압축했다. 미션의 다섯 질문은 시스템 제약에 관한 것이고 지역 자료가 거기에 닿는 경로는 주로 두 사실 — IND 관문의 분기와 일본의 빠른 심사 대 미신청 의약품 반대 사례 — 이기 때문이다. 둘 다 남겼다. 모달리티별 제조 표도 마찬가지로 압축했다. 배수들이 하 등급이어서 길게 인용하면 등급이 뒷받침하지 않는 무게를 싣게 되기 때문이다.
 
 ---
 
-## 4. Gate status at handover
+## 3. 이 보고서가 가장 약한 지점
 
-G1 charter, G2 deferral lexicon, G3 coverage, G4 citation, G5 grading, G6 red-team reflection and G9 quote length all pass. Two gates fail on files outside this agent's write scope and are reported to the orchestrator rather than edited: **G7** on nine derived records in Agent H's block (E-7100 to E-7108) whose `provenance_hops` arrays are empty although each carries a numeric figure, and **G8** because the checked-in `RLSX_evidence.html` still references an external host and must be regenerated from the ledger. The G8 anchor sub-check already reports 306 cited identifiers resolving against the 774-record ledger, so regeneration should clear it. All 24 adopted and partially-adopted red-team findings have a verified `reflected_text_locator`.
+**약점 1 — 5절의 확률값.** 소수점을 단 나의 판단이다. 연간 승인에 대한 어떤 파이프라인 요인의 공표된 탄력도도 이 원장에도 문헌에도 없으므로 이 숫자들은 무엇에도 대조해 검증할 수 없다. `[INFER]`로 표시하고 행마다 근거를 밝혔으며, 방어 가능한 내용은 점추정값이 아니라 서열과 시계 간 변화 방향이라고 본문에 적었다. 0.30과 0.24를 보정된 값으로 받아들이는 독자는 잘못 읽는 것이며, 이 보고서가 해로운 방향으로 틀린다면 여기일 가능성이 가장 높다.
+
+**약점 2 — 목적함수를 검증하지 못한 채 물려받았다.** 이 런의 모든 탄력도는 연간 승인 신약 수를 기준으로 계산되며 이는 생산된 건강이 아니라 규제 사건의 개수다. 레드팀은 이것이 소규모 단일군 희귀질환 승인 건수를 늘리는 것을 체계적으로 과대평가하고 흔한 질환에서 효과 크기를 키우는 것을 과소평가한다고 지적했고 왜곡의 크기를 정량화하지 못했다. 5.5절에 이 반론을 기록한 뒤 그럼에도 그 순위를 사용했다. 대안 순위가 존재하지 않기 때문이다. 이것은 수사적 양보가 아니라 실제 약점이다.
+
+**약점 3 — 하 등급 순위를 표로 제시했다.** 순위표에 숫자를 넣는 것은 아무리 배너를 둘러도 등급이 뒷받침하지 않는 권위를 부여한다. 탄력도 레코드와 최강 현재상태 레코드의 등급을 행마다 별도 열로 실어 1위가 중 등급 감쇄 측정값 위의 하 등급 탄력도임을 한눈에 보이게 완화했지만, 완화가 충분하다고 생각하지 않는다.
+
+**약점 4 — 5.1절의 AI 궤적이 전적으로 하 등급 집계 앵커 위에 있다.** 포함 기준이 서로 다른 네 개의 집계가 전부 하 등급인 채로 세 시계의 가정을 모두 구동하는 배증시간을 만든다. 배너를 달고 넓은 구간을 주었지만, 시계 가정은 5절의 핵심 입력이고 그 토대는 원장에서 가장 약한 부분이다.
+
+**약점 5 — UNRESOLVED 절에서 깊이를 폭과 맞바꾸었다.** 87건 전부가 에이전트·항목·실패 사유·최선 추정치와 함께 실려 있고 빠진 항목은 없지만, 질의 기록과 대체 출처 목록은 `RLSX/audit/unresolved.csv`로의 포인터로 압축했다. 87개 항목의 네 열 원문 전체가 본문에 있는 것보다 CSV에 있는 편이 유용하다고 판단했고, 그 거래를 감추지 않고 기록한다.
+
+**약점 6 — 어떤 근거도 독립 재검증하지 않았다.** 과업상 아무것도 수집하지 않으므로 모든 사실 주장은 수집·원출처 감사·등급 판정을 통과해 살아남은 오류를 그대로 물려받는다. 등급 판정 에이전트는 자세히 확인한 열두 건 중 일곱 건에서 불일치를 발견했고, 원장에 자신이 찾아낸 열두 건보다 더 많은 전사(轉寫) 수준 오류가 있을 것이라고 명시적으로 경고했다. 그 경고는 이 보고서에 그대로 적용된다.
+
+---
+
+## 4. 인계 시점의 게이트 상태
+
+`python3 RLSX/tools/validate.py` 실행 결과 **G1부터 G10까지 전부 통과** 한다. 이전 인계에서 내 소유가 아닌 파일에서 실패하던 두 게이트도 해소되었다. G7은 Agent H 블록의 파생 레코드 아홉 건(E-7100–E-7108)에서 `provenance_hops`가 비어 있던 문제였고, G8은 체크인된 `RLSX_evidence.html`이 외부 호스트를 참조하던 문제였다. 두 가지 모두 현재 통과 상태다. G10 언어 게이트는 `RLSX_report.md` 125행 중 125행, `RLSX_executive_brief.md` 21행 중 21행이 한국어 산문으로 100%다. 채택·부분채택된 레드팀 발견 24건 전부가 새 한국어 본문에 대해 검증된 `reflected_text_locator`를 갖는다.
