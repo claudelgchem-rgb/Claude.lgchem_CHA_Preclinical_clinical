@@ -1,184 +1,162 @@
 CHARTER_ACK: R1,R2,R3,R4
 
-# Agent R — Independent Reliability Grading: method, coverage, and disagreements
+# Agent R — 신뢰도 독립 검증: 방법, 커버리지, 그리고 이견
 
-## 1. Scope and completion
+## 1. 범위와 완수
 
-I graded **all 774 records** in `RLSX/evidence/evidence.jsonl` in three passes: agents
-A, B, C, E, F, G, H, I (640 records); agents D and X plus C's revision block E-3099 to
-E-3125 (110 records); and Agent I's follow-up block E-8107 to E-8130 (24 records).
-No record was skipped, sampled, or deferred.
-Output: `RLSX/evidence/evidence_grades.jsonl`, one object per record.
+`RLSX/evidence/evidence.jsonl`의 **774건 전부**에 등급을 부여했다. 세 차례로 나누어 수행했다.
+A, B, C, E, F, G, H, I의 640건, D와 X 그리고 C의 수정 블록 E-3099~E-3125의 110건,
+마지막으로 Agent I의 후속 블록 E-8107~E-8130의 24건이다.
+건너뛰거나 표본만 처리하거나 미룬 레코드는 없다.
 
-I collected none of this evidence. No grade in this run was assigned by the agent that
-gathered the evidence.
+산출물은 `RLSX/evidence/evidence_grades.jsonl`이며 레코드당 객체 하나다.
 
-## 2. Method
+이 근거는 내가 수집한 것이 아니다. 이 런에서 근거를 모은 에이전트가 자기 근거에 등급을 매긴 사례는 없다.
 
-**Basal state.** I did not read any collector's report, conclusions, or narrative before
-grading its evidence. I read only the ledger records themselves — claim, figures, sample,
-publisher, URL, provenance hops, derivation — plus, for the derived records, the arithmetic.
-This was deliberate: a grader who reads the argument first will grade the argument.
+## 2. 방법
 
-**Re-access.** I attempted to re-open 134 of the 774 sources (17%) across roughly seventy
-WebFetch and WebSearch calls. Prioritisation followed the brief exactly:
-1. every record carrying a load-bearing quantitative figure (all four anchors under test);
-2. every claim that is surprising or is doing heavy work in a conclusion;
-3. every `circular_risk:true` record I could reach;
-4. every `type:"market_report"` and a large share of `type:"secondary"`.
+**Basal 상태.** 어떤 수집자의 보고서, 결론, 서술도 그 에이전트의 근거를 채점하기 전에 읽지 않았다.
+원장 레코드 자체만 읽었다. 주장, figures, 표본, 발행처, URL, provenance hops, derivation,
+그리고 파생 레코드의 경우 산술이다. 이는 의도적이었다. 논증을 먼저 읽은 채점자는 근거가 아니라
+논증을 채점하게 된다.
 
-Where the fetch tool returned raw PDF bytes I decompressed the content streams and read the
-text layer directly. That is how I verified the CIRS R&D Briefing 101 regulatory-timing tables
-(all six agencies, plus the EMA procedure decomposition), the BIO 2011-2020 success-rate and
-modality tables, the Ringel *Breaking Eroom's Law* analysis, and FDA's CY2025 IND activity
-table. Several of these were records the provenance audit could not reach.
+**재접근(re-access).** 774건 중 134건(17%)에 대해 출처를 다시 열려고 시도했고 WebFetch와 WebSearch를
+약 70회 호출했다. 우선순위는 지시된 그대로다.
+1. 정량적으로 하중이 큰 수치를 담은 레코드 전부(검증 대상 앵커 4종 모두)
+2. 놀랍거나 결론에서 무거운 역할을 하는 주장 전부
+3. 접근 가능한 `circular_risk:true` 레코드 전부
+4. `type:"market_report"` 전부와 `type:"secondary"`의 상당 부분
 
-For the 623 records I did not re-open, I graded conservatively on verifiable metadata:
-publisher class, source type, whether a sample and denominator are stated, whether methodology
-is disclosed, and whether any *independent* record in the ledger corroborates the claim.
-`verification_method` records which of the three routes applied to each record. I never marked
-a record `refetched` that I did not open.
+도구가 PDF 원시 바이트만 반환한 경우에는 콘텐츠 스트림을 압축 해제해 텍스트 레이어를 직접 읽었다.
+CIRS R&D Briefing 101의 규제 심사기간 표(여섯 기관 전체와 EMA 절차 분해), BIO 2011-2020의 성공률과
+모달리티 표, Ringel의 *Breaking Eroom's Law* 분석, FDA의 CY2025 IND 활동 표가 그렇게 검증되었다.
+이 중 여러 건은 원출처(provenance) 감사가 도달하지 못했던 레코드다.
 
-**Arithmetic.** I independently recomputed every derived record's arithmetic — 134 records.
-This caught seven errors and inconsistencies, listed in §8 of `grade_summary.md`. It also
-confirmed a large majority as exact, including the three independent Amdahl-ceiling
-computations, all four Wilson intervals in E-2066, the power calculation in E-2065, the
-label-noise ceiling in E-7100, and D's engine-reproduction check.
+다시 열지 않은 640건은 검증 가능한 메타데이터로 보수적으로 채점했다. 발행처 등급, 출처 유형,
+표본과 분모의 명시 여부, 방법론 공개 여부, 그리고 원장 안에서 *독립적인* 레코드가 그 주장을
+뒷받침하는지를 기준으로 했다. 어떤 경로를 적용했는지는 각 레코드의 `verification_method`에 기록했다.
+내가 열지 않은 문서를 재접근했다고 표시한 적은 없다.
 
-**Applying R3 strictly.** 상 requires all three of: a primary source; two or more *independent*
-cross-confirmations; and methodology disclosed sufficiently to reproduce. I applied "independent"
-literally. Two records citing the same Biomedtracker extract are not two confirmations. Two
-agents capturing the same Tufts CSDD analysis are not two confirmations — X's E-9553 makes
-exactly this point and I reached the same conclusion independently while grading E-3020 and
-E-5020. Five records out of 750 cleared the bar.
+**산술 검증.** 파생 레코드 134건 전부의 산술을 독립적으로 재계산했다. 이 과정에서 오류와 불일치
+7건을 잡아냈고, 이는 `grade_summary.md` §7의 정정 표에 정리했다. 동시에 대다수가 정확함을 확인했다.
+세 건의 독립적인 Amdahl 상한 계산, E-2066의 Wilson 신뢰구간 네 개 전부, E-2065의 검정력 계산,
+E-7100의 라벨 노이즈 상한, D의 엔진 재현 검증이 여기에 포함된다.
 
-Company self-reports about their own products, platforms or pipelines took S4 and were capped
-at 중; where also uncorroborated, 하. I made one systematic distinction inside that rule, and
-state it here because it affects many grades: a company's **bare factual status disclosure**
-(phase reached, trial initiated, programme discontinued, headcount, delisting) — especially in
-a regulated filing or against the discloser's own interest — I graded 중 with S4, because the
-company is the record of origin for that fact. A company's **performance claim** about its own
-platform, molecule or process I graded 하. So Schrödinger disclosing two treatment-related
-deaths in its own trial is 중; Insilico's 18-month discovery timeline is 하.
+**R3의 엄격한 적용.** 상은 세 가지를 모두 요구한다. 1차 출처, 독립적인 교차확인(cross-confirmation)
+2건 이상, 그리고 재현 가능할 만큼 공개된 방법론이다. 나는 "독립"을 문자 그대로 적용했다.
+동일한 Biomedtracker 추출본을 인용하는 두 레코드는 두 건의 확인이 아니다. 동일한 Tufts CSDD 분석을
+포착한 두 에이전트도 두 건의 확인이 아니다. X의 E-9553이 정확히 이 점을 지적했고, 나는 E-3020과
+E-5020을 채점하며 독립적으로 같은 결론에 도달했다. 774건 중 7건이 이 기준을 통과했다.
 
-## 3. Reconciliation with the provenance audit
+기업이 자사 제품·플랫폼·파이프라인에 대해 스스로 보고한 내용에는 S4를 부여하고 중을 상한으로 두었으며,
+교차확인이 없으면 하로 내렸다. 이 규칙 안에서 체계적인 구분을 하나 두었고, 많은 등급에 영향을 주므로
+여기에 밝힌다. 기업의 **단순 사실 상태 공시**(도달 상, 시험 개시, 프로그램 중단, 인력 수, 상장폐지),
+특히 규제 신고서에 담기거나 공시자 자신의 이익에 반하는 경우에는 S4를 붙여 중으로 채점했다.
+그 사실에 대해서는 기업이 원기록이기 때문이다. 반면 기업이 자사 플랫폼·분자·공정에 대해 내놓는
+**성능 주장**은 하로 채점했다. 따라서 Schrödinger가 자사 시험에서 치료 관련 사망 2건을 공시한 것은
+중이고, Insilico의 18개월 발견 타임라인은 하다.
 
-Agent X's audit marked 232 records FORCE_LOW. I upheld 207 as 하 and overrode 25 by recording
-a traced provenance chain in `corrected_provenance_hops`, in each case because my own re-access
-reached an origin the audit did not. The overrides and what I reached are tabulated in §4 of
-`grade_summary.md`. There are zero unresolved FORCE_LOW violations.
+## 3. 원출처 감사와의 조정
 
-I did **not** override the DiMasi anchors (E-1001, E-1002). I re-read the abstract and confirmed
-every figure, but that reaches the paper, not its inputs: a confidential survey of unnamed firms
-about unnamed compounds. The audit's judgment that this cannot be verified is correct, and the
-most-quoted number in the field is Low in this ledger as a result. I want that on the record as
-a considered agreement, not a default.
+Agent X의 감사는 232건을 FORCE_LOW로 표시했다. 207건은 하로 확정했고, 25건은
+`corrected_provenance_hops`에 추적된 원출처 사슬을 기록해 뒤집었다. 각각의 경우 나의 재접근이
+감사가 도달하지 못한 원출처에 도달했기 때문이다. 뒤집은 목록과 내가 도달한 지점은
+`grade_summary.md` §4의 표에 있다. 미해결 FORCE_LOW 위반은 0건이다.
 
-## 4. Where I disagreed with a collector's framing
+DiMasi 앵커(E-1001, E-1002)는 **뒤집지 않았다**. 초록을 다시 읽고 모든 수치를 확인했지만,
+그것은 논문에 도달한 것이지 그 입력값에 도달한 것이 아니다. 익명 기업들이 익명 화합물에 대해
+제출한 비공개 설문이다. 이것이 검증될 수 없다는 감사의 판단은 옳으며, 그 결과 이 분야에서 가장
+많이 인용되는 수치가 이 원장에서 하가 되었다. 이것이 기본값 처리가 아니라 숙고한 동의임을 기록해 둔다.
 
-**Agent B, E-2002 — the AI Phase I denominator.** B recorded that "the accessible sources do
-not disclose the Phase I denominator" and I initially graded the record 하 partly on that basis.
-Agent C's E-3008 asserted the denominator is 21 of 24. I searched, confirmed C, and **revised
-my own grade** on E-2002 from 하 to 중, withdrawing the S2 code. I also revised E-2066, whose
-premise ("the source refuses to disclose its denominator") is wrong even though its arithmetic
-is exact and its conclusion — that the interval at n=24 overlaps conventional Phase I rates —
-stands. Recording this because a grader who never changes a grade is not grading.
+## 4. 수집자의 서술과 이견을 보인 지점
 
-**Agent C, E-3072 and E-3103 — the biomarker count.** C recorded 11 qualified biomarkers and
-then, in its revision pass, explicitly stated the figure "has not been contradicted". It is
-contradicted by C's own cited source, which I re-accessed: FDA has formally qualified **eight**,
-seven of them before the 2016 Cures Act. Agent X reached eight independently. I graded E-3072
-하 on that basis. C's later E-3123 accepts the correction, which is why that record grades 중.
+**Agent B, E-2002 — AI Phase I 분모.** B는 "접근 가능한 출처들은 Phase I 분모를 공개하지 않는다"고
+기록했고, 나는 처음에 부분적으로 그 근거로 이 레코드를 하로 채점했다. Agent C의 E-3008은 분모가
+24건 중 21건이라고 주장했다. 검색으로 C를 확인했고 **내 등급을 하에서 중으로 스스로 수정**하며
+S2 코드를 철회했다. E-2066도 함께 수정했다. 그 전제("출처가 분모 공개를 거부한다")는 틀렸지만,
+산술은 정확하고 결론(n=24에서 신뢰구간이 통상 Phase I 성공률과 겹친다)은 유지된다.
+등급을 한 번도 바꾸지 않는 채점자는 채점하고 있는 것이 아니므로 이를 기록한다.
 
-**Agent C, E-3015 — ISTAND.** C recorded zero qualified drug development tools as of 1 Jan 2026,
-via an AI-content aggregator. FDA qualified AIM-NASH on 8 Dec 2025 and I confirmed it through
-four independent outlets. C's record is 하 and factually wrong; E's E-4004 is one of the five
-상 records in the ledger.
+**Agent C, E-3072와 E-3103 — 바이오마커 건수.** C는 qualification된 바이오마커를 11건으로 기록한 뒤,
+수정 패스에서 그 수치가 "반박되지 않았다"고 명시적으로 진술했다. 그러나 C 자신이 인용한 출처가 이를
+반박한다. 내가 재접근한 결과 FDA가 공식 qualification한 것은 **8건**이며 그중 7건은 2016년 Cures Act
+이전이다. Agent X도 독립적으로 8건에 도달했다. 이를 근거로 E-3072를 하로 채점했다. C의 후속 E-3123이
+정정을 수용했으므로 그 레코드는 중이다.
 
-**Agent C, E-3024 — the Unger citation.** The 56/22/15 figures are correct but the record cites
-the wrong paper (JNCI 2021 rather than Unger 2019, JNCI 111(3):245). Agent F cites it correctly
-at E-5032, which I graded 상. I also flagged a denominator problem C's framing obscures: the
-14.8% is a share of *all* patients, not of eligible patients — of patients actually offered a
-trial, roughly 45% decline.
+**Agent C, E-3015 — ISTAND.** C는 AI 콘텐츠 애그리게이터를 경유해 2026년 1월 1일 기준 qualification된
+drug development tool이 0건이라고 기록했다. FDA는 2025년 12월 8일 AIM-NASH를 qualification했고 나는
+독립 매체 4곳으로 이를 확인했다. C의 레코드는 하이며 사실관계가 틀렸다. E의 E-4004는 원장의 상 7건 중 하나다.
 
-**Agent G, E-6037 and E-6072 — the 3,000-fold tumour uptake gap.** I re-accessed the source and
-it says something the ledger framing risks losing: the ~3,000-fold %ID/g difference between
-mouse and human tumours is a **body-mass scaling artefact of the units**, and the actual drug
-*concentration* in tumour is similar at equal mg/kg dosing. Read as evidence of a human tumour
-penetration deficit, this would be a misreading of the paper. I noted it on both records and on
-E-6076, which uses it to record a "0-fold decadal improvement".
+**Agent C, E-3024 — Unger 인용.** 56/22/15 수치는 맞지만 레코드가 잘못된 논문을 인용한다
+(Unger 2019, JNCI 111(3):245가 아니라 JNCI 2021). Agent F는 E-5032에서 정확히 인용했고 나는 그것을
+상으로 채점했다. C의 서술이 가리는 분모 문제도 함께 표시했다. 14.8%는 *전체* 환자 대비 비율이지
+적격 환자 대비가 아니다. 실제로 시험을 제안받은 환자 중에서는 약 45%가 거절한다.
 
-**Agent G, E-6060 to E-6070 — the saturation multiples.** G's derivations are labelled `derived`
-with `AUD=clean/yes` because they cite their inputs properly. But the mechanism converting
-booking lead time into a utilisation figure is an invented rule with no cited empirical basis,
-and it generates every number in the run's manufacturing constraint ordering. I graded nine of
-the ten component multiples 하 and the ordering 하. This is the single largest block where my
-grade departs from the audit's clean verdict, and it is a substantive disagreement about what
-"clean provenance" means: citing your inputs correctly does not make an invented parameter
-mapping evidence.
+**Agent G, E-6037과 E-6072 — 3,000배 종양 흡수 격차.** 출처를 재접근한 결과 원장의 서술이 놓칠 위험이
+있는 내용이 있었다. 마우스와 사람 종양 사이의 약 3,000배 %ID/g 차이는 **단위의 체중 스케일링에서 오는
+인공물**이며, 동일 mg/kg 투여에서 종양 내 실제 약물 *농도*는 유사하다. 이를 사람 종양 침투 결손의
+증거로 읽으면 논문을 오독하는 것이다. 두 레코드와, 이를 근거로 "10년간 0배 개선"을 기록한 E-6076에
+모두 이 점을 명시했다.
 
-**Agent D — transparency treated as a constraint, not a discount.** D marked fifteen assumptions
-`[ASSUMPTION-UNSUPPORTED]`, disclosed a 49-57% coverage shortfall against observed IND and
-patient volumes, and reported a +217% discrepancy against Sertkaya that it could not reconcile
-and declined to average away. That is exemplary practice. It is also why 20 of D's 29 records
-grade 하: the model's headline results depend on the budget identity and the queue, rationing
-and combination rules, all of which D itself marks unsupported. I graded E-9025 (engine
-reproduction), E-9026 (untuned cross-validation), E-9021, E-9023 and E-9041 at 중 because they
-do not depend on that machinery. E-9041 — that roughly a third of the headline cost-per-approval
-figure is the discount-rate choice — is in my view the most useful result D produced and among
-the least assumption-dependent.
+**Agent G, E-6060~E-6070 — 포화 배수.** G의 도출은 입력을 제대로 인용했기 때문에 `derived`로 표시되고
+감사에서 `AUD=clean/yes`를 받았다. 그러나 예약 리드타임을 가동률 수치로 변환하는 메커니즘은 경험적
+근거가 전혀 인용되지 않은 창작 규칙이며, 이 런의 제조 제약 순서에 들어가는 모든 숫자를 생성한다.
+구성 배수 10개 중 9개와 순서 자체를 하로 채점했다. 감사의 clean 판정과 내 등급이 가장 크게 갈리는
+블록이며, "깨끗한 원출처"가 무엇을 뜻하는지에 관한 실질적 이견이다. 입력을 정확히 인용한다고 해서
+창작한 파라미터 매핑이 근거가 되지는 않는다.
 
-**Agent D, E-9024 and Agent C, E-3113/E-3115 — a circularity in the cross-agent agreement.**
-D calibrated its overlap coefficient ρ to reproduce C's stated non-additivity band, then C cited
-D's model as independent confirmation of that band and rescaled its own elasticities by D's
-budget factor. Part of that agreement is constructed, not found. The *single-lever* reproductions
-(D getting 10.19 against C's 10.0, and so on, from different stage probabilities) are a genuine
-check; the *joint* agreement is not. I graded all four records 하 and flagged the loop.
+**Agent D — 투명성을 할인이 아니라 제약으로 취급했다.** D는 가정 15건을
+`[ASSUMPTION-UNSUPPORTED]`로 표시했고, 관측된 IND·환자 물량 대비 49-57%의 커버리지 부족을 공개했으며,
+Sertkaya 대비 +217% 격차를 조정 불가로 보고하고 평균내기를 거부했다. 모범적인 실무다. 동시에 D의
+29건 중 20건이 하인 이유이기도 하다. 모델의 헤드라인 결과가 예산 항등식과 큐잉·배급·결합 규칙에
+의존하고, D 자신이 그 전부를 미뒷받침으로 표시했기 때문이다. E-9025(엔진 재현), E-9026(튜닝 없는
+교차검증), E-9021, E-9023, E-9041은 그 기계장치에 의존하지 않으므로 중으로 채점했다.
+헤드라인 승인당 비용 수치의 약 3분의 1이 할인율 선택이라는 E-9041은 내가 보기에 D가 산출한 가장
+유용한 결과이며 가정 의존도가 가장 낮은 축에 든다.
 
-**Agent I's follow-up block — where I disagreed on the recommend/require distinction.**
-Three of the four TRL-8 ratings in that block rest on instruments that recommend rather than
-require. E-8107 says the FDA dose-optimisation guidance is "directing sponsors"; it is final
-and in force, but FDA's own convention is that "should" means suggested, not required, and
-E-8108 — the companion record — gets this right by saying "recommends". E-8116 claims seven
-jurisdictions "require" estimands; ICH E9(R1) is a Step 5 scientific guideline in the EU and a
-non-binding guidance in the US, and the Taiwan instrument I verified is a guidance. E-8112's
-ICH M15 is a general-principles guideline alongside a voluntary meeting programme. Only T-093's
-NHS procurement (E-8126, 상) is a decision in force with money committed. I graded the records
-Medium rather than Low because the instruments are real and correctly dated, but the TRL-8
-ratings built on them should be described as "final instrument issued", never as "mandate".
+**Agent D의 E-9024와 Agent C의 E-3113/E-3115 — 에이전트 간 합의 안의 순환.** D는 자신의 중첩계수 ρ를
+C가 진술한 비가산성 범위를 재현하도록 보정했고, 그 뒤 C는 D의 모델을 그 범위에 대한 독립 확인으로
+인용하면서 자기 탄력도를 D의 예산 계수로 재조정했다. 그 합의의 일부는 발견된 것이 아니라 구성된 것이다.
+*단일 레버* 재현(D가 서로 다른 단계 확률에서 C의 10.0에 대해 10.19를 얻는 등)은 진짜 검증이지만,
+*결합* 합의는 그렇지 않다. 네 레코드 전부를 하로 채점하고 이 순환을 표시했다.
 
-**Agent X — graded exactly as strictly as everyone else.** X's block is 44% 하. Its own
-evidence includes consultancy pipeline claims (E-9509), think-tank compilations of unnamed
-commercial databases (E-9520, E-9521), a deal tracker dominated by contingent milestones
-(E-9522), and the same Biomedtracker lineage it criticises elsewhere (E-9512, E-9513). X's
-strongest records are its origin traces — E-9536 (85% of the druggable genome never prosecuted,
-which I verified at source), E-9545 (eight biomarkers), E-9553 (the shared Tufts origin, which
-I reached independently) and E-9554 (the 90% myth denominator, which I verified at source).
-X's own summary statistic E-9551 is now stale: it reports on a 679-record ledger that has since
-grown to 750.
+**Agent I의 후속 블록 — 권고 대 요구 구분에서의 이견.** 그 블록의 TRL 8 등급 4건 중 3건이 요구가 아니라
+권고하는 문서에 근거한다. E-8107은 FDA 용량 최적화 가이던스가 "directing sponsors"라고 적었다.
+그 가이던스는 최종이고 시행 중이지만 FDA 자체 관행상 "should"는 요구가 아니라 권고이며, 동반 레코드인
+E-8108은 "recommends"라고 정확히 적었다. E-8116은 7개 관할권이 estimand를 "require"한다고 주장하지만
+ICH E9(R1)은 EU에서는 Step 5 과학 가이드라인이고 미국에서는 비구속 가이던스이며, 내가 검증한 대만 문서도
+가이던스다. E-8112의 ICH M15는 일반원칙 가이드라인과 자발적 미팅 프로그램이다. 네 건 중 T-093의
+NHS 조달(E-8126, 상)만이 실제 예산이 투입된 시행 결정이다. 문서 자체가 실재하고 날짜가 정확하므로
+레코드는 하가 아니라 중으로 채점했지만, 그 위에 세운 TRL 8 등급은 "최종 문서 발효"로 기술해야 하며
+"mandate"로 기술해서는 안 된다.
 
-## 5. What I could not do, and my best estimate of its effect
+**Agent X — 다른 모두와 똑같이 엄격하게 채점했다.** X 블록의 하 비율은 44%다. X 자신의 근거에도
+컨설팅 파이프라인 주장(E-9509), 익명 상용 데이터베이스를 모은 싱크탱크 집계(E-9520, E-9521),
+총액이 조건부 마일스톤에 좌우되는 딜 트래커(E-9522), 그리고 X가 다른 곳에서 비판하는 것과 동일한
+Biomedtracker 계보(E-9512, E-9513)가 들어 있다. X의 가장 강한 레코드는 원출처 추적이다.
+E-9536(druggable genome의 85%가 한 번도 프로그램화되지 않았다는 것, 내가 원문에서 확인),
+E-9545(바이오마커 8건), E-9553(공유 Tufts 원출처, 내가 독립적으로 도달), E-9554(90% 신화의 분모,
+내가 원문에서 확인)가 그것이다. X 자신의 요약 통계 E-9551은 이제 낡았다. 679건 원장을 대상으로
+보고하는데 원장은 그 사이 774건이 되었다.
 
-I re-accessed 17% of records rather than 100%. Roughly forty attempted fetches failed on
-paywalls and authentication walls — Nature, Springer, ScienceDirect, ASCO Publications, NEJM
-Evidence, several FDA pages returning 401 — and I recorded those as `refetch_failed` with a note
-rather than pretending to metadata-only judgment. Where a paywall blocked me I used independent
-search corroboration and said so.
+## 5. 하지 못한 것과 그 영향에 대한 나의 추정
 
-My estimate of the effect: the 640 metadata-only grades are biased **conservative**, not
-generous. Where I could not check a figure I did not award 상, and every 상 in the ledger was
-re-accessed or independently corroborated across four or more outlets. If the full ledger were
-re-accessed, I would expect a small number of 중 records to move up and a somewhat larger number
-to move down, because on the twelve records where I did check a specific number against its
-source, seven had a discrepancy of some kind. Extrapolating that hit rate is not warranted —
-I deliberately checked the records most likely to be wrong — but a reader should assume the
-ledger contains more transcription-level errors than the twelve I found.
+전수가 아니라 17%를 재접근했다. 시도한 페치 중 약 40건이 페이월과 인증벽에서 실패했다.
+Nature, Springer, ScienceDirect, ASCO Publications, NEJM Evidence, 그리고 401을 반환한 여러 FDA
+페이지다. 이들은 메타데이터 판단인 척하지 않고 `refetch_failed`로 사유와 함께 기록했다.
+페이월이 막은 경우에는 독립 검색으로 교차확인하고 그 사실을 명시했다.
 
-## 6. Files written
+영향에 대한 나의 추정은 이렇다. 메타데이터 기반 640건의 등급은 관대한 쪽이 아니라 **보수적인 쪽으로**
+치우쳐 있다. 확인하지 못한 수치에는 상을 주지 않았고, 원장의 모든 상은 재접근했거나 매체 4곳 이상에서
+독립적으로 확인한 것이다. 원장 전체를 재접근한다면 소수의 중이 올라가고 그보다 다소 많은 수가 내려갈
+것으로 예상한다. 특정 수치를 출처와 대조한 12건 중 7건에서 어떤 형태로든 불일치가 나왔기 때문이다.
+그 적중률을 그대로 외삽하는 것은 정당하지 않다. 나는 틀렸을 가능성이 가장 높은 레코드를 의도적으로
+골라 확인했다. 다만 독자는 원장에 내가 찾아낸 12건보다 더 많은 전사 수준 오류가 있다고 가정해야 한다.
 
-- `RLSX/evidence/evidence_grades.jsonl` — 774 grade records
-- `RLSX/evidence/grade_summary.md` — distribution, histograms, load-bearing records, conflicts, low-evidence claims
-- `RLSX/work/R/report.md` — this file
+## 6. 작성한 파일
 
-UNRESOLVED count: **0**. Every record in the ledger received a grade with a stated reason,
-a verification method, and a rationale.
+- `RLSX/evidence/evidence_grades.jsonl` — 등급 레코드 774건
+- `RLSX/evidence/grade_summary.md` — 분포, 히스토그램, 하중이 큰 레코드, 충돌, 저근거 주장
+- `RLSX/work/R/report.md` — 이 문서
+
+UNRESOLVED 건수: **0**. 원장의 모든 레코드가 사유, 검증 방법, 판정 근거를 갖춘 등급을 받았다.

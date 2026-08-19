@@ -1,57 +1,57 @@
 CHARTER_ACK: R1,R2,R3,R4
 
-# Independent Reliability Grading — Agent R
+# 신뢰도 독립 검증 — Agent R
 
-Every record in the merged ledger has been graded: **774 of 774**, no gaps, no deferrals.
-Graded in three passes: A/B/C/E/F/G/H/I (640), then D/X plus C's revision block (110),
-then Agent I's follow-up block E-8107-E-8130 (24).
-Grades were assigned solely by Agent R. No collector graded its own evidence.
+원장(ledger)의 모든 레코드에 등급을 부여했다. **774건 전수, 774건 채점**, 누락 없음, 축소 없음.
+채점은 세 차례에 나누어 수행했다. 1차는 A/B/C/E/F/G/H/I의 640건, 2차는 D/X와 C의 수정 블록 110건,
+3차는 Agent I의 후속 블록 E-8107~E-8130의 24건이다.
+
+등급은 Agent R이 단독으로 부여했다. 이 런에서 수집자가 자기 근거를 채점한 사례는 없다.
 
 ---
 
-## 1. Grade distribution
+## 1. 등급 분포
 
-### Overall
+### 전체
 
-| 상 (High) | 중 (Medium) | 하 (Low) | Total |
+| 상 (High) | 중 (Medium) | 하 (Low) | 합계 |
 |---|---|---|---|
 | 7 (0.9%) | 449 (58.0%) | 318 (41.1%) | 774 |
 
-Only seven records in the entire ledger meet the R3 test for 상 — a primary source, **plus**
-two or more genuinely independent cross-confirmations, **plus** methodology disclosed well
-enough to reproduce. That is the expected shape. Genuine triple-qualification is rare.
+원장 전체에서 R3의 상 요건을 충족한 레코드는 7건뿐이다. 상은 1차 출처와 **더불어**
+독립적인 교차확인(cross-confirmation) 2건 이상, **그리고** 재현 가능할 만큼 공개된 방법론을
+모두 요구한다. 이 분포는 예상된 모양이다. 세 조건을 동시에 만족하는 근거는 원래 드물다.
 
-### Per collecting agent
+### 수집 에이전트별
 
-| Agent | 상 | 중 | 하 | n | share 하 |
+| 에이전트 | 상 | 중 | 하 | n | 하 비율 |
 |---|---|---|---|---|---|
-| A (economics of development) | 1 | 49 | 14 | 64 | 22% |
-| B (AI track record) | 0 | 27 | 47 | 74 | 64% |
-| C (bottleneck matrix) | 0 | 55 | 67 | 122 | 55% |
-| D (flow model) | 0 | 9 | 20 | 29 | 69% |
-| E (regulatory landscape) | 1 | 70 | 14 | 85 | 16% |
-| F (trial operations) | 1 | 52 | 16 | 69 | 23% |
-| G (CMC and delivery) | 1 | 31 | 40 | 72 | 56% |
-| H (data and DBTL) | 1 | 45 | 28 | 74 | 38% |
-| I (breakthrough catalogue) | 2 | 80 | 48 | 130 | 37% |
-| X (red team) | 0 | 31 | 24 | 55 | 44% |
-| **All** | **7** | **449** | **318** | **774** | **41%** |
+| A (개발 경제성) | 1 | 49 | 14 | 64 | 22% |
+| B (AI 실적) | 0 | 27 | 47 | 74 | 64% |
+| C (병목 매트릭스) | 0 | 55 | 67 | 122 | 55% |
+| D (흐름 모델) | 0 | 9 | 20 | 29 | 69% |
+| E (규제 지형) | 1 | 70 | 14 | 85 | 16% |
+| F (임상시험 운영) | 1 | 52 | 16 | 69 | 23% |
+| G (CMC·전달) | 1 | 31 | 40 | 72 | 56% |
+| H (데이터·DBTL) | 1 | 45 | 28 | 74 | 38% |
+| I (돌파기술 카탈로그) | 2 | 80 | 48 | 130 | 37% |
+| X (레드팀) | 0 | 31 | 24 | 55 | 44% |
+| **전체** | **7** | **449** | **318** | **774** | **41%** |
 
-Agent I's share of 하 fell from 42% to 37% with the follow-up block, and it gained the run's
-sixth and seventh 상 records. That block is materially better sourced than I's original
-catalogue: it is built on Federal Register notices, final FDA guidances, ICH instruments and
-an NHS procurement rather than on vendor pages and content aggregators.
+이 편차는 잡음이 아니다. E와 A는 공개된 1차 기록이 존재하는 영역을 다루었다. 법령, Federal Register
+고시, FDA 공개 표, 동료심사를 거친 비용 연구가 그것이다. 그래서 이들의 근거는 검증을 견딘다.
+반면 B, C, G, D가 다룬 영역은 이용 가능한 근거가 기업 자기보고, 유료 시장조사, 또는 에이전트 자신의
+모델뿐인 곳이다. 등급 차이는 에이전트의 노력 차이가 아니라 그 영역에 존재하는 근거의 질을 반영한다.
+D가 가장 낮은 이유는 D 스스로 자신의 가정 파일에서 결과를 좌우하는 선택 15건을
+`[ASSUMPTION-UNSUPPORTED]`로 표시했기 때문이다. 그 투명성은 D의 미덕이며, 동시에 D 산출물에 대한 제약이다.
 
-The spread is not noise. E and A worked domains with public primary records (statutes,
-Federal Register notices, FDA tables, peer-reviewed cost studies) and their evidence holds up.
-B, C, G and D worked domains where the available evidence is company self-report, paid market
-research, or the agent's own model — and the grades reflect that, not the agents' effort.
-D scores lowest because its own assumptions file marks fifteen load-bearing choices
-`[ASSUMPTION-UNSUPPORTED]`; that transparency is a credit to D and a constraint on its outputs.
+Agent I의 하 비율은 후속 블록으로 42%에서 37%로 내려갔고, 이 런의 여섯 번째와 일곱 번째 상 레코드를
+얻었다. 그 블록은 I의 원래 카탈로그보다 출처 품질이 확실히 낫다. 벤더 페이지와 콘텐츠 애그리게이터
+대신 Federal Register 고시, FDA 최종 가이던스, ICH 문서, NHS 조달을 근거로 삼았기 때문이다.
 
-### By record type
+### 레코드 유형별
 
-| Type | 상 | 중 | 하 |
+| 유형 | 상 | 중 | 하 |
 |---|---|---|---|
 | primary_literature | 3 | 216 | 14 |
 | regulatory | 4 | 96 | 12 |
@@ -61,453 +61,428 @@ D scores lowest because its own assumptions file marks fifteen load-bearing choi
 | secondary | 0 | 53 | 185 |
 | market_report | 0 | 5 | 22 |
 
-Every market report but five is Low. That is the S2 rule applied without exception:
-a paid figure with undisclosed methodology does not become reliable by being repeated.
+market_report 27건 중 22건이 하다. 예외 없이 적용한 S2 규칙의 결과다. 방법론을 공개하지 않은
+유료 수치는 여러 번 반복 인용된다고 해서 신뢰할 수 있게 되지 않는다.
 
-### The five 상 records
+### 상 등급 7건
 
-| ID | Claim | Why it clears the bar |
+| ID | 주장 | 상 요건을 충족한 이유 |
 |---|---|---|
-| E-1006 | Wouters 2020: median $985.3M capitalized R&D per approved agent, 63 agents / 47 companies | Public SEC filings, nameable sample, reproduced exactly on re-access, magnitude independently corroborated by Prasad 2017 and Sertkaya 2024 |
-| E-4004 | FDA qualified its first AI drug development tool (AIM-NASH) on 8 Dec 2025 | Regulatory act of record, confirmed by four independent outlets and the sponsor; also settles a cross-agent conflict |
-| E-5032 | Unger 2019 meta-analysis: 55.6% no trial available / 21.5% ineligible / 14.8% eligible non-enrollers / 8.1% enrolled | Pools 13 independent studies (the cross-confirmation is internal to the design), published method, every pooled estimate and interval reproduced exactly |
-| E-6041 | AVLAYAH (tividenofusp alfa) accelerated approval 25 Mar 2026, first receptor-mediated brain-delivery biologic | Regulatory act of record, four independent confirmations, label and confirmatory condition public |
-| E-7018 | Reproducibility Project: Cancer Biology — median replication effect 85% smaller, 92% of effects smaller | Preregistered multi-laboratory programme, public protocols and data, reproduced exactly, corroborated in direction by two independent industry programmes |
-| E-8126 | NHS antimicrobial subscription model: Pfizer/Shionogi pilots 2022, ~GBP 1.9bn tender over 16 years, GBP 100m/yr, contracts from 1 Apr 2026 | NHS England primary source, four independent confirmations, public procurement reproducible from Find A Tender notices |
-| E-8128 | AVLAYAH accelerated approval 25 Mar 2026 (same fact as E-6041) | Regulatory act of record, four independent outlets, graded consistently with E-6041 |
+| E-1006 | Wouters 2020: 승인 의약품당 자본화 R&D 중앙값 $985.3M, 63개 물질 / 47개 기업 | 공개 SEC 공시 기반이라 표본을 특정할 수 있고 재현 가능. 재접근에서 정확히 재현되었으며 Prasad 2017과 Sertkaya 2024가 규모를 독립적으로 뒷받침 |
+| E-4004 | FDA가 2025년 12월 8일 최초의 AI 기반 drug development tool(AIM-NASH)을 qualification | 규제 결정 자체가 기록이며 독립 매체 4곳과 스폰서가 확인. 에이전트 간 충돌도 이 레코드로 종결 |
+| E-5032 | Unger 2019 메타분석: 55.6% 지역 내 시험 부재 / 21.5% 부적격 / 14.8% 적격 미등록 / 8.1% 등록 | 독립 연구 13건을 통합한 설계 자체가 교차확인. 방법론 공개, 모든 통합 추정치와 신뢰구간이 재접근에서 정확히 재현 |
+| E-6041 | AVLAYAH(tividenofusp alfa) 2026년 3월 25일 가속승인, 수용체 매개 뇌전달 최초 생물의약품 | 규제 결정 기록, 독립 확인 4건, 라벨과 확증시험 조건 모두 공개 |
+| E-7018 | Reproducibility Project: Cancer Biology — 재현 효과크기 중앙값이 원논문보다 85% 작고, 92%가 더 작음 | 사전등록된 다기관 재현 프로그램, 프로토콜과 데이터 공개, 정확히 재현되었으며 독립적인 산업계 프로그램 2건이 방향을 뒷받침 |
+| E-8126 | NHS 항균제 구독 모델: 2022년 Pfizer/Shionogi 시범계약, 16년간 약 GBP 1.9bn 입찰, 연 GBP 100m, 2026년 4월 1일 계약 개시 | NHS England 1차 출처, 독립 확인 4건, Find A Tender 공고로 재현 가능한 공공조달 |
+| E-8128 | AVLAYAH 2026년 3월 25일 가속승인 (E-6041과 동일 사실) | 규제 결정 기록, 독립 매체 4곳, E-6041과 동일 기준으로 채점 |
 
 ---
 
-## 2. Downgrade reason code histogram
+## 2. 하향 사유 코드 히스토그램
 
-| Code | Meaning | Count |
+| 코드 | 의미 | 건수 |
 |---|---|---|
-| S1 | single source | 484 |
-| S2 | methodology undisclosed | 229 |
-| S7 | origin unverifiable | 177 |
-| S4 | conflict of interest | 125 |
-| S3 | circular reference | 121 |
-| S5 | sample bias | 44 |
-| S6 | outdated | 16 |
+| S1 | 단일출처 | 484 |
+| S2 | 방법론 비공개 | 229 |
+| S7 | 원출처(provenance) 확인 불가 | 177 |
+| S4 | 이해상충(conflict of interest) | 125 |
+| S3 | 순환참조(circular reference) | 121 |
+| S5 | 표본편향(sample bias) | 44 |
+| S6 | 구버전 | 16 |
 
-`S7` at 176 is the single most damning number in this table. It means that for nearly a
-quarter of the ledger neither the collector, nor Agent X's three-hop audit, nor my own
-re-access could reach the place a figure came from.
+이 표에서 가장 뼈아픈 숫자는 S7의 177이다. 원장의 거의 4분의 1에 대해, 수집자도, Agent X의
+3-hop 원출처 감사도, 나 자신의 재접근(re-access)도 그 수치가 실제로 어디서 나왔는지에
+도달하지 못했다는 뜻이다.
 
-`S4` at 122 reflects how much of the AI-in-drug-discovery and manufacturing evidence base
-consists of companies reporting on their own platforms.
+S4가 125건이라는 사실은 AI 신약개발과 제조 분야 근거의 상당 부분이 기업이 자기 플랫폼에 대해
+스스로 보고한 내용으로 이루어져 있음을 보여준다.
 
 ---
 
-## 3. Re-access rate
+## 3. 재접근(re-access) 비율
 
-| Method | Count | Share |
+| 방법 | 건수 | 비율 |
 |---|---|---|
-| `refetched` — source re-opened and claim checked against it | 77 | 10% |
-| `refetch_failed` — access attempted, blocked (paywall, 401/403/404, auth redirect) | 57 | 7% |
-| `metadata_only` — graded conservatively on publisher class, source type, disclosed methodology and corroboration inside the ledger | 640 | 83% |
+| `refetched` — 출처를 다시 열어 주장과 대조 | 77 | 10% |
+| `refetch_failed` — 접근을 시도했으나 차단(페이월, 401/403/404, 인증 리디렉션) | 57 | 7% |
+| `metadata_only` — 발행처 등급, 출처 유형, 방법론 공개 여부, 원장 내 교차확인 여부로 보수적으로 채점 | 640 | 83% |
 
-I attempted re-access on **134 records (17%)** across roughly seventy WebFetch and WebSearch
-calls, and prioritised exactly as instructed: every anchor figure, every headline quantitative
-result, every `circular_risk:true` record I could reach, and every `market_report`.
-Where a PDF defeated the fetch tool I decompressed its content streams and read the text
-directly — that is how the CIRS regulatory-timing tables, the BIO 2011-2020 success-rate
-tables, the Ringel Eroom's-Law analysis and FDA's 2025 IND activity table were verified.
+전체 774건 중 **134건(17%)**에 대해 재접근을 시도했고, WebFetch와 WebSearch를 약 70회 호출했다.
+우선순위는 지시받은 그대로 적용했다.
+첫째, 정량적으로 하중이 큰 수치를 담은 레코드 전부(검증 대상 앵커 4종 모두).
+둘째, 놀랍거나 결론에서 무거운 역할을 하는 주장 전부.
+셋째, 접근 가능한 `circular_risk:true` 레코드 전부.
+넷째, `type:"market_report"` 전부와 `type:"secondary"`의 상당 부분.
 
-I never recorded a record as re-accessed that I did not open.
+PDF를 가져오는 도구가 원시 바이트만 반환한 경우에는 콘텐츠 스트림을 직접 압축 해제해 텍스트 레이어를
+읽었다. CIRS R&D Briefing 101의 규제 심사기간 표 여섯 기관 전체와 EMA 절차 분해, BIO 2011-2020의
+성공률·모달리티 표, Ringel의 *Breaking Eroom's Law* 분석, FDA의 CY2025 IND 활동 표가 그렇게 검증되었다.
+이 가운데 몇 건은 원출처 감사가 도달하지 못한 레코드였다.
+
+재접근하지 않은 623건은 검증 가능한 메타데이터로 보수적으로 채점했다. 발행처 등급, 출처 유형,
+표본과 분모의 명시 여부, 방법론 공개 여부, 그리고 원장 안에서 *독립적인* 다른 레코드가
+그 주장을 뒷받침하는지를 기준으로 삼았다. 어떤 경로를 적용했는지는 각 레코드의
+`verification_method`에 기록했다.
+
+내가 열지 않은 문서를 재접근했다고 기록한 사례는 없다.
 
 ---
 
-## 4. Reconciliation with the provenance audit (Agent X)
+## 4. 원출처 감사(Agent X)와의 조정
 
-Agent X marked **232 records FORCE_LOW**. Of the 232:
+Agent X는 **232건을 FORCE_LOW**로 표시했다. 그중,
 
-- **207 graded 하**, with S3 where circularity is demonstrated and S7 where no origin was reached.
-- **25 overridden with a traced provenance chain**, recorded in `corrected_provenance_hops`.
-  In each case I reached an origin the audit did not.
+- **207건은 하로 확정**했다. 순환참조가 입증된 경우 S3, 원출처에 도달하지 못한 경우 S7을 부여했다.
+- **25건은 원출처 사슬을 추적해 뒤집었다.** 추적 결과는 `corrected_provenance_hops`에 기록했다.
+  이 25건은 모두 내가 감사보다 한 단계 더 원출처에 접근한 경우다.
 
-The 25 overrides, and what I reached:
+뒤집은 25건과 내가 도달한 원출처는 다음과 같다.
 
-| Records | Origin I reached that the audit did not |
+| 레코드 | 감사가 도달하지 못했으나 내가 도달한 원출처 |
 |---|---|
-| E-1032, E-1033, E-1034, E-4061, E-4062, E-4076 | Decompressed the CIRS R&D Briefing 101 PDF content streams and read the 2024 approval-time and expedited-pathway tables verbatim |
-| E-1038, E-1039 | OWID parent page confirms the series is FDA's own CDER NME compilation plus the CBER Purple Book |
-| E-1041, E-1042 | PhRMA survey located at its live URL; the ~16% pre-human share corroborated independently |
-| E-1010 | Light & Warburton $59.4M (incl. ~$16M capital; $43.4M without) confirmed at the BioSocieties article and in two independent restatements |
-| E-1049 | Traced to the NRDD data article restating NMPA registry counts, with a second independent restatement |
-| E-1051, E-4080 | MFDS 420→295-day target traced to the agency announcement via three independent trade sources |
-| E-1052 | Chain traced: ASPE 2014 → Sertkaya et al. 2016 (Clinical Trials) → Medidata proprietary cost database |
-| E-1053 | Corrected the dead URL and confirmed the 2024 CGT approval count independently |
-| E-2003, E-2004 | Traced to the Jayatunga (Drug Discovery Today, June 2024) paper and BCG's 73-molecule tracking base |
-| E-2022 | Adaptyv Bio **is** the origin — it performed the replication; report re-opened and figures reproduced |
-| E-2053 | Zero AI-discovered FDA approvals confirmed independently across multiple 2026 sources |
-| E-3008 | Confirmed the Jayatunga Phase I denominator is disclosed: 21 of 24 |
-| E-3020, E-3021 | Traced to Getz 2012 (Applied Clinical Trials, 151 trials, 2008-2010) and the Tufts CSDD 2024 "Day of Delay" white paper (447 protocols) |
-| E-3036 | Corrected the dead BioProcess International URL; article title confirms the capacity-outpaces-demand finding |
-| E-8072 | The OSTP nucleic-acid screening framework is a primary US government document on an official domain |
+| E-1032, E-1033, E-1034, E-4061, E-4062, E-4076 | CIRS R&D Briefing 101 PDF의 콘텐츠 스트림을 압축 해제해 2024년 승인기간표와 신속심사 경로 표를 원문 그대로 판독 |
+| E-1038, E-1039 | OWID 상위 페이지가 해당 시계열이 FDA 자체 CDER NME 집계와 CBER Purple Book임을 확인 |
+| E-1041, E-1042 | PhRMA 조사보고서를 유효 URL에서 확인. 전임상 이전 단계 약 16% 비중을 독립적으로 교차확인 |
+| E-1010 | Light & Warburton의 $59.4M(자본비용 약 $16M 포함, 미포함 시 $43.4M)을 BioSocieties 논문과 독립 재서술 2건에서 확인 |
+| E-1049 | NMPA 등록 집계를 재서술한 NRDD 데이터 기사로 추적, 독립 재서술 1건 추가 확인 |
+| E-1051, E-4080 | MFDS의 420일→295일 목표를 독립 매체 3곳을 통해 기관 발표로 추적 |
+| E-1052 | 사슬 추적 완료: ASPE 2014 → Sertkaya et al. 2016 (Clinical Trials) → Medidata 비공개 비용 데이터베이스 |
+| E-1053 | 끊긴 URL을 교정하고 2024년 CGT 승인 건수를 독립적으로 확인 |
+| E-2003, E-2004 | Jayatunga (Drug Discovery Today, 2024년 6월) 논문과 BCG의 73개 분자 추적 기반으로 추적 |
+| E-2022 | Adaptyv Bio가 **원출처 자체**임을 확인(재현 실험을 직접 수행). 보고서를 다시 열어 수치 재현 |
+| E-2053 | AI 발굴 의약품의 FDA 승인 0건을 2026년 복수 출처로 독립 확인 |
+| E-3008 | Jayatunga의 Phase I 분모가 공개되어 있음을 확인: 24건 중 21건 |
+| E-3020, E-3021 | Getz 2012 (Applied Clinical Trials, 151개 시험, 2008-2010)과 Tufts CSDD 2024 "Day of Delay" 백서(447개 프로토콜)로 추적 |
+| E-3036 | 끊긴 BioProcess International URL을 교정. 기사 제목이 capacity-outpaces-demand 결론을 확인 |
+| E-8072 | OSTP 핵산 합성 스크리닝 프레임워크가 공식 도메인의 미국 정부 1차 문서임을 확인 |
 
-I did **not** override E-1001/E-1002 (DiMasi). My re-access reached the same place the audit
-did — the published abstract — and no further. The 106-compound sample is a confidential
-survey of unnamed firms about unnamed compounds and cannot be re-derived by anyone. The audit
-is right and the anchor is Low.
+E-1001과 E-1002(DiMasi)는 **뒤집지 않았다**. 나의 재접근은 감사가 도달한 지점, 즉 공개된 초록까지만
+도달했고 그 이상은 아니었다. 106개 화합물 표본은 익명 기업들이 익명 화합물에 대해 제출한 비공개
+설문이며 누구도 재도출할 수 없다. 감사의 판단이 옳고, 그 결과 이 분야에서 가장 많이 인용되는 수치가
+이 원장에서 하 등급이 되었다. 이것이 기본값에 따른 처리가 아니라 숙고한 동의임을 기록해 둔다.
 
-Circular-risk flags after grading: **128 stand** (against 114 set by collectors). I cleared
-25 and set additional flags where my own re-access found untraced circulation the collectors
-had not flagged.
+채점 후 순환참조 플래그는 **128건이 유지**되었다(수집자가 설정한 것은 114건). 25건을 해제했고,
+수집자가 표시하지 않았으나 나의 재접근에서 추적 불가능한 순환이 드러난 경우 플래그를 추가했다.
 
 ---
 
-## 5. Records most load-bearing for the run's conclusions, and their grades
+## 5. 이 런의 결론에 가장 큰 하중이 실린 레코드와 그 등급
 
-This is the section to read before trusting any headline number.
+어떤 헤드라인 수치든 신뢰하기 전에 읽어야 할 절이다.
 
-### Q1 — has AI compressed discovery, empirically?
+### Q1 — AI는 발견을 실제로 압축했는가
 
-| Record | Claim | Grade |
+| 레코드 | 주장 | 등급 |
 |---|---|---|
-| E-3008 | Jayatunga: 21 of 24 AI molecules cleared Phase I (denominator IS disclosed) | 중 (S4, S5) |
-| E-2002 | Same paper: Phase I 80-90% vs stated 50-65% historical | 중 (S4, S5) |
-| E-2003 | Same paper: Phase II ~40%, matching historical | 중 (S4, S5) |
-| E-2066 | Wilson 95% CI at n=24 is [0.661, 0.943] — overlaps conventional rates | 중 (S4, S5) |
-| E-2065 | Detecting the 3-point Phase II difference needs ~4,126 per arm | 하 (S1, S3) |
-| E-2054 / E-2055 | 117 AI assets, 63 companies, median 6.5 years founding-to-Phase-1 | **하** (S1, S3, S7) |
-| E-2053 | Zero AI-discovered drugs FDA-approved as of 2026 | 중 (S1) |
-| E-7100 | Label-noise ceiling: max achievable R² on public pIC50 is 0.54-0.88 | 중 (S1) |
-| E-7018 | Preclinical replication: median effect 85% smaller | **상** |
+| E-3008 | Jayatunga: AI 분자 24건 중 21건이 Phase I 통과(분모는 공개되어 있음) | 중 (S4, S5) |
+| E-2002 | 동일 논문: Phase I 80-90%, 역사적 기준 50-65% 대비 | 중 (S4, S5) |
+| E-2003 | 동일 논문: Phase II 약 40%, 역사적 평균과 동일 | 중 (S4, S5) |
+| E-2066 | n=24에서 Wilson 95% 신뢰구간 [0.661, 0.943] — 통상 성공률과 겹침 | 중 (S4, S5) |
+| E-2065 | Phase II 3%p 차이를 검출하려면 군당 약 4,126개 필요 | 하 (S1, S3) |
+| E-2054 / E-2055 | AI 자산 117건, 63개 기업, 창업-Phase 1 중앙값 6.5년 | **하** (S1, S3, S7) |
+| E-2053 | 2026년 기준 FDA 승인을 받은 AI 발굴 의약품 0건 | 중 (S1) |
+| E-7100 | 라벨 노이즈 상한: 공개 pIC50에서 달성 가능한 최대 R²는 0.54-0.88 | 중 (S1) |
+| E-7018 | 전임상 재현성: 재현 효과크기 중앙값이 85% 작음 | **상** |
 
-The verdict-bearing facts here are solid; the **census** figures are not.
+여기서 판정을 지탱하는 사실들은 견고하다. 그러나 **집계(census) 수치는 그렇지 않다.**
 
-### Q2 / H0-c — Amdahl ceiling on discovery compression
+### Q2 / H0-c — 발견 압축의 Amdahl 상한
 
-| Record | Claim | Grade |
+| 레코드 | 주장 | 등급 |
 |---|---|---|
-| E-1093 | Pre-IND is 21.2-40.7% of elapsed development time | 중 (S2, S6) |
-| E-1094 | Ceiling: ≤21-41% of time, ≤40-43% capitalized cost, only 7-31% of cash cost | 중 (S2, S6) |
-| E-3098 | Independent computation: 23-37% of elapsed time | 하 (S2, S3) |
-| E-9039 | Third independent computation: 33.3% of time, 41.0% of capitalized cost | 하 (S2) |
-| E-5071 | Clinical-side ceiling: perfect recruitment removes 25-61% of clinical elapsed time | 중 (S1) |
+| E-1093 | pre-IND는 총 개발 경과시간의 21.2-40.7% | 중 (S2, S6) |
+| E-1094 | 상한: 시간 최대 21-41%, 자본화 비용 최대 40-43%, 현금 비용은 7-31%에 불과 | 중 (S2, S6) |
+| E-3098 | 독립 계산: 경과시간의 23-37% | 하 (S2, S3) |
+| E-9039 | 세 번째 독립 계산: 시간 33.3%, 자본화 비용 41.0% | 하 (S2) |
+| E-5071 | 임상 측 상한: 완벽한 환자모집은 임상 경과시간의 25-61%를 제거 | 중 (S1) |
 
-**Three agents computed the discovery time ceiling independently, on different datasets, and
-got 21-41%, 23-37% and 33.3%.** That agreement is real triangulation and I verified all three
-arithmetically. It is the best-supported quantitative conclusion in the run, even though two
-of the three individual records are Low because of their inputs.
+**세 에이전트가 서로 다른 데이터로 발견 단계 시간 상한을 독립적으로 계산해 각각 21-41%, 23-37%,
+33.3%를 얻었다.** 이것은 진짜 삼각검증이며 나는 세 계산의 산술을 모두 검증했다. 개별 레코드 중
+둘이 입력값 때문에 하 등급이지만, **이것이 이 런에서 가장 잘 뒷받침된 정량적 결론이다.**
 
-### Q2 — cost and probability anchors
+### Q2 — 비용과 성공확률 앵커
 
-| Record | Claim | Grade |
+| 레코드 | 주장 | 등급 |
 |---|---|---|
-| E-1001 / E-1002 | DiMasi 2016: $2,558M capitalized / $1,395M out-of-pocket | **하** (S2, S7) |
-| E-1006 | Wouters 2020: $985.3M median, from public filings | **상** |
-| E-1011 | Sertkaya 2024: $879.3M expected capitalized at 11% CoC | 중 (S2) |
-| E-9041 | ~32% of the headline cost figure is the discount-rate choice alone | 중 (S2) |
-| E-1023 | BIO 2011-2020: 7.9% Phase I LOA, n=12,728 transitions | 중 (S2) |
-| E-1020 | Wong 2019: 13.8% Phase I to approval, 406,038 trial entries | 중 (S2) |
-| E-1027 | Zhou 2025 Nature Comms: ~5-6.5% for 2015-2023, public databases | 중 (S2) |
+| E-1001 / E-1002 | DiMasi 2016: 자본화 $2,558M / 현금 $1,395M | **하** (S2, S7) |
+| E-1006 | Wouters 2020: 공개 공시 기반 중앙값 $985.3M | **상** |
+| E-1011 | Sertkaya 2024: 자본비용 11% 적용 기대 자본화 $879.3M | 중 (S2) |
+| E-9041 | 헤드라인 비용 수치의 약 32%는 할인율 선택만으로 발생 | 중 (S2) |
+| E-1023 | BIO 2011-2020: Phase I LOA 7.9%, n=12,728 전이 | 중 (S2) |
+| E-1020 | Wong 2019: Phase I→승인 13.8%, 406,038건 시험 기록 | 중 (S2) |
+| E-1027 | Zhou 2025 Nature Comms: 2015-2023 약 5-6.5%, 공개 DB 기반 | 중 (S2) |
 | E-1026 | Citeline 6.7% (2014-2023) | **하** (S1, S2, S3) |
-| E-1096 | Cumulative PoS recomputed from BIO transitions, reproduces 7.9% exactly | 중 (S2) |
+| E-1096 | BIO 전이확률로 누적 성공확률 재계산, 7.9%를 정확히 재현 | 중 (S2) |
 
-### Q2 — patient throughput and trial operations
+### Q2 — 환자 처리량과 임상시험 운영
 
-| Record | Claim | Grade |
+| 레코드 | 주장 | 등급 |
 |---|---|---|
-| E-5032 | Unger: 55.6% of cancer patients have no trial locally; only 14.8% are eligible non-enrollers | **상** |
-| E-5006 | Industry Phase III participants fell 1,245,175 → 1,156,515 across 2008-2019 | 중 (S1) |
-| E-5003 | Participants per site per month 0.6 → 0.8 → 0.4 | 중 (S1) |
-| E-5001 | Median recruitment 13 → 18 months | 중 (S1) |
-| E-5069 | 2× IND flow needs ~289,000 more Phase III participants, ~60,000 site-slots | 중 (S1, S2) |
-| E-5026 | Tufts 2023 cycle: enrolments **exceeded** plan, timelines shorter | 중 (S2) |
+| E-5032 | Unger: 암환자 55.6%는 지역에 시험이 없음. 적격 미등록은 14.8%에 불과 | **상** |
+| E-5006 | 산업계 Phase III 참여자 수 2008-2019 사이 1,245,175 → 1,156,515로 감소 | 중 (S1) |
+| E-5003 | 기관당 월 등록 환자 수 0.6 → 0.8 → 0.4 | 중 (S1) |
+| E-5001 | 환자모집 기간 중앙값 13개월 → 18개월 | 중 (S1) |
+| E-5069 | IND 유입 2배에는 Phase III 참여자 약 289,000명, 기관 슬롯 약 60,000개 추가 필요 | 중 (S1, S2) |
+| E-5026 | Tufts 2023 주기: 실제 등록이 계획을 **초과**, 일정도 예상보다 단축 | 중 (S2) |
 
-### Q3 — where the constraint moves
+### Q3 — 제약은 어디로 이동하는가
 
-| Record | Claim | Grade |
+| 레코드 | 주장 | 등급 |
 |---|---|---|
-| E-9031 | Discovery duration −80% → **zero** change in annual approvals | **하** (S2) |
-| E-9033 | 5× candidate inflow at fixed budget → **zero** change | **하** (S2) |
-| E-9032 | Phase II PoS +50% → +31.8% approvals (largest single lever) | **하** (S2) |
-| E-9034 | 5× inflow with capital freed → +26.8%, NHP toxicology binds | **하** (S2) |
-| E-9042 | Constraint migration: budget → NHP tox → vectors → Phase III slots; review never binds | **하** (S2) |
-| E-6070 | Manufacturing saturation ordering: plasmid/lentiviral first at ~1.06× | **하** (S2, S7) |
-| E-3125 | Final parent bottleneck ranking, 18 rows | **하** (S2) |
+| E-9031 | 발견 기간 −80% → 연간 승인 건수 변화 **0** | **하** (S2) |
+| E-9033 | 예산 고정 상태에서 후보물질 유입 5배 → 변화 **0** | **하** (S2) |
+| E-9032 | Phase II 성공확률 +50% → 승인 +31.8% (단일 레버 최대) | **하** (S2) |
+| E-9034 | 자본 제약 해제 후 유입 5배 → +26.8%, NHP 독성시험이 제약이 됨 | **하** (S2) |
+| E-9042 | 제약 이동: 예산 → NHP 독성 → 벡터 → Phase III 슬롯. 규제심사는 한 번도 제약이 되지 않음 | **하** (S2) |
+| E-6070 | 제조 포화 순서: plasmid/lentiviral이 약 1.06배에서 최초로 포화 | **하** (S2, S7) |
+| E-3125 | 최종 부모 병목 순위 18행 | **하** (S2) |
 
-### Q5 / regulatory
+### Q5 / 규제
 
-| Record | Claim | Grade |
+| 레코드 | 주장 | 등급 |
 |---|---|---|
-| E-4004 | First AI drug development tool qualified, 8 Dec 2025 | **상** |
-| E-4025 | CDER 15,124 active INDs at 31 Dec 2025 (9,932 commercial) | 중 (S1) |
-| E-4056 | Approvals fell 8% while CDER headcount fell 17.8% | 중 (S1) |
-| E-9545 | FDA has formally qualified **eight** biomarkers, seven of them pre-2016 | 중 (S1) |
-| E-6041 | First receptor-mediated brain-delivery biologic approved | **상** |
-| E-6074 | Manufacturing CRLs delay approval but do not prevent it (survivorship-selected cohort) | 중 (S1) |
+| E-4004 | 최초의 AI drug development tool qualification, 2025년 12월 8일 | **상** |
+| E-4025 | 2025년 12월 31일 기준 CDER 활동 IND 15,124건(상업용 9,932건) | 중 (S1) |
+| E-4056 | CDER 인력이 17.8% 줄어드는 동안 승인 건수는 8% 감소 | 중 (S1) |
+| E-9545 | FDA가 공식 qualification한 바이오마커는 **8건**, 그중 7건은 2016년 이전 | 중 (S1) |
+| E-6041 | 최초의 수용체 매개 뇌전달 생물의약품 승인 | **상** |
+| E-6074 | 제조 관련 CRL은 승인을 지연시킬 뿐 막지는 않음(생존편향 표본) | 중 (S1) |
 
-### Follow-up block: the four TRL 8 ratings, checked against their instruments
+### 후속 블록: TRL 8 등급 4건을 근거 문서와 대조 검증
 
-The orchestrator asked specifically whether each cited instrument is in force and whether it
-mandates what the record says it mandates. It matters because "a guidance that recommends is
-not a guidance that requires", and these four ratings are built on exactly that distinction.
+오케스트레이터는 인용된 문서가 실제로 시행 중인지, 그리고 레코드가 주장하는 바를 실제로 강제하는지
+확인해 달라고 요청했다. "권고하는 가이던스는 요구하는 가이던스가 아니다"라는 구별이 이 네 등급의
+성립 근거 전체이기 때문에 중요하다.
 
-| Tech | Instrument | In force? | Mandates? | Record grade | Verdict |
+| 기술 | 근거 문서 | 시행 중인가 | 강제하는가 | 레코드 등급 | 판정 |
 |---|---|---|---|---|---|
-| T-082 dose-optimisation mandate | FDA final guidance, FR 9 Aug 2024 | **Yes**, final | **No** — recommends. FDA's own convention: "should" means suggested, not required | E-8107 중, E-8108 중 | TRL 8 sustainable as *instrument issued*; the word "mandate" in the tech name and "directing" in E-8107 are both overstatements |
-| T-083 model-informed drug development | ICH M15 availability + MIDD paired meetings (PDUFA VII) | **Yes** | **No** — general-principles guideline plus a voluntary meeting programme | E-8112 중, E-8113 중 | TRL 8 rests on availability and a standing programme, not a requirement. E-8113 contains no measurement at all |
-| T-086 estimand framework | ICH E9(R1); Taiwan adoption 15 Apr 2026 | **Yes**; Taiwan date confirmed exactly | **Partly** — Step 5 scientific guideline in the EU, non-binding guidance in the US. "Require" across all seven named jurisdictions is not supported | E-8116 중 (S1, S4) | Weakest of the four. The overstatement is inside the record's own claim |
-| T-093 antimicrobial subscription | NHS England procurement | **Yes** — contracts tendered, budget set, start 1 Apr 2026 | **N/A** — it is a purchase, not a rule | **E-8126 상** | The only one of the four that is a decision in force with money committed rather than an instrument that recommends |
+| T-082 용량 최적화 의무 | FDA 최종 가이던스, FR 2024-08-09 | **예**, 최종 | **아니오** — 권고. FDA 자체 관행상 "should"는 권고이지 요구가 아님 | E-8107 중, E-8108 중 | TRL 8은 *문서 발효* 근거로는 성립. 기술명의 "mandate"와 E-8107의 "directing"은 모두 과장 |
+| T-083 model-informed drug development | ICH M15 공표 + MIDD paired meeting (PDUFA VII) | **예** | **아니오** — 일반원칙 가이드라인과 자발적 미팅 프로그램 | E-8112 중, E-8113 중 | TRL 8은 문서 존재와 상설 프로그램에 근거하며 요구사항이 아님. E-8113에는 측정치가 전혀 없음 |
+| T-086 estimand 프레임워크 | ICH E9(R1), 대만 2026-04-15 채택 | **예**; 대만 일자 정확히 확인 | **부분적** — EU에서는 Step 5 과학 가이드라인, 미국에서는 비구속 가이던스. 명시된 7개 관할권 전부가 "require"한다는 근거는 없음 | E-8116 중 (S1, S4) | 네 건 중 가장 약함. 과장이 레코드 자체 주장 안에 있음 |
+| T-093 항균제 구독 모델 | NHS England 조달 | **예** — 계약 입찰, 예산 확정, 2026-04-01 개시 | **해당 없음** — 규칙이 아니라 구매 | **E-8126 상** | 네 건 중 유일하게 권고 문서가 아니라 실제 예산이 투입된 시행 결정 |
 
-**Downgrade verified.** T-072 (MRD) 8 → 6 is correct. I confirmed via the Federal Register
-notice of 21 Jan 2026 and five independent outlets: draft guidance issued 20 Jan 2026, comment
-period closed 23 Mar 2026, the April 2024 ODAC vote was advisory, and MRD-based approvals would
-still require confirmatory PFS or OS. There is no formal decision in that record. **E-8127 중.**
+**하향 조정 검증 완료.** T-072(MRD)의 8 → 6 하향은 옳다. Federal Register 2026년 1월 21일 고시와
+독립 매체 5곳으로 모든 요소를 확인했다. 초안 가이던스 2026년 1월 20일 발표, 의견수렴 2026년 3월 23일
+종료, 2024년 4월 ODAC 표결은 자문에 불과, MRD 기반 승인도 여전히 확증 PFS 또는 OS를 요구한다.
+그 레코드에는 어떠한 공식 결정도 없다. **E-8127 중.**
 
-**Re-base verified.** T-035 (transferrin-receptor brain shuttle) re-based from trontinemab's
-Phase 3 status onto the March 2026 AVLAYAH accelerated approval is correct — a trial in
-progress cannot support TRL 8, an approval can. I had already confirmed this approval
-independently in pass 1 through four outlets while grading E-6041. **E-8128 상.**
+**근거 재설정 검증 완료.** T-035(transferrin receptor 뇌 셔틀)의 근거를 trontinemab의 Phase 3
+진행 상태에서 2026년 3월 AVLAYAH 가속승인으로 옮긴 것은 옳다. 진행 중인 시험은 TRL 8을 뒷받침할 수
+없고 승인은 뒷받침할 수 있다. 이 승인은 1차 채점 때 E-6041을 채점하며 매체 4곳으로 이미 독립
+확인했다. **E-8128 상.**
 
-**A new unflagged conflict this block introduces.** E-8124 (Agent I) reports the UK Biobank
-Pharma Proteomics Project as 54,306 participants profiled / 2,923 proteins / 50,395 in the
-GWAS; E-9549 (Agent X) reports 34,557 participants / ~2,940 proteins from the same paper.
-Both are plausible for different cohorts inside that study (full phase versus randomised
-discovery subcohort), but neither record names its denominator. Under M3 that caps both at
-Medium and the report must not quote either figure without stating which cohort it means.
-
----
-
-## 6. Conflicts between agents, and how each side graded
-
-Peer agents contradicted one another in eleven places. I graded both sides on their merits.
-Five conflicts are now **resolved by evidence**; six remain **open** and the report must say so.
-
-### Resolved
-
-**(a) AI Phase I denominator.** B (E-2002) recorded that "the accessible sources do not
-disclose the Phase I denominator". C (E-3008) recorded that the denominator is 21 of 24.
-I re-accessed and **C is right**. I withdrew the S2 code I had provisionally placed on
-E-2002 and regraded it 중. *B 중 / C 중 — conflict closed in C's favour.*
-
-**(b) ISTAND and NAM qualification.** C (E-3015, via an AI-content aggregator) recorded
-16 ISTAND projects and **zero** qualified drug development tools as of 1 Jan 2026.
-E (E-4003/E-4004) recorded 8 accepted submissions and **one** qualified AI tool from
-8 Dec 2025. I confirmed the AIM-NASH qualification through four independent outlets.
-*C 하 / E 중 and 상 — conflict closed in E's favour. C's zero-qualified claim is wrong.*
-
-**(c) Biomarker qualification count.** C (E-3072) recorded 11 qualified biomarkers and
-E-3103 explicitly reaffirmed it as "not contradicted". X (E-9545) recorded eight.
-I re-accessed the paper both cite: it says **eight**, seven of them pre-2016.
-*C 하 / X 중 — closed in X's favour. C's later E-3123 accepts the correction.*
-
-**(d) Patient-pool slack.** C's original B3 elasticity (E-3083, 2.5%) treated low
-participation as evidence of usable slack. F's records (E-5003, E-5006, E-5069) treat the
-same figures as evidence of matched-capacity scarcity. C conceded in E-3099 after applying
-the right test: F's deployed AI prescreening natural experiment collapsed screening *cost*
-tenfold and converted 117 patients from 98,348 charts. *C's original 하 / F 중 / C's
-concession 중 — closed in F's favour.*
-
-**(e) Genetic-support multiplier.** I (E-8010) carried the recycled "≈2×". C (E-3100) and
-X (E-9507) carry Minikel 2024's 2.6× with therapy-area detail. *I 하 / C and X 중 —
-use 2.6×, not 2×.*
-
-### Open — the report must address these, not pick a side
-
-**(f) Manufacturing capacity: slack or scarcity?** C's E-3036 (viral vector supply outpaces
-demand through 2031, 중) and D's E-9030 (no physical resource above 0.90 utilisation at
-baseline, 하) say slack. G's E-6005/E-6006/E-6008/E-6019 (하 throughout) and C's E-3037 (하)
-say contraction and lead-time scarcity, and G's ordering E-6070 (하) puts plasmid DNA at
-1.06× from binding. **The slack side is better evidenced than the scarcity side**, which is
-uncomfortable for the run's constraint-migration story. The single best-evidenced record in
-the area, E-6074 (중), points a third way: manufacturing problems delay approvals rather than
-prevent them.
-
-**(g) CAR-T manufacturing failure rate.** E-3034 gives 25% in NHL (중, and the source
-discloses no denominator). E-6012 gives 3.87% from a UK national cohort of 981 patients (중).
-E-6011 gives a 4-7% pooled range (중). A sixfold spread, all Medium. The national-registry
-figure is the only one with a stated numerator and denominator.
-
-**(h) AI clinical-molecule counts.** 29 (E-9007, 중), 75 (E-2072, 하), 117 (E-2054, 하),
-~175 (unrecorded search hit). No record reconciles the inclusion rules. Any statement of
-"how many AI drugs are in the clinic" must name its counting rule.
-
-**(i) Novel target entry rate.** X's own block contains both E-9509 (falling from ~100/yr to
-~30/yr, 하, consultancy) and E-9510 (rising significantly, p<0.001, 중, peer-reviewed).
-Prefer E-9510.
-
-**(j) Enrolment performance direction.** F's own E-5001/E-5003 (중, recruitment lengthening,
-site productivity halving, 2008-2019) versus F's own E-5026 (중, Tufts 2023 cycle: actual
-enrolments exceeded plan, timelines shorter than expected). Unresolved inside F's block.
-
-**(k) Cost per approval, model versus measurement.** D's model returns 2,791 capitalized;
-Sertkaya (E-1011, 중) returns 879.3. D reports the +217% gap as **not reconcilable** and
-declines to average. That is the right call and the report should repeat it rather than
-splitting the difference.
+**이 블록이 새로 만들어낸, 표시되지 않은 충돌 하나.** E-8124(Agent I)는 UK Biobank Pharma
+Proteomics Project를 참여자 54,306명 / 단백질 2,923종 / GWAS 50,395명으로 기록했고, E-9549(Agent X)는
+동일 논문에서 참여자 34,557명 / 단백질 약 2,940종으로 기록했다. 두 값 모두 해당 연구 내부의 서로
+다른 코호트(전체 단계 대 무작위 발견 하위코호트)로는 성립할 수 있지만, 어느 레코드도 자신의 분모를
+밝히지 않았다. M3에 따라 두 건 모두 중으로 상한이 걸리며, 보고서는 어느 코호트를 뜻하는지 명시하지
+않은 채 두 수치 중 어느 것도 인용해서는 안 된다.
 
 ---
 
-## 7. ⚠ Claims that cannot bear the weight placed on them
+## 6. 에이전트 간 충돌과 각 진영의 등급
 
-Each of the following is a conclusion the run is positioned to draw that rests on **하**-grade
-evidence. Every one requires the `⚠ LOW-EVIDENCE CLAIM` banner, or restatement as a
-directional judgment rather than a quantity.
+동료 에이전트들이 서로 모순된 지점은 11곳이다. 나는 양쪽을 각자의 근거로 채점했다.
+5건은 **근거로 종결**되었고, 6건은 **열린 채로 남아 있으며** 보고서가 그 사실을 밝혀야 한다.
 
-**1. ⚠ "Compressing discovery to zero changes annual approvals by exactly zero."**
-E-9031, E-9033 — 하. The zero is a direct consequence of D's budget identity (capital
-utilisation fixed at 1.00 by construction), which D's own assumptions file does not support
-with evidence. *The directional claim survives* — it is independently corroborated by the
-three Amdahl computations in §5 — *the exact zero does not.*
+### 종결된 충돌
 
-**2. ⚠ The manufacturing saturation ordering (plasmid DNA and lentiviral vector bind first
-at ~1.06× current IND volume).** E-6070, E-6064, E-6062, E-6066, E-6069, E-3117 — all 하.
-Nine of the ten component multiples are Low, and all ten are generated by a single invented
-lead-time-to-utilisation mapping with no cited empirical basis. The rank order may be roughly
-right; the multiples must never be quoted as measurements.
+**(a) AI Phase I 분모.** B(E-2002)는 "접근 가능한 출처들은 Phase I 분모를 공개하지 않는다"고
+기록했다. C(E-3008)는 분모가 24건 중 21건이라고 기록했다. 재접근 결과 **C가 옳다**. 나는 E-2002에
+잠정 부여했던 S2 코드를 철회하고 중으로 재조정했다. *B 중 / C 중 — C 쪽으로 종결.*
 
-**3. ⚠ Capital as the top-ranked bottleneck (B11 elasticity 6.0, later revised to 0.8).**
-E-3091 — 하, and **all six** of its evidence inputs are Low with circular flags standing.
-The revision E-3116 is also 하. The near-linear capital argument may well be correct; as
-evidenced it is an assertion.
+**(b) ISTAND와 NAM qualification.** C(E-3015, AI 콘텐츠 애그리게이터 경유)는 2026년 1월 1일 기준
+ISTAND 프로젝트 16건, qualification 완료 drug development tool **0건**으로 기록했다. E(E-4003/E-4004)는
+접수 8건, 2025년 12월 8일부터 qualification된 AI 도구 **1건**으로 기록했다. AIM-NASH qualification을
+독립 매체 4곳으로 확인했다. *C 하 / E 중·상 — E 쪽으로 종결. C의 0건 주장은 틀렸다.*
 
-**4. ⚠ The final eighteen-row bottleneck ranking.** E-3125 — 하. Of its component
-elasticities, only B8 (E-3088, 중) and the B10 quality split (E-3119, 중) rest on Medium
-evidence. B13 (E-3093), B14 (E-3094), B16 (E-3096), B3 (E-3083), B5 (E-3120), B6 (E-3117),
-B9 (E-3118), B12-adjacent and B17 (E-3111/E-3122) are all 하. Report the ordering as a
-reasoned ranking, never as measured elasticities.
+**(c) 바이오마커 qualification 건수.** C(E-3072)는 11건으로 기록했고 E-3103은 이를 "반박되지 않았다"고
+명시적으로 재확인했다. X(E-9545)는 8건으로 기록했다. 두 에이전트가 인용한 동일 논문을 재접근했더니
+**8건**이며 그중 7건이 2016년 이전이다. *C 하 / X 중 — X 쪽으로 종결. C의 후속 E-3123은 이 정정을 수용한다.*
 
-**5. ⚠ "117 AI-enabled assets across 63 companies, median 6.5 years from founding to Phase 1."**
-E-2054, E-2055 — 하. The named origin (an ASCO 2026 / JCO abstract) could not be located, and
-the only corroborating hits are other AI-generated aggregator pages — the signature of
-circulation, not confirmation. Derived quantities E-2057 and E-2058 inherit this.
+**(d) 환자 풀 여유.** C의 원래 B3 탄력도(E-3083, 2.5%)는 낮은 참여율을 사용 가능한 여유의 증거로
+취급했다. F의 레코드(E-5003, E-5006, E-5069)는 같은 수치를 매칭 가능한 용량의 희소성 증거로 본다.
+C는 올바른 검정을 적용한 뒤 E-3099에서 수용했다. F가 배치한 AI 사전선별 자연실험은 선별 *비용*을
+10분의 1로 낮추었으나 98,348건의 차트에서 117명을 전환하는 데 그쳤다. *C 원래 하 / F 중 / C 수용 중
+— F 쪽으로 종결.*
 
-**6. ⚠ "Preclinical/animal-model non-predictivity: 90-95% of drugs passing animal tests fail
-in humans."** E-3019 — 하, and X's E-9554 (중, which I verified at source) shows the
-denominator is misapplied: the 90% is 90% of the ~60% that clear preclinical. This claim
-should be **removed**, not banner-tagged.
+**(e) 유전적 근거 배수.** I(E-8010)는 반복 인용된 "약 2배"를 담았다. C(E-3100)와 X(E-9507)는
+Minikel 2024의 2.6배를 치료영역별 세부와 함께 담았다. *I 하 / C·X 중 — 2배가 아니라 2.6배를 쓸 것.*
 
-**7. ⚠ Protocol-complexity and operational-burden figures** (procedures per Phase III protocol
-187→301; 5.96 million data points; 3.5 amendments; enrolment interval +36.9%). E-3075, E-3076,
-E-3077, E-3078 — all 하 with circular flags standing, several from vendors selling the remedy.
-The B16 elasticity built on them (E-3096) is 하.
+### 열린 충돌 — 보고서는 한쪽을 고르지 말고 이 사실을 다루어야 한다
 
-**8. ⚠ Talent scarcity and biosecurity as bottlenecks.** E-3066, E-3067, E-3068, E-3069,
-E-3070, E-8069, E-8071 — all 하. Both conclusions (labour is in aggregate surplus; no binding
-access regime exists) are plausible and I suspect correct, but they rest entirely on
-untraceable recruiter and aggregator figures.
+**(f) 제조 능력: 여유(slack)인가 희소성(scarcity)인가.** C의 E-3036(바이럴 벡터 공급이 2031년까지
+수요를 상회, 중)과 D의 E-9030(기준선에서 어떤 물리적 자원도 가동률 0.90을 넘지 않음, 하)은 여유를
+말한다. G의 E-6005/E-6006/E-6008/E-6019(전부 하)와 C의 E-3037(하)은 위축과 리드타임 희소성을 말하고,
+G의 순서 E-6070(하)은 plasmid DNA가 1.06배에서 포화한다고 본다. **여유 쪽 근거가 희소성 쪽보다
+낫다.** 이는 이 런의 제약 이동 서사에 불리한 결과다. 이 영역에서 가장 잘 뒷받침된 레코드인
+E-6074(중)는 제3의 방향을 가리킨다. 제조 문제는 승인을 막는 것이 아니라 지연시킨다.
 
-**9. ⚠ Venture-capital and capital-availability figures** (seed/Series A 228→191 rounds,
-$10.6bn→$8.7bn; Q1 2025 $6.5bn −20.2%; >50% of public biotechs under two years' runway;
-post-IRA −68% small-molecule investment; $1.3tn top-25 deployable capital). E-3057, E-3058,
-E-3059, E-3061, E-9526 — all 하. The one Medium record in this area is E-9525 (peer-reviewed
-econometric estimate of the IRA step change), which should displace the industry-commissioned
-E-3059 wherever the two disagree. **Amended after the follow-up block:** the capital *figures*
-remain 하, but the claim that no credible instrument exists is now falsified by E-8126 (상) and,
-independently, by E-8061 (중, CMS Cell and Gene Therapy Access Model). See §9.
+**(g) CAR-T 제조 실패율.** E-3034는 NHL에서 25%(중, 그러나 출처가 분모를 밝히지 않음), E-6012는
+환자 981명 영국 전국 코호트에서 3.87%(중), E-6011은 통합 범위 4-7%(중)를 제시한다. 6배 격차이며
+전부 중이다. 분자와 분모가 명시된 것은 전국 등록 코호트 수치뿐이다.
 
-**10. ⚠ Cell-therapy cost of goods ($95,780/dose).** E-1046, E-3035, E-6015 — one 2019 model
-appearing three times from three publications. Two of the three are 하. Its appearance in
-three independent-looking records is repetition, not corroboration.
+**(h) AI 임상 진입 분자 수.** 29건(E-9007, 중), 75건(E-2072, 하), 117건(E-2054, 하), 약 175건(원장
+미수록 검색 결과). 포함 기준을 조정한 레코드는 없다. "임상 단계 AI 의약품이 몇 건인가"를 말하려면
+반드시 계수 규칙을 함께 밝혀야 한다.
 
-**11. ⚠ China trial-share and out-licensing figures** (39% of global oncology trial starts;
-38% of innovative-drug approvals; $136bn out-licensing). E-9520, E-9521, E-9522 — all 하,
-from one think-tank compilation of unnamed commercial databases plus a deal tracker whose
-totals are dominated by contingent milestones.
+**(i) 신규 타깃 진입 속도.** X 자신의 블록에 E-9509(연 약 100개에서 약 30개로 감소, 하, 컨설팅)와
+E-9510(유의하게 증가, p<0.001, 중, 동료심사)이 함께 들어 있다. E-9510을 택할 것.
 
-**12. ⚠ Insilico's 18-month / $2.6M discovery timeline.** E-2030, E-2031, E-7058, E-9534 —
-four records, four URLs, one company, no matched control cohort. All 하 except E-2008 (중),
-which is a review restating the same company figures.
+**(j) 등록 실적의 방향.** F 자신의 E-5001/E-5003(중, 2008-2019 모집 기간 연장, 기관 생산성 반토막)과
+F 자신의 E-5026(중, Tufts 2023 주기에서 실제 등록이 계획 초과, 일정도 단축)이 충돌한다. F 블록
+내부에서 해소되지 않았다.
 
-### Figures I found to be wrong on re-access — correct before publication
+**(k) 승인당 비용, 모델 대 측정.** D 모델은 자본화 2,791을 산출하고 Sertkaya(E-1011, 중)는 879.3을
+산출한다. D는 +217% 격차를 **조정 불가**로 보고하며 평균내기를 거부한다. 옳은 판단이며 보고서는
+차이를 절충하지 말고 이 사실을 그대로 반복해야 한다.
 
-| Record | Recorded | Source actually says |
+---
+
+## 7. ⚠ 감당할 수 없는 무게가 실린 주장
+
+아래 각 항목은 이 런이 도출할 위치에 있는 결론이면서 **하** 등급 근거에 의존한다. 모두
+`⚠ LOW-EVIDENCE CLAIM` 배너를 붙이거나, 수치가 아니라 방향성 판단으로 다시 서술해야 한다.
+
+**1. ⚠ "발견을 0으로 압축해도 연간 승인 건수는 정확히 변하지 않는다."**
+E-9031, E-9033 — 하. 이 0은 D의 예산 항등식(자본 가동률을 구성상 1.00으로 고정)에서 직접 따라 나오며,
+D 자신의 가정 파일도 이를 근거로 뒷받침하지 않는다. *방향성 주장은 살아남는다.* §5의 세 Amdahl
+계산이 독립적으로 뒷받침하기 때문이다. *그러나 정확히 0이라는 값은 살아남지 않는다.*
+
+**2. ⚠ 제조 포화 순서(plasmid DNA와 lentiviral vector가 현재 IND 물량의 약 1.06배에서 최초 포화).**
+E-6070, E-6064, E-6062, E-6066, E-6069, E-3117 — 전부 하. 구성 배수 10개 중 9개가 하이고, 10개 전부가
+경험적 근거가 전혀 인용되지 않은 리드타임→가동률 변환 규칙 하나로 생성되었다. 순위 자체는 대체로
+맞을 수 있으나 **배수를 측정치로 인용해서는 결코 안 된다.**
+
+**3. ⚠ 최상위 병목으로서의 자본(B11 탄력도 6.0, 이후 0.8로 수정).**
+E-3091 — 하. 그리고 근거 입력 **6건 전부**가 순환참조 플래그가 유지된 하 등급이다. 수정본 E-3116도
+하다. 자본이 거의 선형이라는 논변은 옳을 수 있으나, 근거로 뒷받침된 상태로는 주장에 불과하다.
+
+**4. ⚠ 최종 18행 병목 순위.** E-3125 — 하. 구성 탄력도 중 중 등급 근거에 기반한 것은
+B8(E-3088, 중)과 B10 품질 분할(E-3119, 중)뿐이다. B13(E-3093), B14(E-3094), B16(E-3096), B3(E-3083),
+B5(E-3120), B6(E-3117), B9(E-3118), 그리고 B17(E-3111/E-3122)은 전부 하다.
+**순위는 논증된 서열로 보고하고, 측정된 탄력도로는 결코 보고하지 말 것.**
+
+**5. ⚠ "AI 자산 117건, 63개 기업, 창업에서 Phase 1까지 중앙값 6.5년."**
+E-2054, E-2055 — 하. 명시된 원출처(ASCO 2026 / JCO 초록)를 찾을 수 없었고, 뒷받침하는 검색 결과는
+전부 같은 종류의 AI 생성 애그리게이터 페이지였다. 이는 확인이 아니라 유통의 흔적이다.
+파생값 E-2057과 E-2058도 이를 상속한다.
+
+**6. ⚠ "동물시험을 통과한 의약품의 90-95%가 사람에서 실패한다."**
+E-3019 — 하. 그리고 X의 E-9554(중, 내가 원문에서 직접 확인)는 분모가 잘못 적용되었음을 보여준다.
+90%는 전임상을 통과한 약 60%의 90%다. **이 주장은 배너를 붙일 것이 아니라 삭제해야 한다.**
+
+**7. ⚠ 프로토콜 복잡도와 운영 부담 수치**(Phase III 프로토콜당 절차 수 187→301, 데이터 포인트
+5.96 million, 수정 3.5회, 등록 기간 +36.9%). E-3075, E-3076, E-3077, E-3078 — 전부 순환참조 플래그가
+유지된 하이며 상당수는 그 해법을 파는 벤더가 출처다. 이를 토대로 만든 B16 탄력도(E-3096)도 하다.
+
+**8. ⚠ 병목으로서의 인재 부족과 바이오보안.** E-3066, E-3067, E-3068, E-3069, E-3070, E-8069, E-8071 —
+전부 하. 두 결론(노동력은 총량으로는 과잉이며, 구속력 있는 접근 규제는 존재하지 않는다) 모두
+그럴듯하고 아마 옳다고 보지만, 전적으로 추적 불가능한 리크루터·애그리게이터 수치에 의존한다.
+
+**9. ⚠ 벤처캐피털과 자본 가용성 수치**(시드/시리즈A 228→191건, $10.6bn→$8.7bn, 2025년 1분기 $6.5bn
+−20.2%, 상장 바이오텍 절반 이상이 현금 2년 미만, IRA 이후 저분자 투자 −68%, 상위 25개사 배치 가능
+자본 $1.3tn). E-3057, E-3058, E-3059, E-3061, E-9526 — 전부 하. 이 영역에서 유일한 중 등급 레코드는
+E-9525(IRA 단계변화에 대한 동료심사 계량경제 추정)이며, 산업계 의뢰 연구인 E-3059와 어긋나는 모든
+지점에서 E-9525가 우선해야 한다. **후속 블록 이후 수정:** 자본 *수치*는 여전히 하이지만,
+신뢰할 만한 제도가 없다는 주장은 E-8126(상)과 별개로 E-8061(중, CMS Cell and Gene Therapy Access
+Model)에 의해 이제 반증되었다. §9를 볼 것.
+
+**10. ⚠ 세포치료 제조원가($95,780/도즈).** E-1046, E-3035, E-6015 — 2019년 모델 하나가 서로 다른
+간행물 셋을 통해 세 번 등장한 것이다. 셋 중 둘이 하다. 독립적으로 보이는 레코드 세 건에 등장한 것은
+교차확인이 아니라 반복이다.
+
+**11. ⚠ 중국 임상시험 점유율과 기술수출 수치**(2024년 글로벌 종양 시험 개시의 39%, 혁신신약 승인의
+38%, 기술수출 $136bn). E-9520, E-9521, E-9522 — 전부 하. 익명 상용 데이터베이스를 모은 싱크탱크
+집계 하나와, 총액이 조건부 마일스톤에 좌우되는 딜 트래커가 출처다.
+
+**12. ⚠ Insilico의 18개월 / $2.6M 발견 타임라인.** E-2030, E-2031, E-7058, E-9534 — 레코드 4건,
+URL 4개, 기업 1곳, 매칭된 대조군 없음. E-2008(중, 같은 기업 수치를 재서술한 리뷰)을 제외하면 전부 하다.
+
+### 재접근에서 틀린 것으로 확인된 수치 — 발간 전에 정정할 것
+
+| 레코드 | 기록된 값 | 출처의 실제 값 |
 |---|---|---|
-| E-3072, E-3103 | 11 biomarkers qualified | **8** (7 of them pre-2016) |
-| E-9501 | dark proteome 38% of proteins | **~31% Tdark** |
+| E-3072, E-3103 | qualification된 바이오마커 11건 | **8건** (그중 7건은 2016년 이전) |
+| E-9501 | dark proteome가 단백질의 38% | **약 31% Tdark** |
 | E-1024 | siRNA/RNAi n=70 | **n=87** |
-| E-7062 | 33-fold increase in screening burden | **~53-fold** (739/14) |
-| E-1027 | Phase 3 58%, overall 5.5% (2015-2023) | **~52% and ~6.5%** on re-access |
-| E-7102 | 16-27% annual gene-synthesis price decline | its own derivation computes **14.8-23.8%** |
-| E-4039 | 26 ATMPs analysed | **27** |
-| E-8061 | 33 states + DC + PR | **32 states** + DC + PR at the 84% figure |
-| E-5065 | site productivity halved | halved from the 2012-2015 **peak**; −33% from 2008-2011 |
-| E-2075 | 35% of 200 antiviral compounds active | did not reproduce; only the 22.5% (45/200) figure did |
-| E-9554 | attributes the 90% claim to a 2006 HHS statement | attribution did not reproduce; the denominator correction did |
-| E-6067 | 8× oligonucleotide saturation multiple | does not follow from the record's own stated formula |
+| E-7062 | 선별 부담 33배 증가 | **약 53배** (739/14) |
+| E-1027 | 2015-2023 Phase 3 58%, 전체 5.5% | 재접근 시 **약 52%와 약 6.5%** |
+| E-7102 | 유전자 합성 가격 연 16-27% 하락 | 자체 도출식은 **14.8-23.8%**를 산출 |
+| E-4039 | ATMP 26건 분석 | **27건** |
+| E-8061 | 33개 주 + DC + PR | 84% 수치에 해당하는 것은 **32개 주** + DC + PR |
+| E-5065 | 기관 생산성 반토막 | 2012-2015 **정점** 대비 반토막이며 2008-2011 대비로는 −33% |
+| E-2075 | 항바이러스 화합물 200개 중 35% 활성 | 재현되지 않음. 22.5%(45/200)만 재현됨 |
+| E-9554 | 90% 주장의 출처를 2006년 HHS 발언으로 귀속 | 귀속은 재현되지 않음. 분모 정정은 재현됨 |
+| E-6067 | 올리고뉴클레오타이드 포화 배수 8배 | 레코드 자신이 명시한 산식에서 도출되지 않음 |
 
 ---
 
-## 8. Bottom line for a reader deciding how much to trust the report
+## 8. 독자가 이 보고서를 얼마나 믿어야 하는가
 
-- The **descriptive economics of drug development** (stage costs, durations, phase transition
-  probabilities, approval counts, regulatory timelines) is Medium-grade and mutually
-  consistent across four independent lineages. Trust it, with the caveat that the most-quoted
-  anchor of all — DiMasi's $2.6bn — is Low because its sample is confidential and
-  irreproducible, and that roughly a third of any capitalized cost figure is the analyst's
-  discount-rate choice (E-9041).
-- The **Amdahl ceiling on discovery compression** is the run's best-triangulated finding:
-  three agents, three datasets, 21-41% / 23-37% / 33.3% of elapsed development time.
-- The **empirical case on AI's clinical track record** is Medium where it is deflationary
-  (no approvals, Phase II unchanged, n=24 confidence interval overlaps) and Low where it is
-  inflationary (census counts, company timelines, platform performance claims). That asymmetry
-  is a property of the evidence, not of my grading: deflationary findings came from
-  peer-reviewed literature and registries, inflationary ones from companies and aggregators.
-- The **capital bottleneck** should be framed as an *allocation* problem, not a scarcity
-  problem, and not as one lacking solutions. Two outcomes-based payment instruments are in
-  force at national scale (E-8126 상, E-8061 중). What no record establishes is that either
-  moves system output — TRL 8 measures deployment maturity, not effect size.
-- The **quantitative constraint model and the bottleneck ranking are Low**. They are careful,
-  internally consistent and honestly caveated, but they are analyst constructions resting on
-  parameters that no cited source supplies. They should be presented as a structured argument
-  about mechanism, never as measurements of elasticity.
-
+- **신약개발의 기술적 경제성**(단계별 비용, 기간, 상 전이확률, 승인 건수, 규제 심사기간)은 중 등급이며
+  네 개의 독립 계보에서 서로 일관된다. 신뢰해도 좋다. 다만 두 가지 단서가 있다. 가장 널리 인용되는
+  앵커인 DiMasi의 $2.6bn은 표본이 비공개이고 재현 불가능하기 때문에 하다. 그리고 어떤 자본화 비용
+  수치든 약 3분의 1은 분석자의 할인율 선택에서 나온다(E-9041).
+- **발견 압축의 Amdahl 상한**은 이 런에서 가장 잘 삼각검증된 결과다. 세 에이전트, 세 데이터셋,
+  총 개발 경과시간의 21-41% / 23-37% / 33.3%.
+- **AI의 임상 실적에 관한 경험적 근거**는 축소적인 방향에서는 중 등급이고(승인 0건, Phase II 무변화,
+  n=24 신뢰구간이 겹침), 확대적인 방향에서는 하 등급이다(집계 수치, 기업 타임라인, 플랫폼 성능 주장).
+  이 비대칭은 나의 채점 성향이 아니라 근거 자체의 성질이다. 축소적 결과는 동료심사 문헌과 등록부에서,
+  확대적 결과는 기업과 애그리게이터에서 나왔다.
+- **자본 병목**은 희소성 문제가 아니라 *배분(allocation)* 문제로, 그리고 해법이 없는 문제가 아닌 것으로
+  기술해야 한다. 국가 규모로 시행 중인 성과연동 지불 제도가 둘 존재한다(E-8126 상, E-8061 중).
+  다만 어느 것도 시스템 산출을 움직였다는 증거는 어떤 레코드에도 없다. TRL 8은 배치 성숙도를 재는
+  것이지 효과 크기를 재는 것이 아니다.
+- **정량 제약 모델과 병목 순위는 하 등급이다.** 이들은 세심하고 내적으로 일관되며 정직하게 단서를
+  달았지만, 인용된 어떤 출처도 제공하지 않는 파라미터에 의존하는 분석자의 구성물이다.
+  **따라서 탄력도 측정치가 아니라 메커니즘에 관한 구조화된 논증으로 제시해야 하며,
+  측정치로 제시해서는 결코 안 된다.**
 
 ---
 
-## 9. Addendum — is Agent I's narrowed capital claim adequately evidenced?
+## 9. 부록 — Agent I의 자본 병목 축소 주장은 충분히 뒷받침되는가
 
-The orchestrator asked me to judge, neutrally, whether I's narrowing of "no credible solution
-to the capital bottleneck" to "no *laboratory* technology, structural point retained" goes far
-enough. My answer: **it should have gone further in one direction and correctly stopped in
-another, and the framing it chose does no work.**
+오케스트레이터는 I가 "자본 병목에 신뢰할 만한 해법이 없다"를 "*실험실* 기술이 없다, 구조적 논점은
+유지"로 축소한 것이 충분한지 중립적으로 판단해 달라고 요청했다. 나의 답은 이렇다.
+**한 방향으로는 더 나아갔어야 했고, 다른 한 방향으로는 옳게 멈추었으며, 선택한 표현은 아무 일도 하지 않는다.**
 
-**The "no laboratory technology" framing is close to unfalsifiable.** A payment model is not a
-lab technology almost by definition, so the narrowed claim is true in a way that cannot be
-tested. It preserves the appearance of the original negative without preserving its content.
+**"실험실 기술이 없다"는 표현은 근사적으로 반증 불가능하다.** 지불 모델이 실험실 기술이 아닌 것은
+거의 정의상 참이므로, 축소된 주장은 검정할 수 없는 방식으로 참이다. 원래 부정 주장의 외형은
+보존하면서 내용은 보존하지 못한다.
 
-**It should have gone further on count.** The red team produced one operating instrument
-(E-8126, the NHS antimicrobial subscription model — the only 상 in this block, with pilot
-contracts from July 2022, a ~GBP 1.9bn tender, GBP 100m/yr and contracts beginning 1 April
-2026). But it is not the only one, and the second was collected by Agent I itself: E-8061
-(중), the CMS Cell and Gene Therapy Access Model, with 32 states plus DC and Puerto Rico
-covering 84% of Medicaid sickle-cell beneficiaries under outcomes-based agreements. Two
-in-force instruments, two jurisdictions, two therapeutic classes, two different market
-failures (volume-delinkage for stewardship; one-time-payment affordability). That is a
-mechanism class, not an exception, and the narrowed claim still reads as though it were one.
+**건수 측면에서는 더 나아갔어야 했다.** 레드팀이 제시한 것은 시행 중인 제도 하나(E-8126, 이 블록의
+유일한 상. 2022년 7월 시범계약, 약 GBP 1.9bn 입찰, 연 GBP 100m, 2026년 4월 1일 계약 개시)다.
+그러나 이것만이 아니며, 두 번째 것은 Agent I 자신이 수집했다. E-8061(중), CMS의 Cell and Gene
+Therapy Access Model로, 32개 주와 DC, 푸에르토리코가 성과연동 계약 아래 겸상적혈구병 Medicaid
+수급자의 84%를 포괄한다. 시행 중인 제도 둘, 관할권 둘, 치료 분야 둘, 서로 다른 시장실패 둘
+(관리 목적의 물량 연동 해제, 일시불 지불의 부담 가능성)이다. 이는 예외가 아니라 하나의 제도군이며,
+축소된 주장은 여전히 예외인 것처럼 읽힌다.
 
-**It correctly stopped short on sufficiency, and that half should be kept.** The NHS model is
-GBP 100m/yr in one country for one drug class — roughly 0.1% of annual PhRMA member R&D
-(E-1041). No record in the ledger measures any output effect from either instrument: no
-additional approval, no additional entrant, no elasticity. TRL 8 measures how far a thing has
-been deployed, not how much it moves the system, and nothing in this ledger closes that gap.
+**충분성 측면에서는 옳게 멈추었고, 그 절반은 유지해야 한다.** NHS 모델은 한 나라, 한 약효군에 대해
+연 GBP 100m으로, PhRMA 회원사 연간 R&D의 약 0.1%다(E-1041). 두 제도 중 어느 것에 대해서도 산출
+효과를 측정한 레코드는 원장에 없다. 추가 승인도, 추가 진입자도, 탄력도도 없다. TRL 8은 어떤 것이
+얼마나 배치되었는지를 재는 것이지 시스템을 얼마나 움직이는지를 재는 것이 아니며,
+이 원장의 어떤 것도 그 간극을 메우지 않는다.
 
-**Two findings elsewhere in the run bear on the structural point and strengthen it for a
-different reason than I gives.** First, D's tornado (E-9037, E-3116, both 하): raising the
-industry R&D budget 50% yields zero additional approvals while cutting it 20% costs 46% of
-them. If that asymmetry is real, capital is a downside risk rather than an upside lever, and
-"solving" it upward buys nothing regardless of instrument. Second, capital appears abundant at
-the top (E-9526, 하: ~USD 1.3tn deployable at the top 25) and scarce at the bottom (E-3057,
-E-3061, both 하) — which makes this an allocation problem, and allocation is precisely what
-subscription models, advance market commitments, priority review vouchers and outcomes-based
-Medicaid contracts address.
+**런의 다른 곳에 있는 두 발견이 구조적 논점과 관련되며, I가 제시한 것과는 다른 이유로 그것을 강화한다.**
+첫째, D의 토네이도(E-9037, E-3116, 둘 다 하): 산업계 R&D 예산을 50% 늘리면 추가 승인이 0인 반면
+20% 줄이면 승인의 46%를 잃는다. 이 비대칭이 실재한다면 자본은 상방 레버가 아니라 하방 위험이며,
+제도가 무엇이든 위쪽으로 "해결"해서 얻을 것이 없다. 둘째, 자본은 상단에서는 풍부해 보이고
+(E-9526, 하: 상위 25개사에 약 USD 1.3tn 배치 가능) 하단에서는 희소해 보인다(E-3057, E-3061, 둘 다 하).
+그렇다면 이것은 배분 문제이며, 배분이야말로 구독 모델, advance market commitment, priority review
+voucher, 성과연동 Medicaid 계약이 다루는 대상이다.
 
-**A caution that cuts against over-conceding.** Every one of I's and C's own capital records
-is 하 (E-3057, E-3058, E-3059, E-3061, E-9526, E-8062, E-8063, E-8064). I is arguing from a
-weak evidentiary base in *both* directions, and the confident structural claim is no better
-evidenced than the confident negative it replaced.
+**과잉 수용을 경계하는 단서 하나.** I와 C 자신의 자본 관련 레코드는 전부 하다(E-3057, E-3058, E-3059,
+E-3061, E-9526, E-8062, E-8063, E-8064). I는 양쪽 방향 모두에서 취약한 근거 기반 위에서 논증하고
+있으며, 자신 있게 내세운 구조적 주장은 그것이 대체한 자신 있는 부정 주장보다 나을 것이 없다.
 
-**The claim I would substitute, which the ledger actually supports:**
+**원장이 실제로 뒷받침하는, 내가 대신 제안하는 주장:**
 
-> Non-laboratory payment instruments addressing the capital and reimbursement bottleneck exist
-> and are operating at national scale in at least two jurisdictions (E-8126 상, E-8061 중).
-> No evidence in this ledger shows that either has changed system output, and their combined
-> scale is a fraction of a percent of annual industry R&D. The constraint is therefore better
-> characterised as an unsolved *allocation* problem with demonstrated mechanism prototypes,
-> not as a problem without credible solutions.
+> 자본·상환 병목을 겨냥한 비실험실 지불 제도는 존재하며, 최소 두 개 관할권에서 국가 규모로
+> 시행 중이다(E-8126 상, E-8061 중). 이 원장의 어떤 근거도 두 제도 중 어느 것이 시스템 산출을
+> 변화시켰음을 보이지 못하며, 둘을 합한 규모는 산업계 연간 R&D의 1% 미만이다. 따라서 이 제약은
+> 신뢰할 만한 해법이 없는 문제가 아니라, 메커니즘 시제품이 입증된 미해결 *배분(allocation)* 문제로
+> 기술하는 편이 정확하다.
 
-That version is testable, is supported at 상/중 rather than 하, and drops a framing device
-that cannot be checked.
+이 버전은 검정 가능하고, 하가 아니라 상/중으로 뒷받침되며, 확인할 수 없는 표현 장치를 제거한다.
