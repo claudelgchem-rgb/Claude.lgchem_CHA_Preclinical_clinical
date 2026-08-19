@@ -15,9 +15,9 @@ OUT = os.path.join(ROOT, "RLSX_evidence.html")
 
 GRADE_COLOR = {"상": "#1a7f37", "중": "#9a6700", "하": "#cf222e"}
 REASON_LABEL = {
-    "S1": "S1 single source", "S2": "S2 method undisclosed", "S3": "S3 circular reference",
-    "S4": "S4 conflict of interest", "S5": "S5 sample bias", "S6": "S6 outdated",
-    "S7": "S7 origin unverifiable",
+    "S1": "S1 단일출처", "S2": "S2 방법론비공개", "S3": "S3 순환참조",
+    "S4": "S4 이해상충", "S5": "S5 표본편향", "S6": "S6 구버전",
+    "S7": "S7 원출처확인불가",
 }
 
 
@@ -86,7 +86,7 @@ def main():
     return 0
 
 
-HTML_TEMPLATE = r"""<title>RLSX Evidence Ledger</title>
+HTML_TEMPLATE = r"""<title>RLSX 근거 원장</title>
 <style>
 :root{
   --bg:#ffffff; --panel:#f6f8fa; --panel2:#eef1f4; --ink:#1f2328; --muted:#59636e;
@@ -166,44 +166,44 @@ code{font:12.5px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;background:var(
 <script type="application/json" id="rlsx-ledger">__DATA__</script>
 
 <div class="wrap">
-<h1>RLSX Evidence Ledger</h1>
-<p class="sub">Rate-Limiting Step eXplorer — every factual claim in the report resolves to a record here.
-Grades were assigned by an independent grading agent; no agent graded evidence it collected.</p>
+<h1>RLSX 근거 원장</h1>
+<p class="sub">Rate-Limiting Step eXplorer — 보고서의 모든 사실 주장은 이곳의 레코드로 연결된다.
+신뢰도 등급은 독립 채점 에이전트가 부여했으며, 어떤 에이전트도 자신이 수집한 근거를 채점하지 않았다.</p>
 
 <div class="grid" id="stats"></div>
 
-<h2>Confidence distribution</h2>
+<h2>신뢰도 등급 분포</h2>
 <div class="legend">
-  <span><i class="dot" style="background:var(--hi)"></i>상 High — primary source + 2 independent confirmations + reproducible method</span>
-  <span><i class="dot" style="background:var(--mid)"></i>중 Medium</span>
-  <span><i class="dot" style="background:var(--lo)"></i>하 Low</span>
+  <span><i class="dot" style="background:var(--hi)"></i>상 — 1차 출처 + 독립 교차확인 2건 이상 + 재현 가능한 방법론</span>
+  <span><i class="dot" style="background:var(--mid)"></i>중 — 1차 출처 1건이거나 교차검증 부분적</span>
+  <span><i class="dot" style="background:var(--lo)"></i>하 — 단일 2·3차 출처, 방법론 비공개, 원출처 역추적 실패</span>
 </div>
 <div class="bar" id="dist"></div>
 <div class="meta" id="distlabel"></div>
 
-<h2>Downgrade reasons</h2>
+<h2>하향 사유 코드 분포</h2>
 <div class="scroll"><table id="reasons"></table></div>
 
-<h2>Evidence per bottleneck</h2>
+<h2>병목별 근거 수</h2>
 <div class="scroll"><table id="bottlenecks"></table></div>
 
-<h2>Records</h2>
+<h2>근거 레코드</h2>
 <div class="filters">
-  <input type="search" id="q" placeholder="Search claim, source, publisher, ID…" autocomplete="off">
-  <select id="fg"><option value="">All grades</option><option>상</option><option>중</option><option>하</option></select>
-  <select id="fa"><option value="">All agents</option></select>
-  <select id="fb"><option value="">All bottlenecks</option></select>
-  <select id="ft"><option value="">All types</option></select>
-  <label class="chk"><input type="checkbox" id="fc"> circular risk only</label>
-  <label class="chk"><input type="checkbox" id="fr"> cited in report only</label>
+  <input type="search" id="q" placeholder="주장·출처·발행처·ID 검색…" autocomplete="off">
+  <select id="fg"><option value="">전체 등급</option><option>상</option><option>중</option><option>하</option></select>
+  <select id="fa"><option value="">전체 에이전트</option></select>
+  <select id="fb"><option value="">전체 병목</option></select>
+  <select id="ft"><option value="">전체 유형</option></select>
+  <label class="chk"><input type="checkbox" id="fc"> 순환참조 위험만</label>
+  <label class="chk"><input type="checkbox" id="fr"> 보고서 인용만</label>
 </div>
 <p class="count" id="count"></p>
 <div id="list"></div>
-<button id="more" hidden>Show more</button>
+<button id="more" hidden>더 보기</button>
 
-<h2>Unresolved register</h2>
-<p class="sub">Items the run could not close. Each carries its query log, failure reason, alternatives
-attempted and a best estimate, as the charter requires — a blank with no reason would be an incomplete task.</p>
+<h2>UNRESOLVED 전량 목록</h2>
+<p class="sub">이번 런에서 종결하지 못한 항목. 헌장 R1에 따라 각 항목은 시도한 검색 쿼리, 실패 사유,
+대체 출처 시도 기록, 현시점 최선 추정치를 모두 갖는다. 사유 없는 공란은 미완수로 간주된다.</p>
 <div class="scroll"><table id="unres"></table></div>
 </div>
 
@@ -232,11 +232,11 @@ E.forEach(function(r){
 });
 
 document.getElementById('stats').innerHTML = [
-  ['Evidence records', E.length],
-  ['Carrying a figure', withFig],
-  ['Cited in report', cited],
-  ['Circular risk', circ],
-  ['Unresolved items', U.length]
+  ['근거 레코드', E.length],
+  ['정량 수치 보유', withFig],
+  ['보고서 인용', cited],
+  ['순환참조 위험', circ],
+  ['UNRESOLVED', U.length]
 ].map(function(s){ return '<div class="stat"><div class="n">'+s[1]+'</div><div class="k">'+s[0]+'</div></div>'; }).join('');
 
 var tot = E.length || 1;
@@ -252,13 +252,13 @@ function hbar(tbl, obj, head, labels){
   var keys = Object.keys(obj).sort(function(a,b){ return obj[b]-obj[a]; });
   var max = Math.max.apply(null, keys.map(function(k){ return obj[k]; }).concat([1]));
   document.getElementById(tbl).innerHTML =
-    '<tr><th>'+head+'</th><th>n</th><th style="width:55%"></th></tr>' +
+    '<tr><th>'+head+'</th><th>건수</th><th style="width:55%"></th></tr>' +
     keys.map(function(k){
       return '<tr><td>'+esc(labels&&labels[k]?labels[k]:k)+'</td><td>'+obj[k]+
              '</td><td><i class="hbar" style="width:'+(obj[k]/max*100)+'%"></i></td></tr>'; }).join('');
 }
-hbar('reasons', byReason, 'Downgrade code', REASONS);
-hbar('bottlenecks', byBn, 'Bottleneck', null);
+hbar('reasons', byReason, '하향 사유', REASONS);
+hbar('bottlenecks', byBn, '병목', null);
 
 /* ---------- filters ---------- */
 function fill(id, vals){
@@ -295,32 +295,32 @@ function card(r){
   var tags=[];
   if(r.type) tags.push('<span class="tag">'+esc(r.type)+'</span>');
   if(r.bottleneck) tags.push('<span class="tag">'+esc(r.bottleneck)+'</span>');
-  if(r.circular_risk) tags.push('<span class="tag warn">circular risk</span>');
-  if(r.audit_verdict) tags.push('<span class="tag">audit: '+esc(r.audit_verdict)+'</span>');
+  if(r.circular_risk) tags.push('<span class="tag warn">순환참조 위험</span>');
+  if(r.audit_verdict) tags.push('<span class="tag">원출처 감사: '+esc(r.audit_verdict)+'</span>');
   (r.grade_reason||[]).forEach(function(x){
     tags.push('<span class="tag warn">'+esc(REASONS[x]||x)+'</span>'); });
 
   var rows=[];
   function add(k,v){ if(v!==''&&v!==null&&v!==undefined) rows.push('<dt>'+k+'</dt><dd>'+v+'</dd>'); }
-  add('Source', esc(r.source_title));
-  add('Publisher', esc(r.publisher||r.authors_or_org));
+  add('출처', esc(r.source_title));
+  add('발행처', esc(r.publisher||r.authors_or_org));
   if(r.url) add('URL','<a href="'+esc(r.url)+'" target="_blank" rel="noopener noreferrer">'+esc(r.url)+'</a>');
-  add('Published', esc(r.published_date)); add('Accessed', esc(r.accessed_date));
-  if(r.quote) add('Quote','&ldquo;'+esc(r.quote)+'&rdquo;');
-  if(f.metric) add('Metric', esc(f.metric));
-  if(f.value!==null&&f.value!==undefined) add('Value', esc(f.value)+' '+esc(f.unit||''));
-  if(f.value_note) add('Value (non-numeric)', esc(f.value_note));
-  add('Denominator', esc(f.denominator_def)); add('Sample', esc(f.sample));
-  if(f.coc_included!==null&&f.coc_included!==undefined) add('Cost of capital included', esc(f.coc_included));
-  add('Collected by', esc(r.collected_by)); add('Graded by', esc(r.graded_by));
-  add('Grade rationale', esc(r.grade_rationale));
-  add('Verification', esc(r.verification_method)+(r.verification_note?' — '+esc(r.verification_note):''));
-  if((r.provenance_hops||[]).length) add('Provenance hops',
+  add('발행일', esc(r.published_date)); add('접근일', esc(r.accessed_date));
+  if(r.quote) add('직접 인용','&ldquo;'+esc(r.quote)+'&rdquo;');
+  if(f.metric) add('지표', esc(f.metric));
+  if(f.value!==null&&f.value!==undefined) add('값', esc(f.value)+' '+esc(f.unit||''));
+  if(f.value_note) add('값(비수치)', esc(f.value_note));
+  add('분모 정의', esc(f.denominator_def)); add('표본', esc(f.sample));
+  if(f.coc_included!==null&&f.coc_included!==undefined) add('자본비용 포함 여부', esc(f.coc_included));
+  add('수집 에이전트', esc(r.collected_by)); add('채점 에이전트', esc(r.graded_by));
+  add('등급 판정 사유', esc(r.grade_rationale));
+  add('검증 방식', esc(r.verification_method)+(r.verification_note?' — '+esc(r.verification_note):''));
+  if((r.provenance_hops||[]).length) add('원출처 역추적',
     r.provenance_hops.map(function(h){ return /^https?:/.test(h)
       ? '<a href="'+esc(h)+'" target="_blank" rel="noopener noreferrer">'+esc(h)+'</a>' : esc(h); }).join('<br>'));
-  if((r.cross_refs||[]).length) add('Cross refs',
+  if((r.cross_refs||[]).length) add('교차참조',
     r.cross_refs.map(function(x){ return '<a href="#'+esc(x)+'">'+esc(x)+'</a>'; }).join(', '));
-  if(r.derivation) add('Derivation','<code>'+esc(r.derivation)+'</code>');
+  if(r.derivation) add('산출식','<code>'+esc(r.derivation)+'</code>');
 
   return '<details class="card '+c+'" id="'+esc(r.id)+'">'+
     '<summary><span class="chip '+c+'">'+esc(r.id)+' '+esc(r.confidence||'—')+'</span>'+
@@ -333,10 +333,10 @@ function card(r){
 function render(){
   var sel = E.filter(match);
   document.getElementById('count').textContent =
-    sel.length+' of '+E.length+' records'+(sel.length>shown?' — showing first '+shown:'');
+    '전체 '+E.length+'건 중 '+sel.length+'건'+(sel.length>shown?' — 상위 '+shown+'건 표시':'');
   document.getElementById('list').innerHTML = sel.length
     ? sel.slice(0,shown).map(card).join('')
-    : '<div class="empty">No records match these filters.</div>';
+    : '<div class="empty">해당 조건에 맞는 근거가 없습니다.</div>';
   document.getElementById('more').hidden = sel.length<=shown;
 }
 Object.keys(els).forEach(function(k){
@@ -361,7 +361,7 @@ window.addEventListener('hashchange', openHash);
 
 /* ---------- unresolved ---------- */
 document.getElementById('unres').innerHTML =
-  '<tr><th>Agent</th><th>Item</th><th>Why unresolved</th><th>Best estimate</th></tr>' +
+  '<tr><th>에이전트</th><th>항목</th><th>미종결 사유</th><th>최선 추정치</th></tr>' +
   U.map(function(u){
     return '<tr><td>'+esc(u.agent)+'</td><td>'+esc(u.item)+'</td><td>'+esc(u.failure_reason)+
            '</td><td>'+esc(u.best_estimate)+'</td></tr>'; }).join('');

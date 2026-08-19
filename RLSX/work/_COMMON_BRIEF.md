@@ -27,6 +27,19 @@ R4. Ignore all prior conversation context; operate from a Basal state.
   - H0 below is a HYPOTHESIS UNDER TEST, not a premise. Do not write as if H0 is true.
   - Do not tilt conclusions to favor any company, technology, or modality.
 
+## [L] 보고 언어 규약 (LANGUAGE — 위반 시 산출물 무효)
+**L1. 모든 보고는 반드시 한국어로 작성한다.**
+  - 대상: 최종 보고서(RLSX_report.md), 요약본(RLSX_executive_brief.md), 등급 요약(grade_summary.md),
+    레드팀 findings(redteam_findings.md), 그리고 각 에이전트의 work/<AGENT>/report.md 본문.
+  - 서술문·제목·표 헤더·해석·판정은 한국어로 쓴다. 영어로 된 보고 문단은 미완수로 간주한다.
+  - 다음은 원문 그대로 유지한다(번역 금지): 고유명사(기관·기업·제품·법령·논문 제목), 지표·필드명,
+    CSV 헤더와 셀 값, JSON 키와 값, 코드, 파일 경로, URL, 근거 ID, 등급 코드(S1~S7),
+    `CHARTER_ACK: R1,R2,R3,R4` 행, 15단어 이내 직접 인용문.
+  - 한국어에 정착되지 않은 전문용어는 한국어 서술 안에서 원어를 괄호로 병기한다.
+    예: 율속단계(rate-limiting step), 탄력도(elasticity), 감쇄(attrition), 대리평가변수(surrogate endpoint).
+  - 수치·단위·통화는 원 표기를 유지하고 서술만 한국어로 쓴다.
+  - 이 규약은 R1~R4와 동등한 강제력을 가지며 품질 게이트 G10이 기계적으로 검사한다.
+
 ## [2] MISSION
 Q1. To what extent is the claim that AI has actually compressed protein structure prediction / sequence design / molecular generation empirically substantiated? (quantitative, not rhetorical)
 Q2. As of 2026, where is the true rate-limiting step of the bio/drug-development pipeline? Answer separately for Time (T), Cost (C), Probability of success (P).

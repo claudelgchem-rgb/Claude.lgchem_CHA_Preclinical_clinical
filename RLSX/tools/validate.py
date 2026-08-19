@@ -358,6 +358,67 @@ def g9(records):
             fail("G9", "%s quote is %d words (max 15)" % (rec.get("id"), w))
 
 
+# ------------------------------------------------------------ G10 LANGUAGE
+# Charter rule L1: every reporting artifact must be written in Korean.
+# Proper nouns, identifiers, code, CSV/JSON payloads and short quotes stay
+# in their original language, so the test is on prose density rather than
+# on the absence of Latin characters.
+KOREAN_REQUIRED = [
+    "RLSX_report.md",
+    "RLSX_executive_brief.md",
+    os.path.join("evidence", "grade_summary.md"),
+    os.path.join("audit", "redteam_findings.md"),
+]
+HANGUL = re.compile(r"[\uac00-\ud7a3]")
+G10_MIN_RATIO = 0.60
+
+
+def _prose_lines(path):
+    out = []
+    in_code = False
+    for raw in read_lines(path):
+        line = raw.strip()
+        if line.startswith("```"):
+            in_code = not in_code
+            continue
+        if in_code or not line:
+            continue
+        if line.startswith(("#", "|", ">", "---", "===", "<!--", "<a ", "<div", "</")):
+            continue
+        body = re.sub(r"^([-*+]|\d+\.)\s+", "", line)
+        body = re.sub(r"\[E-\d{4}[^\]]*\]", "", body)      # evidence chips
+        body = re.sub(r"`[^`]*`", "", body)                  # inline code
+        body = re.sub(r"https?://\S+", "", body)             # urls
+        if len(body) < 25:
+            continue
+        if not re.search(r"[A-Za-z\uac00-\ud7a3]", body):
+            continue
+        out.append(body)
+    return out
+
+
+def g10():
+    for rel in KOREAN_REQUIRED:
+        path = p(rel)
+        name = rel.replace(os.sep, "/")
+        if not os.path.exists(path):
+            fail("G10", "missing reporting artifact RLSX/%s" % name)
+            continue
+        lines = _prose_lines(path)
+        if not lines:
+            fail("G10", "RLSX/%s has no scannable prose" % name)
+            continue
+        ko = [l for l in lines if HANGUL.search(l)]
+        ratio = len(ko) / float(len(lines))
+        if ratio < G10_MIN_RATIO:
+            fail("G10", "RLSX/%s is %.0f%% Korean prose, charter L1 requires >=%.0f%% (%d of %d lines)"
+                 % (name, ratio * 100, G10_MIN_RATIO * 100, len(ko), len(lines)))
+            for l in [x for x in lines if not HANGUL.search(x)][:6]:
+                fail("G10", "  non-Korean line in %s: %s" % (name, l[:100]))
+        else:
+            note("G10 %s: %.0f%% Korean prose (%d/%d lines)" % (name, ratio * 100, len(ko), len(lines)))
+
+
 # ------------------------------------------------------------------- extras
 def structural():
     required = [
@@ -416,6 +477,7 @@ def main():
     g7(records)
     g8(records)
     g9(records)
+    g10()
 
     out = sys.stdout
     out.write("RLSX validate.py — %d evidence records\n" % len(records))
@@ -427,7 +489,7 @@ def main():
             sys.stderr.write(f + "\n")
         sys.stderr.write("=== exit 1 ===\n")
         return 1
-    out.write("ALL GATES PASS (G1-G9)\n")
+    out.write("ALL GATES PASS (G1-G10)\n")
     return 0
 
 
