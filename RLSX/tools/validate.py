@@ -178,13 +178,25 @@ ALLOW_TOKENS = ("[INFER]", "[ASSUMPTION-UNSUPPORTED]", "[UNRESOLVED]", "⚠", "L
 G4_ESCAPE = "<!--NO-CITATION-REQUIRED-->"
 
 
+# Charter P1 gives every section a plain-language layer. Those lines restate
+# cited material in everyday words and are deliberately chip-free, so they are
+# exempt from the citation requirement — but only while they stay qualitative.
+# The moment such a line asserts a figure it must carry a chip like any other,
+# which keeps every quantitative claim in the report traceable.
+PLAIN_HEADING = re.compile(r"^#{2,6}\s*(쉽게 말하면|한 문장으로|이 표에서 볼 것|용어 풀이)")
+PLAIN_QUOTE = re.compile(r"^>\s*\*\*한 문장으로\*\*")
+NUMERIC_CLAIM = re.compile(r"\d")
+
+
 def _citation_scan(path):
-    """Return (cited, infer, uncited_lines) for prose lines in a markdown file."""
+    """Return (cited, infer, uncited, plain) for prose lines in a markdown file."""
     cited = 0
     infer = 0
+    plain = 0
     uncited = []
     in_code = False
     skip_block = False
+    in_plain = False
     for n, raw in enumerate(read_lines(path), 1):
         line = raw.strip()
         if line.startswith("```"):
@@ -197,14 +209,19 @@ def _citation_scan(path):
             continue
         if skip_block:
             continue
+        if line.startswith("#"):
+            in_plain = bool(PLAIN_HEADING.match(line))
+            continue
         if not line:
+            continue
+        if PLAIN_QUOTE.match(line):
+            plain += 1
             continue
         if line.startswith(SKIP_PREFIXES):
             continue
         body = re.sub(r"^([-*+]|\d+\.)\s+", "", line)
         if not body:
             continue
-        # a line with no alphanumeric content carries no claim
         if not re.search(r"[0-9A-Za-z가-힣]", body):
             continue
         has_ev = bool(EVID_RE.search(body))
@@ -213,9 +230,18 @@ def _citation_scan(path):
             cited += 1
         if "[INFER]" in body:
             infer += 1
-        if not has_ev and not has_allow:
-            uncited.append((n, body[:110]))
-    return cited, infer, uncited
+        if has_ev or has_allow:
+            continue
+        if in_plain:
+            # exempt as plain language, unless it smuggles in a figure
+            stripped = re.sub(r"`[^`]*`", "", body)
+            if NUMERIC_CLAIM.search(stripped):
+                uncited.append((n, "[풀이 층의 수치 주장은 근거 필요] " + body[:90]))
+            else:
+                plain += 1
+            continue
+        uncited.append((n, body[:110]))
+    return cited, infer, uncited, plain
 
 
 def g4():
@@ -223,7 +249,7 @@ def g4():
     if not os.path.exists(rpath):
         fail("G4", "RLSX_report.md missing")
         return
-    cited, infer, uncited = _citation_scan(rpath)
+    cited, infer, uncited, plain = _citation_scan(rpath)
     if uncited:
         for n, txt in uncited[:25]:
             fail("G4", "RLSX_report.md:%d factual line without evidence ID: %s" % (n, txt))
@@ -234,7 +260,7 @@ def g4():
         ratio = infer / float(total)
         if ratio > 0.20:
             fail("G4", "[INFER] line ratio %.1f%% exceeds 20%% (%d INFER / %d claim lines)" % (ratio * 100, infer, total))
-        note("G4 citation lines=%d, INFER=%d (%.1f%%)" % (cited, infer, ratio * 100))
+        note("G4 citation lines=%d, INFER=%d (%.1f%%), plain-language lines=%d" % (cited, infer, ratio * 100, plain))
     else:
         fail("G4", "RLSX_report.md contains no citable claim lines at all")
 
@@ -419,6 +445,101 @@ def g10():
             note("G10 %s: %.0f%% Korean prose (%d/%d lines)" % (name, ratio * 100, len(ko), len(lines)))
 
 
+# ---------------------------------------------------------- G11 READABILITY
+# Charter P1-P6. The report is written to be understood, not only audited.
+# A dense wall of inline citations is technically traceable and practically
+# unreadable, so these limits are enforced rather than recommended.
+G11_TARGETS = ["RLSX_report.md", "RLSX_executive_brief.md"]
+MAX_CHIPS_PER_LINE = 3
+MAX_SENTENCE_CHARS = 150
+MAX_LONG_SENTENCE_RATIO = 0.10
+CHIP_RE = re.compile(r"\[E-\d{4}[^\]]*\]")
+
+
+def _sentences(text):
+    text = CHIP_RE.sub("", text)
+    text = re.sub(r"`[^`]*`", "", text)
+    parts = re.split(r"(?<=[.!?。])\s+|(?<=다\.)\s*|(?<=음\.)\s*", text)
+    return [x.strip() for x in parts if len(x.strip()) > 10]
+
+
+def g11():
+    for rel in G11_TARGETS:
+        path = p(rel)
+        if not os.path.exists(path):
+            fail("G11", "missing %s" % rel)
+            continue
+        lines = read_lines(path)
+        text = "\n".join(lines)
+
+        # P1: every numbered top-level section needs its plain-language layer
+        sections = []
+        cur = None
+        in_code = False
+        for line in lines:
+            st = line.strip()
+            if st.startswith("```"):
+                in_code = not in_code
+            if in_code:
+                continue
+            m = re.match(r"^##\s+(\d+)[.．]\s*(.+)$", st)
+            if m:
+                cur = {"no": m.group(1), "title": m.group(2)[:40], "body": []}
+                sections.append(cur)
+            elif cur is not None:
+                cur["body"].append(st)
+        if rel == "RLSX_report.md":
+            if len(sections) < 9:
+                fail("G11", "%s has %d numbered sections, expected 9" % (rel, len(sections)))
+            for sec in sections:
+                body = "\n".join(sec["body"])
+                if "쉽게 말하면" not in body:
+                    fail("G11", "%s §%s '%s' lacks a '쉽게 말하면' plain-language layer (charter P1)"
+                         % (rel, sec["no"], sec["title"]))
+                if "한 문장으로" not in body:
+                    fail("G11", "%s §%s '%s' lacks a '한 문장으로' one-line summary (charter P1)"
+                         % (rel, sec["no"], sec["title"]))
+
+        # P3: chip density per line
+        dense = []
+        for n, line in enumerate(lines, 1):
+            st = line.strip()
+            if st.startswith(("|", "#", "```")):
+                continue
+            c = len(CHIP_RE.findall(st))
+            if c > MAX_CHIPS_PER_LINE:
+                dense.append((n, c))
+        if dense:
+            fail("G11", "%s: %d lines carry more than %d evidence chips (charter P3); worst: %s"
+                 % (rel, len(dense), MAX_CHIPS_PER_LINE,
+                    ", ".join("line %d has %d" % d for d in sorted(dense, key=lambda x: -x[1])[:5])))
+
+        # P2: sentence length
+        prose = []
+        in_code = False
+        for line in lines:
+            st = line.strip()
+            if st.startswith("```"):
+                in_code = not in_code
+                continue
+            if in_code or not st or st.startswith(("#", "|", ">", "---")):
+                continue
+            prose.append(re.sub(r"^([-*+]|\d+\.)\s+", "", st))
+        sents = _sentences(" ".join(prose))
+        if sents:
+            long_ones = [x for x in sents if len(x) > MAX_SENTENCE_CHARS]
+            ratio = len(long_ones) / float(len(sents))
+            if ratio > MAX_LONG_SENTENCE_RATIO:
+                fail("G11", "%s: %.0f%% of sentences exceed %d chars, limit %.0f%% (charter P2); %d of %d"
+                     % (rel, ratio * 100, MAX_SENTENCE_CHARS, MAX_LONG_SENTENCE_RATIO * 100,
+                        len(long_ones), len(sents)))
+                for x in sorted(long_ones, key=len, reverse=True)[:3]:
+                    fail("G11", "  overlong (%d chars): %s…" % (len(x), x[:90]))
+            avg = sum(len(x) for x in sents) / float(len(sents))
+            note("G11 %s: %d sentences, avg %.0f chars, %d over limit"
+                 % (rel, len(sents), avg, len(long_ones)))
+
+
 # ------------------------------------------------------------------- extras
 def structural():
     required = [
@@ -478,6 +599,7 @@ def main():
     g8(records)
     g9(records)
     g10()
+    g11()
 
     out = sys.stdout
     out.write("RLSX validate.py — %d evidence records\n" % len(records))
@@ -489,7 +611,7 @@ def main():
             sys.stderr.write(f + "\n")
         sys.stderr.write("=== exit 1 ===\n")
         return 1
-    out.write("ALL GATES PASS (G1-G10)\n")
+    out.write("ALL GATES PASS (G1-G11)\n")
     return 0
 
 

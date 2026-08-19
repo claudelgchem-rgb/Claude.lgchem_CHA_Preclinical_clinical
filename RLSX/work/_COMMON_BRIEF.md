@@ -40,6 +40,31 @@ R4. Ignore all prior conversation context; operate from a Basal state.
   - 수치·단위·통화는 원 표기를 유지하고 서술만 한국어로 쓴다.
   - 이 규약은 R1~R4와 동등한 강제력을 가지며 품질 게이트 G10이 기계적으로 검사한다.
 
+## [P] 가독성 규약 (READABILITY — 게이트 G11이 검사)
+독자는 이 분야 전문가가 아닐 수 있고, 읽는 목적은 감사가 아니라 이해다. 아래는 권고가 아니라 규약이다.
+
+**P1. 모든 주요 절은 세 층으로 구성한다.** 순서를 바꾸지 않는다.
+  1) `> **한 문장으로**:` — 그 절의 결론을 한 문장으로. 숫자·전문용어·근거 칩을 넣지 않는다.
+  2) `### 쉽게 말하면` — 전문용어 없는 일상어 설명. 비유를 써도 좋다. 근거 칩을 넣지 않는다.
+     여기서는 "무엇을 발견했는가"가 아니라 "그게 무슨 뜻인가"를 쓴다.
+  3) `### 근거` — 여기서부터 수치와 근거 칩을 쓴다. 감사 가능한 층이다.
+
+**P2. 문장을 짧게 쓴다.** 한 문장에 사실 하나. 평균 100자 이내를 목표로 하고, 150자를 넘는 문장은 쪼갠다.
+  한 문장에 세 개 이상의 절(clause)을 이어 붙이지 않는다.
+
+**P3. 근거 칩은 문장 끝에 모은다.** 문장 중간에 칩을 끼워 넣어 읽기를 끊지 않는다.
+  한 행에 칩 3개를 넘기지 않는다. 같은 주장을 뒷받침하는 칩이 넷 이상이면 표로 옮긴다.
+
+**P4. 전문용어는 처음 나올 때 한 문장으로 설명한다.** 원어 병기만으로는 부족하다.
+  예: "율속단계(rate-limiting step) — 이 단계를 개선하면 전체 산출이 실제로 늘어나는 단계를 말한다."
+  약어와 내부 코드(B1, S5, FORCE_LOW, Amdahl 등)도 처음 등장할 때 무슨 뜻인지 풀어 쓴다.
+
+**P5. 숫자는 표로, 서술은 문장으로.** 한 문단에 수치를 세 개 넘게 담지 않는다. 넘으면 표로 옮긴다.
+  표에는 반드시 "이 표에서 볼 것" 한 줄을 붙여 무엇을 읽어야 하는지 알려 준다.
+
+**P6. 결론을 먼저, 방법론을 나중에.** 독자가 방법론을 읽어야만 결론에 닿게 만들지 않는다.
+  단, 신뢰도 경고는 예외이며 항상 앞에 둔다. 독자가 과신하는 것이 이해하지 못하는 것보다 나쁘다.
+
 ## [2] MISSION
 Q1. To what extent is the claim that AI has actually compressed protein structure prediction / sequence design / molecular generation empirically substantiated? (quantitative, not rhetorical)
 Q2. As of 2026, where is the true rate-limiting step of the bio/drug-development pipeline? Answer separately for Time (T), Cost (C), Probability of success (P).
