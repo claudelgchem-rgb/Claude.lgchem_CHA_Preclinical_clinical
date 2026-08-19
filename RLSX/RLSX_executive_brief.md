@@ -1,77 +1,77 @@
-# RLSX Executive Brief — where the drug-development bottleneck actually is in 2026
+# RLSX 요약본 — 2026년 신약개발 병목은 실제로 어디에 있는가
 
-**For a reader making a resource-allocation decision.** Full analysis: `RLSX_report.md`. Clickable evidence: `RLSX_evidence.html`. Every claim carries a chip of the form `[E-1006 상]` — record identifier plus the reliability grade assigned by an agent that collected none of the evidence [E-9551 중].
+**자원 배분을 결정해야 하는 독자를 위한 문서다.** 전체 분석은 `RLSX_report.md`, 클릭 가능한 근거는 `RLSX_evidence.html`에 있다. 모든 주장에는 `[E-1006 상]` 형태의 칩이 붙으며, 앞은 레코드 식별자이고 뒤는 해당 근거를 하나도 수집하지 않은 에이전트가 부여한 신뢰도 등급이다 [E-9551 중].
 
-⚠ **Read this first.** Of 774 evidence records, 7 grade 상 (High), 449 grade 중 (Medium) and 318 grade 하 (Low, 41%) [E-9551 중]. Of 572 records carrying a figure, 340 are provenance-clean, 157 are unverifiable and 75 are circular [E-9551 중]. The quantitative flow model and the bottleneck ranking both grade 하 and are arguments about mechanism, not measurements. Nothing below should be read as more certain than its chip says it is.
+⚠ **먼저 이것부터 읽어야 한다.** 근거 774건 중 상(High) 7건, 중(Medium) 449건, 하(Low) 318건으로 하 등급이 41%다 [E-9551 중]. 수치를 담은 572건 중 원출처(provenance)가 깨끗한 것은 340건이고 157건은 추적 불가, 75건은 순환참조(circular reference)다 [E-9551 중]. 정량 흐름 모델과 병목 순위는 둘 다 하 등급이며 메커니즘에 관한 논증이지 측정치가 아니다. 아래 어떤 내용도 자기 칩이 말하는 것보다 더 확실하게 읽혀서는 안 된다.
 
 ---
 
-## The five answers
+## 다섯 가지 질문에 대한 답
 
-### Q1 — Has AI actually compressed structure prediction, sequence design and molecular generation? Quantitatively.
+### Q1 — AI는 구조예측·서열설계·분자생성을 실제로 압축했는가, 정량적으로
 
-**Four sub-claims, four different answers.** *Computation:* substantiated and measured — ESMFold reaches a median TM-score of 0.95 against AlphaFold2's 0.96 [E-2019 중] across more than 200 million predicted structures [E-2018 하], and prospective docking against unrefined AF2 models matches experimental structures on hit rate, 54% versus 51% and 26% versus 23% [E-2012 중]. *Discovery-stage duration:* partially substantiated at **30–50% on preclinical activities**, from two peer-reviewed reviews plus a third independent one [E-2009 중] [E-2010 중]; the per-programme saving in years is never stated here in this report's own voice because that framing exists only in company-issued material [E-9534 하]. *Time to a dosed patient:* not substantiated — median founding-to-first-Phase-1 across 63 AI-native companies is 6.5 years [E-2054 하], and clinical development timelines are reported as essentially unchanged [E-2009 중]. *Probability of success:* **indeterminate, not null** — no adequately powered, denominator-matched comparison exists in either direction, and the apparent effect is set by the comparator: about +3 points against a historical 37% benchmark and +12 against the contemporaneous 28% rate [E-9537 하] [E-9513 하] [E-2003 중]. Detecting a 37-versus-40 difference at 80% power needs ~4,126 per arm against 8 completed Phase 2 assets field-wide [E-2065 하] [E-2055 하]. **Zero AI-discovered drugs have been approved by FDA as of 2026** [E-2053 중]. Independent pooled de novo binder success is 11.6% across 3,766 designs and 15 targets, against developer self-reports up to 68% [E-2020 중] [E-2023 하].
+**네 개의 하위 주장에 네 개의 다른 답이 있다.** *계산* 은 입증되고 측정되었다. ESMFold의 TM-score 중앙값은 0.95, AlphaFold2는 0.96이며 [E-2019 중] 예측 구조는 2억 개를 넘고 [E-2018 하], 정제되지 않은 AF2 모델에 대한 전향적 도킹은 실험 구조와 히트율이 대등해 54% 대 51%, 26% 대 23%였다 [E-2012 중]. *탐색 단계 소요기간* 은 **전임상 활동에 대해 30–50%** 로 부분 입증되며 동료심사 리뷰 둘에 독립 리뷰 하나가 더해진다 [E-2009 중] [E-2010 중]. 프로그램당 절감을 "몇 년"으로 쓰지 않는 이유는 그 표현이 대조군이 매칭되지 않은 기업 발표 자료에만 존재하기 때문이다 [E-9534 하]. *환자에게 투여되기까지의 시간* 은 입증되지 않았다. AI 네이티브 기업 63곳의 창업부터 첫 1상까지 중앙값은 6.5년이고 [E-2054 하] 임상개발 기간은 사실상 변하지 않았다고 보고된다 [E-2009 중]. *성공확률(probability of success)* 은 **무(null)가 아니라 불확정** 이다. 어느 방향으로도 검정력과 분모가 정합된 비교가 없고, 겉보기 효과는 비교 대상이 정한다. 역사적 기준 37% 대비 약 +3포인트, 동시대 28% 대비 +12포인트다 [E-9537 하] [E-9513 하] [E-2003 중]. 37% 대 40%를 검정력 80%로 탐지하려면 군당 약 4,126개가 필요한데 전 분야에서 2상을 완료한 자산은 8건이다 [E-2065 하] [E-2055 하]. **2026년 기준 AI 유래 의약품의 FDA 승인은 0건이다** [E-2053 중]. 독립 통합 de novo 결합체 성공률은 3,766개 설계·15개 표적에서 11.6%이며 개발사 자체 보고는 최대 68%다 [E-2020 중] [E-2023 하].
 
-⚠ The evidence on AI is asymmetric by direction: Medium-grade where deflationary because those findings came from peer-reviewed literature and registries, Low-grade where inflationary because those came from companies and aggregators [E-2053 중] [E-2054 하]. That is a property of the source landscape, not of the grading, and a reader must apply it symmetrically.
+⚠ AI에 관한 근거는 방향별로 비대칭이다. 축소적 발견은 동료심사 문헌과 등록부에서 나와 중 등급이고, 확대적 발견은 기업과 집계 사이트에서 나와 하 등급이다 [E-2053 중] [E-2054 하]. 이는 등급 판정의 성질이 아니라 출처 지형의 성질이며, 독자는 이를 양방향에 대칭적으로 적용해야 한다.
 
-### Q2 — Where is the true rate-limiting step in 2026, separately for T, C and P?
+### Q2 — 2026년 기준 진짜 율속단계는 어디인가, T·C·P별로
 
-**P (probability): this is where the constraint is.** Phase II is the lowest-transition stage in every source examined [E-1023 중] [E-1027 중] [E-1015 중]; lack of efficacy accounts for 40–50% of all failures [E-3012 중] and toxicity for a further ~30% [E-3045 중]. The named candidates are target validation, toxicity prediction and clinical development design — dose, schedule, endpoint and population [E-9541 하] [E-3106 중].
+**P(확률): 제약은 여기에 있다.** 검토한 모든 출처에서 2상이 이행률이 가장 낮고 [E-1023 중] [E-1027 중] [E-1015 중], 유효성 부족이 전체 실패의 40–50% [E-3012 중], 독성이 추가로 약 30%를 차지한다 [E-3045 중]. 지목되는 후보는 표적 검증, 독성 예측, 그리고 용량·투여일정·평가변수·대상군을 포함하는 임상개발 설계다 [E-9541 하] [E-3106 중].
 
-**T (time): the long poles are clinical, and the biggest single removable block is recruitment.** Pre-IND is 21–41% of elapsed development time depending on where the clock starts [E-1093 중]; 18 of a median 29.6-month Phase III is spent recruiting [E-5060 중]; median Phase 2 elapsed length exceeds Phase 3 in every year 2015–2023 [E-5011 하]; regulatory review is 11.0–12.5% of elapsed time [E-1095 중].
+**T(시간): 긴 장대는 임상 쪽이고, 제거 가능한 최대 블록은 환자 모집이다.** 시계를 어디서 시작하느냐에 따라 IND 이전이 총 경과 개발기간의 21–41%이고 [E-1093 중], 3상 중앙값 29.6개월 중 18개월이 모집이며 [E-5060 중], 2015–2023년 매년 2상 경과기간 중앙값이 3상을 초과했고 [E-5011 하], 규제 심사는 경과시간의 11.0–12.5%다 [E-1095 중].
 
-**C (cost): always tag the basis, because the tag moves the number more than the biology does.** One model returns 172.7 out-of-pocket, 515.8 risk-adjusted and 879.3 capitalized USD million for the same drug [E-1011 중]. About 32% of any headline capitalized figure is the analyst's discount-rate choice [E-9041 중]. Measured industry cash goes 15.9% pre-human against 28.8% to Phase III alone [E-1042 중], and the only directly observed preclinical share from company filings is 12.4% median [E-1007 중].
+**C(비용): 항상 기준을 표기해야 한다. 기준이 생물학보다 숫자를 더 많이 움직인다.** 한 모델이 같은 약에 대해 실지출 172.7, 위험조정 515.8, 자본화 879.3 USD 백만을 내놓는다 [E-1011 중]. 자본화 헤드라인 수치의 약 32%는 분석자의 할인율 선택이다 [E-9041 중]. 실측 산업 현금은 인체 이전 15.9%, 3상 하나 28.8%로 흘러가고 [E-1042 중], 기업 공시에서 직접 관측된 전임상 비중은 중앙값 12.4%가 유일하다 [E-1007 중].
 
-**Where the constraint is not.** Regulatory review capacity: 96% of 2025 CDER approvals met their PDUFA goal date through a 17.8% workforce cut [E-4020 중] [E-4019 하], the pending pile is inside goal dates [E-4021 중], and Japan has the world's fastest review at a 290-day median alongside 86 US/EU-approved drugs nobody filed there [E-4075 중] [E-4077 중]. Screening throughput: the largest public foundry is cutting footprint by up to 60% against a 48% revenue decline [E-7036 중]. Data volume: pooling a corpus ~123× the public one returned about 4% relative improvement [E-7010 중] [E-7101 중]. The raw patient pool: 55.6% of cancer patients have no trial available locally [E-5032 상] — but that figure measures the constraint rather than slack, because cheap exhaustive screening of 98,348 charts produced 117 enrolments [E-5047 중].
+**제약이 아닌 곳.** 규제 심사 수용력은 인력 17.8% 감축에도 2025년 CDER 승인의 96%가 PDUFA 목표일을 충족했고 [E-4020 중] [E-4019 하] 대기 물량은 목표일 이내이며 [E-4021 중], 일본은 세계에서 가장 빠른 중앙값 290일 심사와 아무도 신청하지 않은 86개 의약품이 공존한다 [E-4075 중] [E-4077 중]. 스크리닝 처리량은 최대 공개 파운드리가 매출 48% 감소에 대응해 시설을 최대 60% 축소 중이다 [E-7036 중]. 데이터 물량은 공개 코퍼스의 약 123배를 모아 상대 개선 약 4%를 얻었다 [E-7010 중] [E-7101 중]. 원 환자 풀은 암환자 55.6%가 인근에 시험이 없지만 [E-5032 상], 이 수치는 여유가 아니라 제약의 측정값이다. 차트 98,348건을 값싸게 전수 선별해도 등록은 117명에 그쳤기 때문이다 [E-5047 중].
 
-### Q3 — Where does the constraint move if discovery is heavily compressed?
+### Q3 — 탐색이 크게 압축되면 제약은 어디로 이동하는가
 
-**It does not move to "preclinical/clinical" as a block. It splits.** A probability tier — target validation, toxicity, development design, translation — is not relieved at all by making discovery faster [E-9031 하]. A capacity tier shifts in a specific order: IND-enabling non-human-primate toxicology first, where up to two-thirds of primate requests have been unfillable since 2021 [E-3050 하]; then shared manufacturing inputs [E-6064 하]; then matched clinical site capacity, which is the terminal bind because it is the one resource whose measured growth rate is negative at −0.92% a year [E-5063 중].
+**"전임상/임상"이라는 덩어리로 이동하지 않는다. 갈라진다.** 표적 검증·독성·개발 설계·중개로 이루어진 확률 계층은 탐색을 빠르게 해도 전혀 완화되지 않는다 [E-9031 하]. 수용력 계층은 정해진 순서로 이동한다. 먼저 2021년 이후 영장류 요청의 최대 3분의 2가 충족되지 못한 IND 지원 비임상 영장류 독성 [E-3050 하], 다음으로 공용 제조 투입재 [E-6064 하], 그다음 매칭된 임상 사이트 수용력인데 이것이 종말 구속인 이유는 실측 성장률이 연 −0.92%로 유일하게 음수인 자원이기 때문이다 [E-5063 중].
 
-⚠ **LOW-EVIDENCE CLAIM.** The model that produces this ordering returns exactly zero additional approvals from an 80% cut in discovery duration [E-9031 하] and exactly zero from a fivefold candidate inflow at fixed budget [E-9033 하]. Both grade 하 because both follow from a budget identity the model's own assumptions do not support [E-9042 하]. The *directional* claim survives independently; the exact zero does not, and it must not borrow credibility from the Amdahl bound below.
+⚠ **LOW-EVIDENCE CLAIM.** 이 순서를 만들어 내는 모델은 탐색기간 80% 단축에서 정확히 0건의 추가 승인 [E-9031 하], 고정 예산에서 후보 유입 5배에서도 정확히 0을 내놓는다 [E-9033 하]. 둘 다 하 등급인데, 모델 자신의 가정이 뒷받침하지 못하는 예산 항등식에서 따라 나오기 때문이다 [E-9042 하]. *방향성* 주장은 독립적으로 살아남지만 정확한 0은 살아남지 못하며, 아래 Amdahl 상한의 신뢰도를 빌려서는 안 된다.
 
-**The bound that does hold, and it is the best-triangulated result in the run.** Three agents, three datasets, three methods: setting discovery time to zero removes at most **21–41%** [E-1094 중], **23–37%** [E-3098 하] and **33.3%** [E-9039 하] of total elapsed development time, and at most 40–43% of capitalized cost [E-1094 중] but only 7–31% of actual cash [E-1094 중]. This is a bound on **elapsed time**. It is not a statement about output.
+**성립하는 상한, 그리고 이 런 최고의 삼각검증 결과.** 세 에이전트, 세 데이터셋, 세 방법이다. 탐색시간을 0으로 놓으면 총 경과 개발기간이 최대 **21–41%** [E-1094 중], **23–37%** [E-3098 하], **33.3%** [E-9039 하] 줄고, 자본화 비용은 최대 40–43%지만 [E-1094 중] 실제 현금은 7–31%에 그친다 [E-1094 중]. 이것은 **경과시간** 에 대한 상한이며 산출에 관한 진술이 아니다.
 
-**One open conflict cuts against this run's own story and is not hidden.** ⚠ On manufacturing, the slack side is better evidenced than the scarcity side: supply projected to outpace demand through 2031 grades 중 [E-3036 중] while the contraction and lead-time evidence grades 하 throughout [E-6005 하] [E-6006 하] [E-6008 하]. The best-evidenced record in the area says manufacturing **delays** approvals rather than preventing them [E-6074 중]. The saturation ordering that puts plasmid DNA first at 1.06× is not adopted here: it rests on an invented lead-time-to-utilisation rule with no cited empirical basis [E-6070 하].
+**이 런 자신의 서사에 불리한 미해결 충돌 하나를 숨기지 않는다.** ⚠ 제조에서 여유 쪽이 부족 쪽보다 근거가 낫다. 2031년까지 공급이 수요를 앞지른다는 전망은 중 등급인 반면 [E-3036 중] 축소와 리드타임 근거는 전부 하 등급이다 [E-6005 하] [E-6006 하] [E-6008 하]. 이 영역에서 가장 근거가 좋은 레코드는 제조가 승인을 **막는** 것이 아니라 **지연시킨다** 고 말한다 [E-6074 중]. 플라스미드 DNA를 1.06배로 첫 번째에 놓는 포화 서열은 여기서 채택하지 않는다. 실증 근거 없는 리드타임-가동률 변환 규칙에 의존하기 때문이다 [E-6070 하].
 
-### Q4 — Ranked rate-limiting steps with probabilities for 2030 / 2035 / 2040
+### Q4 — 2030 / 2035 / 2040 율속단계 순위와 확률
 
-[INFER] The probabilities below are this report's judgement, not measurements: no published elasticity of annual approvals to any pipeline factor exists [E-3080 중]. They are conditioned on an explicitly stated AI-share trajectory, because the low-share ceiling is a 2026 snapshot and not a bound — at an observed doubling time of 1.2–2.1 years the AI share of new clinical molecules crosses 10% between about 2029 and 2033 and 50% between about 2032 and 2039 [E-9517 하] [E-9518 하].
+[INFER] 아래 확률은 측정치가 아니라 이 보고서의 판단이다. 연간 승인에 대한 어떤 파이프라인 요인의 공표된 탄력도(elasticity)도 존재하지 않는다 [E-3080 중]. 확률은 명시된 AI 점유율 궤적을 조건으로 한다. 낮은 점유율 천장은 2026년 스냅숏이지 상한이 아니며, 관측된 배증시간 1.2–2.1년에서 AI 유래 임상 분자의 점유율은 약 2029–2033년 사이에 10%를, 약 2032–2039년 사이에 50%를 넘는다 [E-9517 하] [E-9518 하].
 
-| Horizon | AI share assumed | Top three, with P(top constraint) |
+| 시계 | 가정한 AI 점유율 | 상위 3위와 P(최상위 제약) |
 |---|---|---|
-| 2030 | 4–12%, central 7% | B1 target validation 0.30 · B17 development design 0.15 · B8 toxicity 0.14 |
-| 2035 | 15–50%, central 28% | B3 matched site capacity 0.24 · B1 target validation 0.20 · B8 toxicity 0.12 |
-| 2040 | 35–90%, central 60% | B3 pivotal multiregional trial capacity 0.26 · B1 target validation 0.17 · B7 delivery 0.12 |
+| 2030 | 4–12%, 중앙 7% | B1 표적 검증 0.30 · B17 개발 설계 0.15 · B8 독성 0.14 |
+| 2035 | 15–50%, 중앙 28% | B3 매칭 사이트 수용력 0.24 · B1 표적 검증 0.20 · B8 독성 0.12 |
+| 2040 | 35–90%, 중앙 60% | B3 허가용 다지역 임상 수용력 0.26 · B1 표적 검증 0.17 · B7 전달 0.12 |
 
-The full nine-deep rankings with per-item bases and grades are in §5 of the main report. [INFER] The single most consequential judgement embedded in them is that share growth changes *which* bottleneck binds without changing output, because at unchanged probability of success a 50% AI share produces zero additional approvals [E-2058 하].
+항목별 근거와 등급을 담은 9위까지의 전체 순위는 본보고서 5절에 있다. [INFER] 이 순위에 담긴 가장 중요한 판단은 점유율 증가가 산출을 바꾸지 않은 채 *어느* 병목이 구속하는지를 바꾼다는 것이다. 성공확률이 그대로라면 AI 점유율 50%에서도 추가 승인은 0이기 때문이다 [E-2058 하].
 
-### Q5 — What breaks each bottleneck? TRL, developer, timing, remaining hard problems
+### Q5 — 각 병목을 무엇이 깨뜨리는가: TRL, 개발 주체, 시기, 남은 난제
 
-From a 93-technology catalogue [E-8130 하]. Only 30 of 93 milestones resolve by 2029 and 64 by 2030, so two thirds of the roadmap cannot be scored before the first horizon the question asks about [E-8130 하].
+93개 기술 카탈로그에서 도출했다 [E-8130 하]. 93개 마일스톤 중 2029년까지 판별되는 것은 30개, 2030년까지는 64개뿐이므로 로드맵의 3분의 2는 이 질문이 묻는 첫 시계 이전에 채점할 수 없다 [E-8130 하].
 
-| Rank | Technology | Bottleneck | TRL | Developers | Window | Remaining hard problem |
+| 순위 | 기술 | 병목 | TRL | 개발 주체 | 기간 | 남은 난제 |
 |---|---|---|---|---|---|---|
-| 1 | Human-genetics-anchored target selection | B1 | 8 | Open Targets; Regeneron Genetics Center; deCODE | 2015–2026 | Only a minority of targets carry a tractable signal; MR significance alone does not enrich for Phase II success |
-| 2 | Regulatory dose-optimisation instrument | B17 | 8 | FDA Oncology Center of Excellence | 2024–2030 | Randomised dose comparison is powered for response rate, not survival |
-| 3 | Model-informed drug development | B17 | 8 | FDA CDER/CBER pharmacometrics; ICH M15 | 2018–2029 | Extrapolating beyond studied doses relies on an unverifiable functional form |
-| 4 | ML immunogenicity prediction | B8 | 6 | EpiVax; Lonza; Abzena | 2020–2027 | Clinical immunogenicity depends on formulation, route and HLA as much as sequence |
-| 5 | Estimand framework, ICH E9(R1) | B17 | 8 | ICH working group; FDA and EMA | 2019–2027 | Boilerplate compliance is the likeliest outcome and is not externally visible |
+| 1 | 인간유전학 기반 표적 선정 | B1 | 8 | Open Targets; Regeneron Genetics Center; deCODE | 2015–2026 | 다루기 쉬운 신호를 가진 표적은 소수, MR 유의성만으로는 2상 성공을 예측 못함 |
+| 2 | 용량 최적화 규제 기제 | B17 | 8 | FDA Oncology Center of Excellence | 2024–2030 | 무작위 용량 비교가 생존이 아니라 반응률에 검정력이 맞춰짐 |
+| 3 | 모델기반 신약개발 | B17 | 8 | FDA CDER/CBER 약동학계량; ICH M15 | 2018–2029 | 시험한 용량 밖 외삽이 검증 불가능한 함수형태에 의존 |
+| 4 | ML 면역원성 예측 | B8 | 6 | EpiVax; Lonza; Abzena | 2020–2027 | 임상 면역원성은 서열만큼 제형·투여경로·HLA에 좌우됨 |
+| 5 | Estimand 프레임워크, ICH E9(R1) | B17 | 8 | ICH 작업반; FDA·EMA | 2019–2027 | 형식적 문구화가 가장 유력한 귀결이며 외부에서 보이지 않음 |
 
-[INFER] **Six of the top ten are regulatory or methodological rules rather than laboratory tools, and the top three are all rules** [E-8130 하]. Three of those TRL-8 ratings rest on instruments that recommend rather than require and should be described as "final instrument issued", never as "mandate" [E-8108 중] [E-8112 중] [E-8116 중].
+[INFER] **상위 10개 중 여섯이 실험실 도구가 아니라 규제·방법론 규칙이고 상위 셋은 전부 규칙이다** [E-8130 하]. 그중 셋은 요구가 아니라 권고하는 기제 위에 서 있으므로 "최종 기제 발효"로 기술해야 하며 결코 "의무화"로 기술해서는 안 된다 [E-8108 중] [E-8112 중] [E-8116 중].
 
-**Three bottlenecks have no credible technological solution, in corrected narrowed form.** *B1 target validation*: cis-pQTL Mendelian randomisation is a causal human instrument that does not require a trial and has industrialised [E-8124 중], but MR significance alone did not enrich for Phase II success across 11,482 target–indication pairs, so the objection is empirical rather than conceptual [E-8009 중]. *B13 talent*: no candidate found; investigators fell ~9% and coordinators ~28% over six years through heavy trial-technology investment [E-9524 하]. *B11 capital and reimbursement*: the "no laboratory technology" narrowing does no work, because a payment model is not a lab technology by definition. The claim the ledger supports is that **non-laboratory payment instruments operate at national scale in at least two jurisdictions** — the NHS antimicrobial subscription at roughly GBP 100m/yr with contracts from 1 April 2026 [E-8126 상], and the CMS Cell and Gene Therapy Access Model covering 84% of Medicaid sickle-cell beneficiaries across 32 states plus DC and Puerto Rico [E-8061 중] — that **no evidence shows either changed system output**, and that the constraint is therefore an unsolved allocation problem with demonstrated mechanism prototypes [E-8126 상].
+**신뢰할 만한 기술적 해법이 없는 병목이 셋 있고, 정정된 협소화 형태로 제시한다.** *B1 표적 검증*: cis-pQTL 멘델 무작위화는 시험을 요구하지 않는 인과적 인체 도구이며 산업화되었지만 [E-8124 중], 11,482개 표적-적응증 쌍에서 MR 유의성만으로는 2상 성공을 농축하지 못했으므로 반론은 개념적이 아니라 실증적이다 [E-8009 중]. *B13 인재*: 후보를 찾지 못했고, 임상시험 기술에 대한 대규모 투자가 이루어진 6년 동안 연구자는 약 9%, 코디네이터는 약 28% 줄었다 [E-9524 하]. *B11 자본과 급여*: "실험실 기술 없음"이라는 협소화는 아무 일도 하지 않는다. 지불 모델은 정의상 실험실 기술이 아니기 때문이다. 원장이 뒷받침하는 주장은 **비실험실 지불 기제가 최소 두 개 관할에서 국가 규모로 작동하고 있다** 는 것이다. 연 약 GBP 1억 규모로 2026년 4월 1일부터 계약이 시작되는 NHS 항생제 구독 모델 [E-8126 상], 그리고 32개 주와 DC·푸에르토리코에서 메디케이드 겸상적혈구 수급자의 84%를 포괄하는 CMS 세포·유전자치료 접근 모델이다 [E-8061 중]. 그리고 **어떤 근거도 둘 중 어느 것이 시스템 산출을 바꾸었음을 보이지 않으므로**, 이 제약은 작동하는 기제 원형이 있는 미해결 배분 문제다 [E-8126 상].
 
 ---
 
-## H0 verdict
+## H0 판정
 
-**Partially supported, for reasons that damage rather than vindicate it.** Its historical half is **rejected for the aggregate pipeline on per-programme economics** — about 65% of lifetime attrition occurs after entry into humans [E-1097 중], pre-human work is 15.9% of measured industry cash [E-1042 중], and the genomics and target-based screening expansion produced 17 of 50 first-in-class small molecules 1999–2008 against 28 from phenotypic screening [E-9505 중]. **Three qualifications are binding.** Per-programme statistics are structurally blind to programmes never started, and about 85% of the druggable genome has never yielded an approved drug [E-9536 중] — the strongest surviving case for H0-a, and one this report cannot dispose of. Stage of observation is not stage of cause: a Phase II efficacy failure is frequently caused at target selection [E-9507 중]. And the rejection is domain-conditional, with antibacterials 1962–2000 and RAS 1982–2021 as documented counter-domains [E-9503 중] [E-9502 중]. **Its forward half is a restatement of a forty-year status quo and is not falsifiable as posed**; restated as a rate claim it is currently supported, since cumulative likelihood of approval fell from 10.4% to 6.7% across successive analyses 2014–2024 while termination rates fell [E-9512 하] [E-9514 하].
+**부분 지지이며, 그 이유들은 H0를 입증하기보다 손상시킨다.** 역사적 전반부는 **프로그램 단위 경제성 기준으로 파이프라인 전체에 대해 기각된다.** 전 생애 감쇄(attrition)의 약 65%가 인체 투여 이후에 일어나고 [E-1097 중], 인체 이전 작업은 실측 산업 현금의 15.9%이며 [E-1042 중], 유전체학과 표적기반 스크리닝 확장은 1999–2008년 최초계열 저분자 50개 중 17개를 냈을 뿐 표현형 스크리닝이 28개를 냈다 [E-9505 중]. **세 가지 단서가 구속력을 갖는다.** 프로그램 단위 통계는 시작되지 않은 프로그램에 구조적으로 눈이 멀어 있고 성약 가능 유전체의 약 85%는 승인 의약품을 낸 적이 없는데 [E-9536 중], 이것이 H0-a를 위해 살아남은 가장 강한 논거이며 이 보고서는 그것을 처리하지 못한다. 관측 단계는 원인 단계가 아니어서 2상 유효성 실패는 흔히 표적 선정에서 발생한다 [E-9507 중]. 그리고 기각은 도메인 조건부이며 1962–2000년 항생제와 1982–2021년 RAS가 문서화된 반대 도메인이다 [E-9503 중] [E-9502 중]. **후반부는 40년간의 현상 유지를 다시 말한 것으로 제시된 형태로는 반증 불가능하다.** 변화율 주장으로 다시 쓰면 현재 지지되는데, 1상부터의 누적 승인 가능성이 2014–2024년 연속 분석에서 10.4%에서 6.7%로 떨어지는 동안 조기 종료율은 오히려 낮아졌기 때문이다 [E-9512 하] [E-9514 하].
 
-## Three things this run found that a reader should not lose
+## 이 런이 찾아낸 것 중 놓치면 안 되는 세 가지
 
-**The most-quoted anchors are not faithful as commonly repeated.** The 10–15 year development-duration anchor corresponds to no measurement anywhere in 774 records; the measured clocks are 128 months, 147 months and 9.1 years of clinical development [E-1005 중] [E-1014 중] [E-3004 중]. The cost anchor's sample is a confidential survey of 106 compounds from 10 unnamed firms and cannot be reproduced [E-1001 하]. The success-rate anchor spans four incompatible denominators, so no point estimate is admissible [E-1020 중] [E-1023 중]. The AI Phase I anchor had an undisclosed denominator at origin and is BCG-authored and BCG-funded [E-2001 하].
+**가장 많이 인용되는 앵커들이 통상 반복되는 형태로는 원출처에 충실하지 않다.** 10–15년 개발기간 앵커는 774건 어디에도 대응하는 측정값이 없으며 실제 시계는 128개월, 147개월, 임상개발 9.1년이다 [E-1005 중] [E-1014 중] [E-3004 중]. 비용 앵커의 표본은 익명 10개 기업의 106개 화합물에 대한 비공개 설문이어서 재현 불가능하다 [E-1001 하]. 성공률 앵커는 서로 양립하지 않는 네 개의 분모에 걸쳐 있어 점추정치를 채택할 수 없다 [E-1020 중] [E-1023 중]. AI 1상 앵커는 원출처에서 분모를 공개하지 않았고 BCG가 저술·자금 지원했다 [E-2001 하].
 
-**One widely repeated claim about animal-model non-predictivity is removed entirely rather than qualified**, and it does not appear in either deliverable in any form. Its denominator is misapplied at source: the headline percentage is a share of the compounds that clear preclinical, not of all compounds [E-9554 중].
+**널리 반복되던 동물모델 비예측성 주장 하나는 단서를 다는 대신 통째로 제거했고**, 두 산출물 어디에도 어떤 형태로도 등장하지 않는다. 원출처에서 분모가 잘못 적용되어 있으며, 헤드라인 백분율은 전임상을 통과한 화합물에 대한 비율이지 전체 화합물에 대한 비율이 아니다 [E-9554 중].
 
-**The levers that raise output make the system slower, and the levers that make it faster do not raise output.** Raising Phase II probability of success 50% is the largest single modelled lever at +31.8% approvals and lengthens mean cycle time from 13.50 to 15.03 years [E-9032 하]; cutting enrolment duration 40% and CMC lead time 50% add exactly nothing [E-9036 하]. ⚠ LOW-EVIDENCE CLAIM on both figures. [INFER] Anyone optimising a portfolio for cycle time is, on this evidence, optimising against output.
+**산출을 늘리는 지렛대는 시스템을 느리게 만들고, 시스템을 빠르게 하는 지렛대는 산출을 늘리지 않는다.** 2상 성공확률을 50% 올리는 것은 모델에서 단일 지렛대 최대인 +31.8%이면서 평균 사이클타임을 13.50년에서 15.03년으로 늘리고 [E-9032 하], 등록기간 40% 단축과 CMC 리드타임 50% 단축은 정확히 아무것도 더하지 않는다 [E-9036 하]. ⚠ LOW-EVIDENCE CLAIM — 두 수치 모두에 해당한다. [INFER] 포트폴리오를 사이클타임 기준으로 최적화하는 사람은 이 근거 위에서 산출에 역행하는 최적화를 하고 있는 것이다.

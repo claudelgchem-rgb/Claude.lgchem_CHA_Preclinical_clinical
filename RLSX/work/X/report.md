@@ -1,96 +1,96 @@
 CHARTER_ACK: R1,R2,R3,R4
 
-# Agent X — 반증 레드팀 / Falsification Red Team — methodology and residual doubt
+# Agent X — 반증(falsification) 레드팀: 방법론과 남은 의심
 
-Deliverables: `RLSX/audit/redteam_findings.md` (20 findings), `RLSX/audit/redteam_mapping.csv` (20 rows), `RLSX/evidence/parts/X.jsonl` (39 records, **E-9500 … E-9538**), this report, `RLSX/work/X/unresolved.csv` (6 records).
-All evidence carries `confidence: null`, `graded_by: null` per R3. Agent R grades.
-
----
-
-## 1. Methodology
-
-**The failure mode I was hired to catch.** Seven agents shared one brief, one search tool and one literature, and reached agreement in a single pass. That is the exact configuration in which correlated error is most likely: the agents can be individually careful and jointly wrong in the same direction, because they inherited the same framing of the question and the same candidate answer set. So I did not audit their arithmetic. I attacked their *estimator* and their *scope*, on the theory that in a fast-converging multi-agent run the error is almost never in a number and almost always in what the number is conditioned on.
-
-**Three rules I imposed on myself.**
-
-1. *Build the case for the position the run rejected, before judging it.* Workstream 1 asked me to argue **for** H0-a. I did that for four findings (X-01 to X-04) before letting myself write a verdict, and one of those four (X-04) came out against the position I was constructing. That is the control: an adversary who only finds what the brief hinted at is a second consensus agent wearing a costume.
-2. *Do not reuse the attacked agents' evidence to attack them.* Every quantitative claim in the findings document traces to a record in `X.jsonl` that I collected in this session. Where I agree with an upstream agent (X-15, X-17) I say so and cite their finding by description rather than importing their evidence IDs as if they were mine.
-3. *A verdict of 기각 is a deliverable, not a failure.* Five attacks failed. Each has a stated reason, and two of them (X-04, X-06) produced evidence that makes the consensus stronger than the consensus itself had made it.
-
-**Search record.** 38 WebSearch/WebFetch calls. Four fetches were blocked (BCG 403, Science 403, OECD 403, Nature IdP 303 redirect) and each was replaced by an independently reachable carrier of the same datum. One PDF that the fetch tool could not parse (L.E.K.) was extracted locally with Python `zlib` and `re` from the standard library, and the extracted figures were then confirmed against the publisher's own HTML page before being recorded, which is why E-9509 carries two provenance hops.
-
-**Verdict discipline.** 채택 means the consensus is wrong and a named sentence must change. 부분채택 means the finding survives but its scope, comparator or trend statement is wrong. 기각 means the attack was genuine and failed. Totals: **채택 3, 부분채택 12, 기각 5.**
+산출물: `RLSX/audit/redteam_findings.md`(발견 30건), `RLSX/audit/redteam_mapping.csv`(30행), `RLSX/audit/circular_audit.csv`(572행), `RLSX/evidence/parts/X.jsonl`(55건, **E-9500 … E-9554**), 이 보고서, `RLSX/work/X/unresolved.csv`(10건).
+모든 근거는 R3에 따라 `confidence: null`, `graded_by: null` 상태로 둔다. 등급 판정은 Agent R의 몫이다.
 
 ---
 
-## 2. Which attacks I judge strongest, in order
+## 1. 방법론
 
-**Strongest: X-08 — the base-rate ceiling is time-blind.** This is the only finding where the consensus is not merely under-qualified but produces a wrong answer to a question the mission explicitly asks. The mission asks for ranked bottlenecks at 2030, 2035 and 2040. The consensus caps AI's system effect using a 2026 share. The cumulative count of AI-derived clinical-stage molecules has a doubling time of 1.2-2.1 years across four independent anchors [E-9516][E-9517], which puts the share above 10 percent between 2029 and 2033 and above 50 percent between 2032 and 2039 [E-9518]. A ceiling argument that is correct in 2026 and silently applied to 2040 is the single most likely way this report ends up wrong in print.
+**내가 잡으라고 투입된 실패 양상.** 일곱 개 에이전트가 하나의 브리프, 하나의 검색 도구, 하나의 문헌을 공유한 채 한 번의 패스로 합의에 도달했다. 이것은 상관된 오류가 가장 잘 발생하는 구성이다. 에이전트들이 개별적으로는 신중하면서도 질문의 틀과 후보 답 집합을 함께 물려받았기 때문에 같은 방향으로 함께 틀릴 수 있다. 그래서 나는 그들의 산술을 감사하지 않았다. *추정량(estimator)*과 *범위*를 공격했다. 빠르게 수렴하는 다중 에이전트 실행에서 오류는 거의 언제나 숫자가 아니라 그 숫자가 무엇을 조건으로 삼는가에 있기 때문이다.
 
-**Second: X-14 — an internal contradiction the run did not notice.** Agent C ranks B15 fifth using the biomarker qualification queue. Agent E, in the same run, reports that FDA's public table lists over 200 surrogate endpoints that have already served as a basis of approval [E-9528]. Two agents measured two different resources and only one of them is the constraint. This is the clearest evidence that the run's convergence was partly nominal: the agents agreed on a ranking while holding incompatible views of what one of the ranked items is.
+**스스로에게 부과한 세 가지 규칙.**
 
-**Third: X-01 — the estimator is blind to the suppressed population.** Every H0-a test in the run is conditioned on a programme having started. About 85 percent of the druggable genome has never yielded an approved drug [E-9536][E-9501], and KRAS spent 39 years between validated target and first drug with no programme in the statistics for most of them [E-9502]. I cannot close this hole with evidence, because the counterfactual is not recorded anywhere, and that is precisely why the report must not state the H0-a rejection without it.
+1. *판정하기 전에, 이번 실행이 기각한 입장을 먼저 옹호한다.* 작업흐름 1은 H0-a를 **지지하는** 논증을 요구했다. 판정을 쓰기 전에 그 논증을 X-01부터 X-04까지 네 건에 걸쳐 세웠고, 그중 하나(X-04)는 내가 세우던 입장에 불리하게 결론이 났다. 그것이 통제장치다. 브리프가 암시한 것만 찾아내는 적대자는 옷만 갈아입은 두 번째 합의 에이전트다.
+2. *공격 대상 에이전트의 근거를 그들을 공격하는 데 재사용하지 않는다.* findings 문서의 모든 정량 주장은 이번 세션에 내가 수집한 `X.jsonl` 레코드로 소급된다. 상류 에이전트에 동의하는 지점(X-15, X-17)에서는 그렇다고 밝히고, 그들의 발견을 서술로 인용하되 그들의 근거 ID를 내 것처럼 들여오지 않는다.
+3. *기각(rejected)은 실패가 아니라 산출물이다.* 다섯 건의 공격이 실패했다. 각각 사유를 명시했고 그중 둘(X-04, X-06)은 합의 자신이 세운 것보다 합의를 더 강하게 만드는 근거를 산출했다.
 
-**Fourth: X-13 — the jurisdiction question, resolved in both directions.** The orchestrator flagged this as live and it is. China took 39 percent of global oncology trial starts in 2024 against the US at 32 percent, with Phase I trials about half as long and 43 percent cheaper on an 87-day trial-approval clock [E-9520], and its registrations grew about 16 percent per year to 4,900 in 2024 [E-9519]. That genuinely raises the early-phase ceiling above the US-derived figure. But the global aggregate is not growing — investigators down about 9 percent and coordinators down about 28 percent over six years [E-9524], flat registry inflow [E-9533] — and the pivotal gate did not move, since a China-only pivotal trial was rejected 14-1 on generalisability grounds [E-9523] and only 337 of 2,539 Chinese innovative-drug trials in 2024 were multiregional [E-9519]. The resolution is that the constraint is **pivotal multiregional trial capacity**, which is a sharper and more useful statement than either "US capacity binds" or "flow just routes east".
+**검색 기록.** WebSearch/WebFetch 38회. 네 건의 fetch가 차단되었고(BCG 403, Science 403, OECD 403, Nature IdP 303 리다이렉트) 각각 동일 사실을 담은, 독립적으로 도달 가능한 전달자로 대체했다. fetch 도구가 파싱하지 못한 PDF 한 건(L.E.K.)은 표준 라이브러리의 `zlib`과 `re`로 로컬 추출했고, 추출된 수치를 발행사 자체 HTML 페이지와 대조 확인한 뒤에야 기록했다. 그래서 E-9509는 provenance hop을 두 개 갖는다.
 
-**Fifth: X-09 — the comparator does the work.** Against the historical 37 percent benchmark the AI Phase II figure is +3 points; against the contemporaneous 28 percent it is +12 [E-9537][E-9513]. Agent B's power calculation is correct arithmetic on the wrong comparator. This does not make AI look good — it makes the evidentiary state indeterminate, which is a different and more defensible claim than "no evidence".
-
----
-
-## 3. Where I think the consensus is most likely wrong even though I could not prove it
-
-Three places. I state them as residual doubt rather than as findings, because in each case I built the attack, could not close it with evidence, and did not want to smuggle an unproven claim into the mapping file.
-
-**(a) The elasticity framework may be measuring the wrong system.** The brief defines a rate-limiting step as one whose improvement raises *annual approved new drugs*. Every agent adopted this and computed elasticities against it. But approvals are a count of regulatory events, and the quantity the field actually cares about is health produced. A ranking optimised for approvals will systematically over-rank whatever raises the count of small, rare-disease, single-arm approvals and under-rank whatever raises the size of the effect in common disease. Agent E's own evidence points at this: two of Japan's five conditional approvals were withdrawn after confirmatory failure, so that route added approvals and then removed them. I could not find a published elasticity of health outcome to any pipeline factor — this is logged as UNRESOLVED X-U3 — so I could not quantify the distortion. My belief is that it is material and that it tilts the whole ranking toward B15, B4 and B5 and away from B1 and B8.
-
-**(b) The run treats "AI" as one technology with one adoption curve, and it is at least two.** Structure prediction and generative chemistry are the ones the run measured. The larger near-term effect may be in the part nobody measured: AI applied to *clinical* decisions — patient selection, dose finding, endpoint construction, trial design. Agent F measured AI trial-matching and found it moves screening cost and not accrual, which is real but is a narrow slice. Nothing in the run tests whether AI raises the quality of the design decisions in my X-19 finding, where a 48 percent Phase III dose-modification rate [E-9531] says the decisions are currently poor. If the largest AI effect lands there, the run's Amdahl arithmetic — which caps AI by discovery's share of time and cost — is bounding the wrong quantity, because a clinical-design improvement is not subject to the discovery-share ceiling at all. I could not find a measurement, and it is logged as UNRESOLVED X-U2.
-
-**(c) The consensus may be right about 2026 and wrong about the direction of travel.** Three independent series in my evidence point the same way and no agent assembled them together: cumulative likelihood of approval fell 10.4 to 6.7 percent between the 2014 and 2024 analyses [E-9512]; Phase I success fell from over 75 percent to below 40 [E-9513]; and novel targets entering the pipeline fell from about 100 a year to 30 in 2024 while the pipeline doubled and venture funding tripled [E-9509]. Read together these describe a system that is not merely constrained downstream but is *retreating upstream* — placing fewer novel bets, on more crowded targets, with falling returns per bet. If that is the operative dynamic, then the binding constraint by 2035 is neither discovery capability nor clinical capacity but **the industry's declining willingness to prosecute novel biology**, which is a behavioural and returns-driven variable that appears in the catalogue only as a fragment of B11. I flagged the B11 relabelling in X-10, but I could not establish causality between falling returns and falling novel-target entry, so I did not raise it to a finding. I regard it as the most likely single place the final report will look wrong in five years.
+**판정 규율.** 채택(adopted)은 합의가 틀렸으며 지정된 문장이 바뀌어야 한다는 뜻이다. 부분채택(partial)은 발견은 살아남되 그 범위·비교군·추세 서술이 틀렸다는 뜻이다. 기각(rejected)은 공격이 성실했고 실패했다는 뜻이다. 총계: **채택 3, 부분채택 12, 기각 5**(1차 기준).
 
 ---
 
-## 4. What I did not attack, and why that is a limitation
+## 2. 가장 강한 공격이라고 판단한 순서
 
-I did not attack Agents I and D, whose reports were not on disk when I ran; the orchestrator has scheduled that for a second pass together with the circular-reference provenance audit. Within the seven reports I did read, I processed every one of the four assigned workstreams in full: H0-a from the pro side (X-01 to X-04), the forward claim (X-05, X-06), AI compression from both directions (X-07, X-08, X-09), the spare-capacity test on B1, B8, B11, B2, B7, B15 and B3 (X-10, X-11, X-12, X-14, X-15, X-16, X-17), the reverse test for under-ranked candidates (X-18, X-19), and the jurisdictional-routing question the orchestrator added (X-13), plus one scope correction on the regulatory verdict (X-20). B8 is covered inside X-12 and X-19 rather than in an entry of its own: my spare-capacity attack on B8 failed at the first test, because the one documented case of a toxicity-adjacent attrition class being retired — pharmacokinetic failure, 40 percent to 10 percent between 1991 and 2000 [E-9506] — is a case of the class being *replaced* by safety and efficacy rather than of slack appearing, and the dose-optimisation evidence [E-9531] shows the surviving class is being actively worked and is not slack.
+**최강: X-08 — 기저율 상한에 시간 축이 없다.** 합의가 단지 단서가 부족한 정도가 아니라 미션이 명시적으로 묻는 질문에 틀린 답을 내놓는 유일한 발견이다. 미션은 2030년, 2035년, 2040년의 병목 순위를 묻는다. 합의는 2026년 점유율로 AI의 시스템 효과를 상한 짓는다. AI 유래 임상 단계 분자의 누적 집계는 네 개의 독립 기준점에서 배가시간 1.2~2.1년을 보이며[E-9516][E-9517], 그 속도라면 점유율은 2029~2033년 사이 10%를, 2032~2039년 사이 50%를 넘는다[E-9518]. 2026년에는 옳고 2040년에 조용히 적용되는 상한 논증이야말로 이 보고서가 인쇄물에서 틀리게 될 가장 유력한 경로다.
+
+**차선: X-14 — 실행이 알아채지 못한 내부 모순.** Agent C는 바이오마커 qualification 대기열을 근거로 B15를 5위에 둔다. 같은 실행에서 Agent E는 FDA 공개 표에 이미 승인의 근거가 된 대리평가변수가 200건 이상 올라 있다고 보고한다[E-9528]. 두 에이전트가 서로 다른 자원을 측정했고 그중 하나만이 제약이다. 이번 실행의 수렴이 부분적으로 명목상의 것이었다는 가장 뚜렷한 증거다. 순위에는 합의하면서 순위 항목 하나가 무엇인지에 대해서는 양립 불가능한 견해를 유지했다.
+
+**3위: X-01 — 추정량이 억압된 모집단을 보지 못한다.** 이번 실행의 H0-a 검정은 전부 프로그램이 이미 시작되었다는 조건 위에 있다. druggable genome의 약 85%는 승인 의약품을 낸 적이 없고[E-9536][E-9501], KRAS는 검증된 표적과 최초 의약품 사이에서 39년을 보냈으며 그 대부분의 기간 동안 통계에 등장하지 않았다[E-9502]. 나는 이 구멍을 근거로 메우지 못했다. 반사실(counterfactual)이 어디에도 기록되어 있지 않기 때문이며, 바로 그렇기 때문에 보고서는 이 단서 없이 H0-a 기각을 서술해서는 안 된다.
+
+**4위: X-13 — 관할권 문제를 양방향으로 해소했다.** 오케스트레이터가 미결이라고 지목했고 실제로 미결이었다. 중국은 2024년 전 세계 종양학 시험 개시의 39%를 차지해 미국 32%를 앞섰고, 1상은 약 절반 길이에 43% 저렴하며 시험 승인 시계는 87일이고[E-9520] 등록은 연 약 16% 성장해 2024년 4,900건에 이르렀다[E-9519]. 이는 초기 단계 천장을 미국 기준 수치 위로 실제로 올린다. 그러나 전 세계 총량은 확대되지 않는다. 6년간 연구자 약 9%, 코디네이터 약 28% 감소[E-9524]에 등록 유입 정체[E-9533]다. 그리고 허가용 관문은 이동하지 않았다. 중국 단일국 허가용 임상은 일반화 가능성을 이유로 14 대 1로 부결되었고[E-9523] 2024년 중국 혁신 신약 시험 2,539건 중 다지역은 337건에 그쳤다[E-9519]. 해소된 결론은 제약이 **허가용 다지역 임상 용량**이라는 것이며, 이는 "미국 용량이 구속한다"보다도 "유입이 동쪽으로 흐를 뿐이다"보다도 날카롭고 유용한 진술이다.
+
+**5위: X-09 — 일을 하는 것은 비교군이다.** 과거 벤치마크 37% 대비 AI 2상 수치는 +3%p이고 동시대 28% 대비로는 +12%p다[E-9537][E-9513]. Agent B의 검정력 계산은 잘못된 비교군 위의 옳은 산술이다. 이는 AI를 좋아 보이게 만드는 것이 아니라 증거 상태를 미결로 만들며, 그것은 "증거 없음"과 다르고 더 방어 가능한 주장이다.
 
 ---
 
-## 5. UNRESOLVED
+## 3. 증명하지 못했지만 합의가 틀렸을 가능성이 가장 높다고 보는 지점
 
-Six items, fully recorded in `RLSX/work/X/unresolved.csv` with every query attempted, the failure reason, at least three alternative sources tried, and a best estimate with its basis. In summary: a year-by-year AI-derived IND series from a regulator rather than a census (X-U1); any measurement of AI's effect on clinical design decisions (X-U2); a published elasticity of health outcome, rather than approval count, to a pipeline factor (X-U3); a count of programmes started that would not have been started absent AI structure prediction (X-U4); the exact current entry count of FDA's surrogate endpoint table (X-U5); and a like-for-like China-versus-US comparison of registrational rather than total trial capacity (X-U6). None of the six changes any verdict in the findings document; X-U4 is the one that would most sharpen X-01, and X-U3 is the one that would most sharpen the residual doubt in section 3(a).
+세 곳이다. 각각에서 공격을 세웠고 근거로 닫지 못했으며, 검증되지 않은 주장을 매핑 파일에 몰래 넣고 싶지 않았으므로 발견이 아니라 남은 의심으로 적는다.
+
+**(a) 탄력도 틀이 잘못된 시스템을 측정하고 있을 수 있다.** 브리프는 율속단계를 *연간 승인 신약 수*를 늘리는 단계로 정의하고 모든 에이전트가 이를 채택해 그에 대한 탄력도를 계산했다. 그러나 승인은 규제 사건의 개수이고 이 분야가 실제로 신경 쓰는 양은 생산된 건강이다. 승인 수에 최적화된 순위는 작고 희귀하며 단일군인 승인의 개수를 늘리는 요인을 체계적으로 과대평가하고, 흔한 질환에서 효과 크기를 키우는 요인을 과소평가한다. Agent E 자신의 근거가 이를 가리킨다. 일본의 조건부 승인 5건 중 2건이 확증시험 실패 후 철회되었으므로 그 경로는 승인을 더했다가 도로 뺐다. 어떤 파이프라인 인자에 대해서도 건강 결과 탄력도를 추정한 연구를 찾지 못해 — X-U3으로 기록 — 왜곡의 크기를 정량화하지 못했다. 내 판단으로는 왜곡이 유의하며 순위 전체를 B15·B4·B5 쪽으로 기울이고 B1·B8에서 멀어지게 만든다.
+
+**(b) 실행은 "AI"를 하나의 채택 곡선을 가진 하나의 기술로 다루지만 최소한 둘이다.** 구조 예측과 생성 화학은 실행이 측정한 쪽이다. 단기적으로 더 큰 효과는 아무도 측정하지 않은 쪽, 즉 *임상* 의사결정에 적용된 AI — 대상군 선택, 용량 탐색, 종점 구성, 시험 설계 — 에 있을 수 있다. Agent F는 AI 시험 매칭이 선별 비용을 움직이고 등록률은 움직이지 않음을 측정했는데, 이는 실재하되 좁은 단면이다. X-19의 설계 의사결정 품질을 AI가 높이는지는 이번 실행의 어디에서도 검정되지 않았고, 3상 용량 조정률 48%[E-9531]는 그 의사결정이 현재 좋지 않음을 말한다. AI의 최대 효과가 거기에 떨어진다면 실행의 Amdahl 산술 — 발견이 차지하는 시간·비용 비중으로 AI를 상한 짓는 것 — 은 잘못된 양을 경계 짓고 있다. 임상 설계 개선은 발견 비중 상한의 적용을 아예 받지 않기 때문이다. 측정치를 찾지 못했고 X-U2로 기록한다.
+
+**(c) 합의가 2026년에 대해 옳고 진행 방향에 대해 틀렸을 수 있다.** 내 근거의 독립적인 세 시계열이 같은 방향을 가리키며 어떤 에이전트도 이 셋을 함께 놓지 않았다. 2014년과 2024년 분석 사이 누적 승인 가능성 10.4% → 6.7%[E-9512], 1상 성공률 75% 초과 → 40% 미만[E-9513], 파이프라인이 두 배가 되고 벤처 자금이 세 배가 되는 동안 신규 표적 진입 연 약 100개 → 2024년 30개[E-9509]다. 함께 읽으면 이는 하류에서 제약받는 시스템일 뿐 아니라 *상류에서 후퇴하는* 시스템을 서술한다. 더 적은 새로운 베팅을, 더 붐비는 표적 위에, 베팅당 하락하는 수익률로 놓는 것이다. 그것이 작동 역학이라면 2035년의 구속적 제약은 발견 역량도 임상 용량도 아니고 **산업이 새로운 생물학을 감수하려는 의지의 감소**이며, 이는 행태·수익 주도 변수로서 목록에는 B11의 파편으로만 등장한다. X-10에서 B11 명칭 변경을 제기했지만 하락하는 수익률과 하락하는 신규 표적 진입 사이의 인과를 확립하지 못해 발견으로 올리지 않았다. 최종 보고서가 5년 뒤 가장 틀려 보일 단일 지점이라고 본다.
 
 ---
 
-# PASS 2 — provenance audit, Agent I, X-14 adjudication, B17
+## 4. 공격하지 않은 것과 그것이 한계인 이유
 
-Added in pass 2: `RLSX/audit/circular_audit.csv` (572 rows), findings X-21 to X-30 appended to `redteam_findings.md`, ten rows appended to `redteam_mapping.csv`, evidence **E-9539 … E-9554**, and four further records in `unresolved.csv` (X-U7 … X-U10). 18 further WebSearch/WebFetch calls; three blocked (ASCO Publications 403, AACR Journals 403, one NCBI 301 handled by re-fetching the canonical host), each replaced by an independently reachable carrier.
+실행 시점에 디스크에 보고서가 없던 Agent I와 D는 공격하지 않았다. 오케스트레이터가 순환참조 원출처 감사와 함께 2차로 배정했다. 내가 읽은 일곱 보고서 안에서는 배정된 네 작업흐름을 전부 처리했다. H0-a를 지지 쪽에서 공격(X-01~X-04), 미래 주장(X-05, X-06), AI 압축을 양방향에서(X-07, X-08, X-09), B1·B8·B11·B2·B7·B15·B3에 대한 여유용량 시험(X-10, X-11, X-12, X-14, X-15, X-16, X-17), 과소평가 후보에 대한 역방향 시험(X-18, X-19), 오케스트레이터가 추가한 관할권 라우팅 질문(X-13), 그리고 규제 판정에 대한 범위 정정 하나(X-20)다. B8은 독립 항목 대신 X-12와 X-19 안에서 다뤘다. B8에 대한 여유용량 공격이 첫 시험에서 실패했기 때문이다. 독성 인접 감쇄 계급이 퇴역한 유일한 문서화 사례 — 1991년 40%에서 2000년 10%로 떨어진 약동학 실패[E-9506] — 는 여유가 생긴 사례가 아니라 그 계급이 안전성과 유효성으로 *대체된* 사례이고, 용량 최적화 근거[E-9531]는 살아남은 계급이 현재 활발히 다뤄지고 있으며 여유가 아님을 보인다.
 
-## 6. How the provenance audit was actually done, including what it does not establish
+---
 
-Coverage is **572 of 572** records carrying a figure. Tier composition of the rule-adjudicated rows: tier 1 (collector-flagged `circular_risk`) 92, tier 2 (`market_report` and `secondary`) 117, tier 3 (cross-agent recurrence on a shared source title) 12, tier 4 (remainder) 318, plus **33 rows carrying a manual hop-by-hop trace I performed in this pass**. Thirty-eight shared-origin groups were assigned; the four largest hold 17, 17, 16 and 11 records.
+## 5. UNRESOLVED (1차 시점)
 
-The honest statement of method, which belongs in the report and not in a footnote: I traced 33 origins by retrieval and adjudicated the other 539 by a rule applied uniformly and written into the `notes` column of every single row. The rule classifies the deepest provenance hop into peer-reviewed, preprint, agency, registry, filing, consultancy, company, trade press, aggregator or none, and derives the verdict from that class plus the collector's own flag. **This classifies the provenance chain; it does not re-verify each figure at its origin.** A record marked clean means its chain terminates in a source class that can in principle be checked, not that I checked it. Every row states which treatment it received, so a reader can separate the two without taking my word for it.
+여섯 항목이며 `RLSX/work/X/unresolved.csv`에 시도한 모든 질의, 실패 사유, 세 곳 이상의 대체 출처, 근거를 갖춘 최선 추정치와 함께 기록했다. 요약하면 인구조사가 아닌 규제기관 출처의 연도별 AI 유래 IND 시계열(X-U1), AI가 임상 설계 의사결정에 미친 효과의 측정치(X-U2), 승인 건수가 아닌 건강 결과에 대한 파이프라인 인자 탄력도의 공표 추정치(X-U3), AI 구조 예측이 없었다면 시작되지 않았을 프로그램 수(X-U4), FDA 대리평가변수 표의 정확한 현재 항목 수(X-U5), 그리고 총 시험 용량이 아닌 허가용 시험 용량에 대한 중국 대 미국의 동일 기준 비교(X-U6)다. 여섯 중 어느 것도 findings 문서의 판정을 바꾸지 않는다. X-U4는 X-01을, X-U3은 3절 (a)의 남은 의심을 가장 크게 날카롭게 만들 항목이다.
 
-Result: **340 clean, 157 unverifiable, 75 circular; 232 FORCE_LOW** [E-9551]. Two structural observations. First, the failure is concentrated exactly where the brief predicted: consultancy, trade-press and aggregator terminations account for almost all of the unverifiable set, and the collectors' own `circular_risk` flags were well calibrated — where a collector flagged a record, the rule almost always agreed. Second, the most damaging single result is not in the tally but in X-21: **the 10-15 year development-duration anchor corresponds to no measurement anywhere in a 679-record ledger**. It is the purest instance in this run of a number that circulates because it circulates.
+---
 
-## 7. What the Agent I attack changed my view about
+# 2차 — 원출처 역추적(provenance tracing) 감사, Agent I, X-14 판정, B17
 
-I expected TRL inflation and largely did not find it. Eleven of twelve TRL 8 ratings survived a test against I's own published scale, each with a stated basis and an explicit reason for not being 9. That is better discipline than the technology-scouting literature normally shows, and the one clear failure — MRD at 8 on a draft guidance and an advisory vote — is diagnosable precisely because I's scale is explicit enough to convict against. A catalogue with a vague scale cannot be caught this way; the error is visible only because the methodology was good.
+2차에서 추가한 것: `RLSX/audit/circular_audit.csv`(572행), `redteam_findings.md`에 덧붙인 발견 X-21~X-30, `redteam_mapping.csv`에 덧붙인 10행, 근거 **E-9539 … E-9554**, `unresolved.csv`에 추가한 네 건(X-U7 … X-U10). WebSearch/WebFetch 18회를 더 수행했고 세 건이 차단되었으며(ASCO Publications 403, AACR Journals 403, NCBI 301은 정규 호스트 재요청으로 처리) 각각 독립적으로 도달 가능한 전달자로 대체했다.
 
-The finding I care most about from this pass is X-25, and it is not the one the orchestrator predicted. Milestone *form* is excellent: all 81 carry a dated "checkable by" clause. Milestone *timing* is not: only 27 of 81 resolve by 2029, so two thirds of the roadmap cannot be scored against reality before the first horizon the mission asks about. A roadmap whose falsification schedule sits mostly beyond its own forecast horizon is a weaker instrument than its form suggests.
+## 6. 원출처 감사를 실제로 어떻게 했는가, 그리고 그것이 확립하지 않는 것
 
-## 8. Where I now think the consensus is most likely wrong — updated
+커버리지는 수치를 담은 레코드 **572건 중 572건**이다. 규칙 판정 행의 계층 구성은 tier 1(수집자가 `circular_risk` 표시) 92건, tier 2(`market_report`와 `secondary`) 117건, tier 3(공유 출처명에 대한 교차 에이전트 재발) 12건, tier 4(잔여) 318건이고, 여기에 **이번 차수에 내가 홉 단위로 직접 역추적한 33행**이 더해진다. 공유 원출처 그룹 38개를 부여했고 가장 큰 넷은 각각 17, 17, 16, 11건을 담는다.
 
-Section 3 of pass 1 named three residual doubts. Pass 2 changes the ranking among them and adds one.
+각주가 아니라 본문에 놓아야 할 방법의 정직한 진술은 이렇다. 33개 원출처는 회수해서 역추적했고, 나머지 539건은 균일하게 적용한 규칙으로 판정했으며 그 규칙을 모든 행의 `notes` 열에 하나도 빠짐없이 기록했다. 규칙은 가장 깊은 provenance hop을 peer-reviewed, preprint, agency, registry, filing, consultancy, company, trade press, aggregator, none으로 분류하고 그 분류와 수집자 자신의 표시로부터 판정을 도출한다. **이것은 출처 사슬을 분류하는 것이지 각 수치를 원출처에서 재검증하는 것이 아니다.** clean으로 표시된 레코드는 그 사슬이 원리상 확인 가능한 출처 계열에서 끝난다는 뜻이지 내가 확인했다는 뜻이 아니다. 모든 행이 자신이 어떤 처리를 받았는지 밝히므로 독자는 내 말을 믿지 않고도 둘을 구분할 수 있다.
 
-**(a) The approval-count objective, unchanged and still first.** Nothing in pass 2 addressed it. X-U3 remains open.
+결과: **clean 340, unverifiable 157, circular 75, FORCE_LOW 232**[E-9551]. 구조적 관찰 둘. 첫째, 실패는 브리프가 예측한 바로 그 지점에 몰려 있다. consultancy·trade press·aggregator 종단이 unverifiable 집합의 거의 전부를 차지하고, 수집자 자신의 `circular_risk` 표시는 잘 보정되어 있었다. 수집자가 표시한 곳에서 규칙은 거의 언제나 같은 판정을 냈다. 둘째, 가장 뼈아픈 단일 결과는 집계가 아니라 X-21에 있다. **10~15년이라는 개발기간 앵커는 679건짜리 원장 어디에도 대응하는 측정치가 없다.** 이번 실행에서 순환하기 때문에 순환하는 숫자의 가장 순수한 사례다.
 
-**(b) Design-stage decisions, promoted.** In pass 1 I flagged that nobody had measured AI's effect on clinical design decisions. Pass 2 established that the design-decision channel is itself large: population definition alone separates 10.7 percent from 1.6 percent success across 17,368 trajectories [E-9541], replicated at roughly two-fold in two further datasets, and dose selection leaves 48 percent of Phase III patients modifying their dose [E-9531]. B17 now enters the matrix at rank 4. The residual doubt is sharper than before: **if design decisions carry an elasticity of 2-7 and AI's plausible near-term contribution is largest there, then the run's central Amdahl argument — that AI is bounded by discovery's share of time and cost — is bounding the wrong quantity.** A clinical-design improvement is not subject to the discovery-share ceiling at all. I could not measure the AI-on-design effect and it stays as X-U2.
+## 7. Agent I 공격이 바꾼 내 생각
 
-**(c) The retreat from novel biology, unchanged and now better evidenced.** Novel targets entering the pipeline fell to 30 a year while the pipeline doubled and venture funding tripled [E-9509], and 25 percent of 13,600 drug-target pairs sit on 37 targets. Pass 2 adds a mechanism I did not have before: the qualification channel that would make new endpoints portable has produced eight qualifications in its history, seven of them pre-2016, and **zero surrogate endpoints ever** [E-9545]. A system that will not fund portable public goods and will not place novel bets is a system whose constraint is institutional risk appetite, and that variable appears in the catalogue only as a fragment of B11.
+TRL 과대평가를 예상했으나 대체로 발견하지 못했다. TRL 8 평정 12건 중 11건이 I 자신의 공표 척도에 대한 검정을 통과했고, 각각 근거가 서술되어 있으며 9가 아닌 이유도 명시되어 있다. 이는 기술 정찰 문헌이 통상 보이는 것보다 나은 규율이고, 유일한 명확한 실패 — draft guidance와 자문 의결 위에 놓인 TRL 8의 MRD — 는 I의 척도가 유죄를 입증할 만큼 명시적이었기 때문에 진단 가능했다. 척도가 모호한 목록은 이런 방식으로 잡을 수 없다. 방법론이 좋았기 때문에 비로소 오류가 보인다.
 
-**(d) New, from the audit itself.** Forty percent of the quantitative ledger cannot be traced to a reproducible origin, and the unverifiable records are not randomly distributed — they cluster in capacity, utilisation and market-size figures, because, as Agent G put it in a different context, the industry does not publish denominators. Every capacity-saturation conclusion in this run therefore rests disproportionately on the weakest part of the evidence base. That is a structural weakness of the domain rather than of the agents, and the report should say so where the saturation multiples appear.
+이번 차수에서 내가 가장 중요하게 보는 발견은 X-25이며, 오케스트레이터가 예상한 쪽이 아니다. 마일스톤의 *형식*은 훌륭하다. 81건 전부가 날짜가 붙은 "checkable by" 절을 담는다. 마일스톤의 *시점*은 그렇지 않다. 2029년까지 결판나는 것은 81건 중 27건뿐이므로 로드맵의 3분의 2는 미션이 묻는 첫 시점 이전에 현실과 대조해 채점할 수 없다. 반증 일정이 대체로 자신의 예측 지평 너머에 있는 로드맵은 형식이 시사하는 것보다 약한 도구다.
 
-## 9. UNRESOLVED after pass 2
+## 8. 합의가 틀렸을 가능성이 가장 높은 지점 — 갱신
 
-**Ten items**, six from pass 1 and four added here, all recorded in `RLSX/work/X/unresolved.csv` with every query attempted, the failure reason, at least three alternative sources tried, and a best estimate with its basis. The four new ones: the exact current entry count and distinct-marker count of FDA's surrogate endpoint table (X-U7); the primary source behind the 10.7 versus 1.6 percent biomarker-selection figure, which the review that carries it cites only by number (X-U8); whether any of the 232 FORCE_LOW records would resolve to a clean origin under paid database access (X-U9); and an independent audit of Agent I's TRL 5-7 band, which I sampled rather than enumerated because the twelve TRL 8 entries were the ones where an error changes a roadmap (X-U10).
+1차 3절은 남은 의심 셋을 지목했다. 2차는 그 사이의 순위를 바꾸고 하나를 더한다.
+
+**(a) 승인 건수 목적함수, 변동 없이 여전히 1순위.** 2차에서 다루지 못했다. X-U3은 열린 채로 남는다.
+
+**(b) 설계 단계 의사결정, 순위 상승.** 1차에서 나는 AI가 임상 설계 의사결정에 미친 효과를 아무도 측정하지 않았다고 표시했다. 2차는 설계 의사결정 경로 자체가 크다는 것을 확립했다. 대상군 정의만으로 17,368개 경로에서 10.7%와 1.6%가 갈리고[E-9541] 두 개의 추가 데이터셋에서 대략 2배로 재현되며, 용량 선택은 3상 환자의 48%가 용량을 조정하게 만든다[E-9531]. B17은 이제 매트릭스에 4위로 진입한다. 남은 의심은 전보다 날카롭다. **설계 의사결정이 2~7의 탄력도를 갖고 AI의 그럴듯한 단기 기여가 그곳에서 가장 크다면, 이번 실행의 핵심 Amdahl 논증 — AI가 발견의 시간·비용 비중에 의해 경계 지어진다는 것 — 은 잘못된 양을 경계 짓고 있다.** 임상 설계 개선은 발견 비중 상한의 적용을 아예 받지 않는다. AI-설계 효과는 측정하지 못했고 X-U2로 남는다.
+
+**(c) 새로운 생물학으로부터의 후퇴, 변동 없이 근거는 더 좋아짐.** 파이프라인이 두 배가 되고 벤처 자금이 세 배가 되는 동안 신규 표적 진입은 연 30개로 떨어졌고[E-9509] 13,600개 drug-target pair의 25%가 37개 표적에 몰려 있다. 2차는 내가 갖지 못했던 기전을 더한다. 새 종점을 이식 가능하게 만들어 줄 qualification 경로는 역사 전체에서 8건을 냈고 그중 7건이 2016년 이전이며 **대리평가변수는 0건**이다[E-9545]. 이식 가능한 공공재에 돈을 대지 않고 새로운 베팅도 하지 않는 시스템은 제약이 제도적 위험 감수 성향인 시스템이며, 그 변수는 목록에 B11의 파편으로만 등장한다.
+
+**(d) 감사 자체에서 나온 새 항목.** 정량 원장의 40%가 재현 가능한 원출처에 도달하지 못하며, unverifiable 레코드는 무작위로 흩어져 있지 않다. 용량·가동률·시장규모 수치에 몰려 있는데, Agent G가 다른 맥락에서 말했듯 업계가 분모를 공개하지 않기 때문이다. 따라서 이번 실행의 모든 용량 포화 결론은 근거 기반에서 가장 약한 부분에 불균형하게 의존한다. 이는 에이전트가 아니라 도메인의 구조적 약점이며, 보고서는 포화 배수가 등장하는 지점에서 그렇게 밝혀야 한다.
+
+## 9. 2차 이후 UNRESOLVED
+
+**열 항목**이며 1차 여섯 건과 여기서 추가한 네 건이다. 전부 `RLSX/work/X/unresolved.csv`에 시도한 모든 질의, 실패 사유, 세 곳 이상의 대체 출처, 근거를 갖춘 최선 추정치와 함께 기록했다. 새로 추가한 넷은 FDA 대리평가변수 표의 정확한 현재 항목 수와 고유 지표 수(X-U7), 10.7% 대 1.6% 바이오마커 선택 수치의 1차 출처로서 그것을 싣는 리뷰가 번호로만 인용한 것(X-U8), FORCE_LOW 232건 중 유료 데이터베이스 접근으로 clean 원출처에 도달할 수 있는 비율(X-U9), 그리고 Agent I의 TRL 5~7 구간에 대한 독립 감사로서 TRL 8 12건이 오류 시 로드맵을 바꾸는 구간이었기에 그쪽을 전수 검정하고 이 구간은 표본 검정한 것(X-U10)이다.
